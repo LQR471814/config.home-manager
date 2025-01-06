@@ -2,6 +2,19 @@
 
 > My personal nix home-manager configuration.
 
+### Usage
+
+```sh
+# install nix
+sh <(curl -L https://nixos.org/nix/install) --daemon
+# install home manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+# apply configuration
+home-manager switch
+```
+
 ### References
 
 - [home-manager docs](https://nix-community.github.io/home-manager/options.xhtml)
