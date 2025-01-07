@@ -17,12 +17,13 @@ home-manager switch
 
 ### References
 
-- [home-manager docs](https://nix-community.github.io/home-manager/options.xhtml)
-- [nix manual - builtins docs](https://nix.dev/manual/nix/2.24/language/builtins.html?highlight=nixpkgs#source-types)
-- [unofficial docs on trivial builders?](https://ryantm.github.io/nixpkgs/builders/trivial-builders/)
+- [nixpkgs api docs](https://nixos.org/manual/nixpkgs/stable/)
+- [home-manager api docs](https://nix-community.github.io/home-manager/options.xhtml)
+- [builtins api docs](https://nix.dev/manual/nix/2.24/language/builtins.html?highlight=nixpkgs#source-types)
 - [docs on `programs.<some_program>` config](https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/programs)
 - [nixos package search](https://search.nixos.org/)
+- [unofficial docs on trivial builders?](https://ryantm.github.io/nixpkgs/builders/trivial-builders/)
 - [nixos wiki](https://nixos.wiki/wiki/Main_Page)
-- [reading nixpkgs source code](https://github.com/NixOS/nixpkgs/tree/master/pkgs)
+- [browse source code for a given nix pkg](https://github.com/NixOS/nixpkgs/tree/master/pkgs)
 - chatgpt & google
 
