@@ -36,11 +36,11 @@ pkgs.stdenv.mkDerivation {
     chmod +x $out/bin/thorium-shell
 
     substituteInPlace $out/share/applications/thorium-browser.desktop \
-      --replace-fail "Exec=./thorium-browser" "Exec=/usr/bin/env thorium-browser" \
+      --replace-fail "Exec=./thorium-browser" "Exec=thorium-browser" \
       --replace-fail "Icon=product_logo_256.png" "Icon=thorium-browser"
 
     substituteInPlace $out/share/applications/thorium-shell.desktop \
-      --replace-fail "Exec=./thorium_shell" "Exec=/usr/bin/env thorium-shell" \
+      --replace-fail "Exec=./thorium_shell" "Exec=thorium-shell" \
       --replace-fail "Icon=./thorium_shell.png" "Icon=thorium-shell"
   '';
 

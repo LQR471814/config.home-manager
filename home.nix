@@ -79,6 +79,7 @@ in
       cloc
       xsel
       miru
+      thunderbird
 
       # dwm
       xorg.libX11
@@ -196,6 +197,7 @@ in
     initExtra = ''
       ({
         autoload -Uz compinit
+        # only run compinit once per day, instead of on startup
         if [ $(date +'%j') != $(date -d "$(stat -c %y ~/.zcompdump | cut -d' ' -f1)" +%j) ]; then
           compinit
         else
@@ -235,15 +237,15 @@ in
   systemd.user = {
     enable = true;
     services = {
-      metasearch2 = {
+      metasearch = {
         Unit = {
           Description = "metasearch engine, to avoid using google with an account";
         };
         Service = {
           Type = "simple";
           TimeoutStartSec = 0;
-          ExecStart = "/usr/bin/env metasearch2";
-          WorkingDirectory = "${HOME}/.config/metasearch2";
+          ExecStart = "${HOME}/.nix-profile/bin/metasearch";
+          WorkingDirectory = "${HOME}/.config/metasearch";
         };
       };
     };
