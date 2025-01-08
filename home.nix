@@ -159,6 +159,10 @@ in
 
   programs.zsh = {
     enable = true;
+    enableCompletion = false;
+    zprof = {
+      enable = false;
+    };
     history = {
       append = true;
       ignoreAllDups = true;
@@ -188,6 +192,16 @@ in
         };
       }
     ];
+    initExtra = ''
+      ({
+        autoload -Uz compinit
+        if [ $(date +'%j') != $(date -d "$(stat -c %y ~/.zcompdump | cut -d' ' -f1)" +%j) ]; then
+          compinit
+        else
+          compinit -C
+        fi
+      } &) > /dev/null 2>&1
+    '';
   };
 
   programs.git = {
