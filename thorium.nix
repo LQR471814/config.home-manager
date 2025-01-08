@@ -27,6 +27,13 @@ pkgs.stdenv.mkDerivation {
     rm $out/bin/thorium_shell.png
     rm $out/bin/product_logo*
 
+    mkdir $out/bin/original
+    mv $out/bin/thorium $out/bin/original/thorium
+    mv $out/bin/thorium_shell $out/bin/original/thorium_shell
+
+    echo "$out/bin/original/thorium --no-sandbox" > $out/bin/thorium-browser
+    echo "$out/bin/original/thorium_shell --no-sandbox" > $out/bin/thorium-shell
+
     substituteInPlace $out/share/applications/thorium-browser.desktop \
       --replace-fail "Exec=./thorium-browser" "Exec=/usr/bin/env thorium-browser" \
       --replace-fail "Icon=product_logo_256.png" "Icon=thorium-browser"
