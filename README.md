@@ -17,6 +17,9 @@ nix-shell '<home-manager>' -A install
 nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
 nix-env -iA nixgl.auto.nixGLDefault
 
+# allow unfree packages
+mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix 
+
 # apply configuration
 home-manager switch
 

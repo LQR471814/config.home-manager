@@ -18,6 +18,8 @@ in
 
     packages = with pkgs; [
       home-manager
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
 
       # build tools
       cmake
@@ -39,6 +41,7 @@ in
       buf
       atlas
       pnpm
+      cloc
 
       # languages
       rye
@@ -47,6 +50,7 @@ in
       pnpm
       rustc
       cargo
+      numbat
 
       # general terminal tools
       ffmpeg
@@ -55,6 +59,9 @@ in
       yazi
       rclone
       ffmpeg
+      btop
+      xsel
+      rclone
 
       # daemons
       activitywatch
@@ -64,23 +71,23 @@ in
 
       # gui apps
       (fixGL alacritty)
-      jetbrains-mono
-      nerd-fonts.jetbrains-mono
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
       dbeaver-bin
+      localsend
+      miru
       keepassxc
       thorium
       tor-browser
+      thunderbird
+      obsidian
+      libreoffice
+      gimp
+      inkscape
       musescore
       ardour
-      localsend
-      gimp
-      cloc
-      xsel
-      miru
-      thunderbird
+      blender
 
       # dwm
       xorg.libX11
@@ -194,6 +201,15 @@ in
           hash = "sha256-xbchXJTFWeABTwq6h4KWLh+EvydDrDzcY9AQVK65RS8=";
         };
       }
+      {
+        name = "zsh-system-clipboard";
+        src = pkgs.fetchFromGitHub {
+          owner = "kutsan";
+          repo = "zsh-system-clipboard";
+          rev = "v0.8.0";
+          hash = "sha256-VWTEJGudlQlNwLOUfpo0fvh0MyA2DqV+aieNPx/WzSI=";
+        };
+      }
     ];
     initExtra = ''
       ({
@@ -205,6 +221,13 @@ in
           compinit -C
         fi
       } &) > /dev/null 2>&1
+
+      # system clipboard workaround
+      zvm_vi_yank () {
+	zvm_yank
+	printf %s "$CUTBUFFER" | xsel --clipboard --input
+	zvm_exit_visual_mode
+      }
     '';
   };
 
