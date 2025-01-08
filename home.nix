@@ -54,6 +54,7 @@ in
       yt-dlp
       yazi
       rclone
+      ffmpeg
 
       # daemons
       activitywatch
