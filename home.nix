@@ -72,6 +72,7 @@ in
       dbeaver-bin
       keepassxc
       thorium
+      tor-browser
       musescore
       ardour
       localsend

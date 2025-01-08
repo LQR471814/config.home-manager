@@ -19,6 +19,9 @@ nix-env -iA nixgl.auto.nixGLDefault
 
 # apply configuration
 home-manager switch
+
+# clear dmenu cache (may need to run after home-manager switch)
+rm -rf ~/.cache/dmenu_run
 ```
 
 ### References
