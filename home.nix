@@ -66,12 +66,13 @@ in
       rclone
 
       # daemons
+      (import ./src/derivations/metasearch2.nix ctx)
       activitywatch
       syncthing
       cups
-      (import ./src/derivations/metasearch2.nix ctx)
 
       # gui apps
+      (import ./src/derivations/thorium.nix ctx)
       (fixGL alacritty)
       ueberzugpp # this is a dependency of yazi
       zathura
@@ -80,7 +81,6 @@ in
       localsend
       miru
       keepassxc
-      (import ./src/derivations/thorium.nix ctx)
       tor-browser
       thunderbird
       obsidian
@@ -92,6 +92,7 @@ in
       blender
 
       # dwm
+      (import ./src/derivations/dwm.nix ctx)
       xorg.libX11
       xorg.libXft
       xorg.libXinerama
