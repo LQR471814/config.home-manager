@@ -30,9 +30,9 @@ pkgs.stdenv.mkDerivation {
     mv $out/bin/thorium $out/bin/spfxrowxlu
     mv $out/bin/thorium_shell $out/bin/spfxrowxlu_shell
 
-    echo "$out/bin/spfxrowxlu --no-sandbox" > $out/bin/thorium-browser
+    echo "$out/bin/spfxrowxlu --no-sandbox \''$@" > $out/bin/thorium-browser
     chmod +x $out/bin/thorium-browser
-    echo "$out/bin/spfxrowxlu_shell --no-sandbox" > $out/bin/thorium-shell
+    echo "$out/bin/spfxrowxlu_shell --no-sandbox \''$@" > $out/bin/thorium-shell
     chmod +x $out/bin/thorium-shell
 
     substituteInPlace $out/share/applications/thorium-browser.desktop \

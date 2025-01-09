@@ -6,8 +6,8 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "LQR471814";
     repo = "dwm";
-    rev = "4234b591995615bf7808e22544c39c7ff7c796b2";
-    hash = "sha256-Ef1B2D5QAh45ppe1FM/LchXqYRUDc8fqAxioqj3V5Do=";
+    rev = "07f262ca308459c3bf684b1353e99a09b4f51225";
+    hash = "sha256-fNizlhVi5pkWEVnEiYiWSA1Bc7ZEqCGk/1psRcN0C5M=";
   };
 
   prePatch = ''
