@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 cp ~/gdrive-shared/Passwords.kdbx ~/Downloads/Passwords.kdbx.old
 
 echo "Pulling remote database..."

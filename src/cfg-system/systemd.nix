@@ -12,6 +12,9 @@
         ExecStart = "${HOME}/.nix-profile/bin/metasearch";
         WorkingDirectory = "${HOME}/.config/metasearch";
       };
+      Install = {
+        WantedBy = ["default.target"];
+      };
     };
   };
 }
