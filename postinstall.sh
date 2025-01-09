@@ -11,6 +11,7 @@ Type=Application" | sudo tee /usr/share/xsessions/dwm.desktop
 git clone https://github.com/LQR471814/config.nvim ~/.config/nvim
 
 # use zsh as the login shell
+echo $(which zsh) | sudo tee -a /etc/shells
 chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
 
