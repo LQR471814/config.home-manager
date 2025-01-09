@@ -45,6 +45,7 @@ in
       pnpm
       cloc
       pipx
+      clang
 
       # languages
       rye
