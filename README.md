@@ -28,6 +28,9 @@ home-manager switch
 
 # clear dmenu cache (may need to run after home-manager switch)
 rm -rf ~/.cache/dmenu_run
+
+# remove unnecessary files from nix cache (may want to run this occasionally)
+nix-collect-garbage
 ```
 
 ### References
