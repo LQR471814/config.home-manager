@@ -35,7 +35,7 @@ in
       zplug
       tmux
       git
-      gh
+      git-credential-manager
       docker
       lazygit
       nix-prefetch-git
