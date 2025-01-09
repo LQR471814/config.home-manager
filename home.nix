@@ -44,6 +44,7 @@ in
       atlas
       pnpm
       cloc
+      pipx
 
       # languages
       rye

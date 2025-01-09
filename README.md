@@ -23,6 +23,9 @@ mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs
 # apply configuration
 home-manager switch
 
+# after applying config for the first time
+./postinstall.sh
+
 # clear dmenu cache (may need to run after home-manager switch)
 rm -rf ~/.cache/dmenu_run
 ```
