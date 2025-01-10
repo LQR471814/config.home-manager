@@ -89,11 +89,11 @@ in
       # gui apps
       (import ./src/derivations/thorium.nix ctx)
       (fixGL alacritty)
+      (fixGL localsend)
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
       dbeaver-bin
-      localsend
       miru
       keepassxc
       tor-browser
