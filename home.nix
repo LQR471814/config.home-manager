@@ -46,6 +46,7 @@ in
       cloc
       pipx
       clang
+      jq
 
       # languages
       rye

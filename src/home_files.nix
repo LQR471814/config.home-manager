@@ -17,7 +17,7 @@ let
       value = { source = DIRNAME + "/home_files/" + name; };
     })
     (pkgs.lib.attrsets.filterAttrs
-      (name: value: name != ".config")
+      (name: value: !(builtins.elem name [".config"]))
       (builtins.readDir ../home_files)));
 in
   # `//` merges the 2 attribute sets
