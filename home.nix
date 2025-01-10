@@ -102,6 +102,8 @@ in
       xorg.xdm
       dmenu
       picom
+      pulseaudio
+      pamixer
       pavucontrol
       playerctl
       flameshot
