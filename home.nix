@@ -46,8 +46,18 @@ in
       pipx
       clang
       jq
-      vtsls
+      (texliveSmall.withPackages (ps: [ ps.latexmk ps.pdftex ]))
+
+      # lsps
       nil
+      texlab
+      lua-language-server
+      vtsls
+      tailwindcss-language-server
+      svelte-language-server
+      gopls
+      biome
+      black
 
       # languages
       rye
