@@ -39,7 +39,6 @@ in
       docker
       lazygit
       nix-prefetch-git
-      nil
       buf
       atlas
       pnpm
@@ -47,6 +46,8 @@ in
       pipx
       clang
       jq
+      vtsls
+      nil
 
       # languages
       rye
@@ -67,6 +68,7 @@ in
       btop
       xsel
       rclone
+      mprocs
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
