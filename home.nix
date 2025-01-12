@@ -80,6 +80,8 @@ in
       xsel
       rclone
       mprocs
+      tree
+      sshfs
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
