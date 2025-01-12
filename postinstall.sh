@@ -24,3 +24,13 @@ sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives
 sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/www-browser
 sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/x-www-browser
 
+# fix electron apparmor issue with
+echo "abi <abi/4.0>,
+include <tunables/global>
+
+profile electron /nix/store/**/electron flags=(unconfined) {
+userns,
+include if exists <local/electron>
+}" | sudo tee /etc/apparmor.d/electron
+sudo systemctl restart apparmor
+
