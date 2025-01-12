@@ -75,6 +75,7 @@ in
       yazi
       rclone
       ffmpeg
+      htop
       btop
       xsel
       rclone
