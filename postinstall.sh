@@ -29,14 +29,20 @@ echo "abi <abi/4.0>,
 include <tunables/global>
 
 profile electron /nix/store/**/electron flags=(unconfined) {
-userns,
-include if exists <local/electron>
+  userns,
+  include if exists <local/electron>
 }
 
 profile thorium /nix/store/**/thorium-* flags=(unconfined) {
-userns,
-include if exists <local/thorium>
-}" | sudo tee /etc/apparmor.d/nix.bins
+  userns,
+  include if exists <local/thorium>
+}
+
+profile bwrap /**/bwrap flags=(unconfined) {
+  userns,
+  include if exists <local/bwrap>
+}
+" | sudo tee /etc/apparmor.d/nix.bins
 
 sudo systemctl restart apparmor
 
