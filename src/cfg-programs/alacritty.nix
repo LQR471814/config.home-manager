@@ -1,10 +1,10 @@
-{ HOSTNAME, pkgs, fixGL, ... }:
+{ IS_DESKTOP, pkgs, fixGL, ... }:
 {
   enable = true;
   package = fixGL pkgs.alacritty;
   settings = {
     font = {
-      size = if builtins.match ".*desktop.*" HOSTNAME != null then 10 else 6;
+      size = if IS_DESKTOP then 10 else 6;
       normal = {
         family = "JetBrainsMono NF";
         style = "Mono";

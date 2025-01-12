@@ -3,16 +3,25 @@
 let
   HOSTNAME = builtins.readFile /etc/hostname;
   HOME = builtins.getEnv "HOME";
+  IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
+  IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
+
   fixGL = config.lib.nixGL.wrap;
   ctx = {
-    inherit pkgs;
-    inherit fixGL;
     inherit HOME;
     inherit HOSTNAME;
+    inherit IS_DESKTOP;
+    inherit IS_LAPTOP;
+
+    inherit pkgs;
+    inherit fixGL;
   };
 in
 {
-  nixGL.packages = import <nixgl> { inherit pkgs; };
+  nixGL = {
+    defaultWrapper = if IS_DESKTOP then "nvidia" else "mesa";
+    packages = import <nixgl> { inherit pkgs; };
+  };
   targets.genericLinux.enable = true;
 
   home = {
