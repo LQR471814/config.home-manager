@@ -109,6 +109,7 @@ in
       inkscape
       musescore
       ardour
+      qjackctl
       blender
 
       # dwm
