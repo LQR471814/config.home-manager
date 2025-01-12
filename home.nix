@@ -66,19 +66,8 @@ in
       vtsls
       tailwindcss-language-server
       svelte-language-server
-      gopls
       biome
       black
-      gofumpt
-      golines
-      gotools
-      gomodifytags
-      gotests
-      iferr
-      impl
-      reftools
-      gotestsum
-      govulncheck
 
       # languages
       rye
