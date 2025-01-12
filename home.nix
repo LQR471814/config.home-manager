@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
 let
+  HOSTNAME = builtins.readFile /etc/hostname;
   HOME = builtins.getEnv "HOME";
   fixGL = config.lib.nixGL.wrap;
   ctx = {
     inherit pkgs;
     inherit fixGL;
     inherit HOME;
+    inherit HOSTNAME;
   };
 in
 {
