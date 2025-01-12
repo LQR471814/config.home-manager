@@ -69,6 +69,16 @@ in
       gopls
       biome
       black
+      gofumpt
+      golines
+      gotools
+      gomodifytags
+      gotests
+      iferr
+      impl
+      reftools
+      gotestsum
+      govulncheck
 
       # languages
       rye
