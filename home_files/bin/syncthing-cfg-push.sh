@@ -8,3 +8,5 @@ cp ~/.local/state/syncthing/https-cert.pem ~/svr-home/config.syncthing/$(hostnam
 cp ~/.local/state/syncthing/key.pem        ~/svr-home/config.syncthing/$(hostname)/
 cp ~/.local/state/syncthing/cert.pem       ~/svr-home/config.syncthing/$(hostname)/
 
+fusermount -u ~/svr-home/
+

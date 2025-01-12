@@ -60,5 +60,7 @@
       printf %s "$CUTBUFFER" | xsel --clipboard --input
       zvm_exit_visual_mode
     }
+
+    export PATH="$HOME/bin:$PATH"
   '';
 }
