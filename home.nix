@@ -57,6 +57,7 @@ in
       pipx
       clang
       jq
+      reftools
       (texliveSmall.withPackages (ps: [ ps.latexmk ps.pdftex ]))
 
       # lsps
@@ -92,6 +93,8 @@ in
       mprocs
       tree
       sshfs
+      aria2
+      cloudflare-warp
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
