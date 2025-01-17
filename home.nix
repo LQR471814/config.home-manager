@@ -95,6 +95,7 @@ in
       sshfs
       aria2
       cloudflare-warp
+      imagemagick
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
