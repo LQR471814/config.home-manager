@@ -107,6 +107,8 @@ in
       (import ./src/derivations/thorium.nix ctx)
       (fixGL alacritty)
       (fixGL localsend)
+      (fixGL musescore)
+      (fixGL qjackctl)
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
@@ -119,9 +121,7 @@ in
       libreoffice
       gimp
       inkscape
-      musescore
       ardour
-      qjackctl
       blender
 
       # dwm
