@@ -108,7 +108,7 @@ in
       (fixGL alacritty)
       (fixGL localsend)
       (fixGL musescore)
-      (fixGL qjackctl)
+      qjackctl
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
