@@ -51,6 +51,7 @@ in
       lazygit
       nix-prefetch-git
       buf
+      sqlc
       atlas
       pnpm
       cloc
