@@ -109,6 +109,8 @@ in
       (fixGL alacritty)
       (fixGL localsend)
       (fixGL musescore)
+      (fixGL blender)
+      (fixGL kdePackages.kdenlive)
       qjackctl
       ueberzugpp # this is a dependency of yazi
       zathura
@@ -123,7 +125,6 @@ in
       gimp
       inkscape
       ardour
-      blender
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
