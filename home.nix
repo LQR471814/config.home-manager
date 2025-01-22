@@ -83,7 +83,6 @@ in
       # general terminal tools
       ffmpeg
       neovim
-      yt-dlp
       yazi
       rclone
       ffmpeg
@@ -97,6 +96,7 @@ in
       aria2
       cloudflare-warp
       imagemagick
+      (import ./src/derivations/yt-dlp.nix ctx)
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
