@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ HOME, mytexlive, pkgs, ... }:
 {
   enable = true;
   enableCompletion = false;
@@ -63,5 +63,7 @@
 
     export PATH="$HOME/bin:$PATH"
     export PATH="$HOME/go/bin:$PATH"
+
+    export TEXINPUTS="${HOME}/texmf//"
   '';
 }

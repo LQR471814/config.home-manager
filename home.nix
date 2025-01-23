@@ -6,6 +6,15 @@ let
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
 
+  mytexlive = pkgs.texlive.combine {
+    inherit (pkgs.texlive)
+      scheme-basic
+      collection-latexrecommended
+      latexmk
+      pdftex
+      svg
+      pgfplots;
+  };
   fixGL = config.lib.nixGL.wrap;
   ctx = {
     inherit HOME;
@@ -15,6 +24,7 @@ let
 
     inherit pkgs;
     inherit fixGL;
+    inherit mytexlive;
   };
 in
 {
@@ -59,7 +69,6 @@ in
       clang
       jq
       reftools
-      (texliveSmall.withPackages (ps: [ ps.latexmk ps.pdftex ]))
 
       # lsps
       nil
@@ -79,6 +88,7 @@ in
       rustc
       cargo
       numbat
+      mytexlive
 
       # general terminal tools
       ffmpeg

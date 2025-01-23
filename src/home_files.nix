@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, mytexlive, ... }:
 let
   DIRNAME = builtins.toString ./..;
 
@@ -19,6 +19,12 @@ let
     (pkgs.lib.attrsets.filterAttrs
       (name: value: !(builtins.elem name [".config"]))
       (builtins.readDir ../home_files)));
+  
+  texlive = {
+    texmf = {
+      source = mytexlive + "/share/texmf";
+    };
+  };
 in
-  # `//` merges the 2 attribute sets
-  dotfiles // homefiles
+  # `//` merges 2 attribute sets
+  dotfiles // homefiles // texlive
