@@ -13,6 +13,7 @@ let
       latexmk
       pdftex
       svg
+      transparent
       pgfplots;
   };
   fixGL = config.lib.nixGL.wrap;
