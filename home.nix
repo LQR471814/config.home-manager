@@ -90,6 +90,7 @@ in
       cargo
       numbat
       mytexlive
+      zulu23
 
       # general terminal tools
       ffmpeg
