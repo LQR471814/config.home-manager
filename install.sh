@@ -1,4 +1,21 @@
-# things to run after running `home-manager switch` for the first time
+# install nix & restart shell
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+# allow unfree packages
+mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix 
+
+# fix GL/vulkan problems
+nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+nix-env -iA nixgl.auto.nixGLDefault
+
+# install home manager & apply configuration
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
+
+# ----- things to run after setting up home-manager for the first time
+
 
 # register dwm as a window manager
 echo "[Desktop Entry]

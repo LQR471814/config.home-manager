@@ -4,31 +4,9 @@
 
 ### Usage
 
-```sh
-# install nix & restart shell
-sh <(curl -L https://nixos.org/nix/install) --daemon
-
-# allow unfree packages
-mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix 
-
-# fix GL/vulkan problems
-nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
-nix-env -iA nixgl.auto.nixGLDefault
-
-# install home manager & apply configuration
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-
-# after applying config for the first time
-./postinstall.sh
-
-# clear dmenu cache (may need to run after home-manager switch)
-rm -rf ~/.cache/dmenu_run
-
-# remove unnecessary files from nix cache (may want to run this occasionally)
-nix-collect-garbage
-```
+- `./install.sh` - sets up everything.
+- `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run this after home-manager switch if programs aren't showing up in `super+p`)
+- `nix-collect-garbage` - frees up space occupied by unnecessary nix packages.
 
 ### References
 
