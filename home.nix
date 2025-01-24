@@ -122,7 +122,7 @@ in
       (fixGL musescore)
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
-      qjackctl
+      qpwgraph
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
