@@ -14,7 +14,9 @@ let
       pdftex
       svg
       transparent
-      pgfplots;
+      pgfplots
+      catchfile
+      titlesec;
   };
   fixGL = config.lib.nixGL.wrap;
   ctx = {

@@ -64,6 +64,6 @@
     export PATH="$HOME/bin:$PATH"
     export PATH="$HOME/go/bin:$PATH"
 
-    export TEXINPUTS="${HOME}/texmf//"
+    export TEXINPUTS="${HOME}/texmf//:${HOME}/.config/texmf//"
   '';
 }

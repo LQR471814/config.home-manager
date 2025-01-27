@@ -20,11 +20,11 @@ let
       (name: value: !(builtins.elem name [".config"]))
       (builtins.readDir ../home_files)));
   
-  texlive = {
+  texfiles = {
     texmf = {
       source = mytexlive + "/share/texmf";
     };
   };
 in
   # `//` merges 2 attribute sets
-  dotfiles // homefiles // texlive
+  dotfiles // homefiles // texfiles
