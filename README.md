@@ -19,5 +19,6 @@
 - [unofficial docs on trivial builders?](https://ryantm.github.io/nixpkgs/builders/trivial-builders/)
 - [nixos wiki](https://nixos.wiki/wiki/Main_Page)
 - [browse source code for a given nix pkg](https://github.com/NixOS/nixpkgs/tree/master/pkgs)
+- [nice intro to flakes](https://serokell.io/blog/practical-nix-flakes)
 - chatgpt & google
 

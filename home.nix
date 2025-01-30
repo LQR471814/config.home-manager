@@ -74,7 +74,8 @@ in
       reftools
 
       # lsps
-      nil
+      nixd
+      nixfmt-rfc-style
       texlab
       lua-language-server
       vtsls
