@@ -45,6 +45,9 @@ sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives
 sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/www-browser
 sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/x-www-browser
 
+# install python packages (cause python on nix is a mess)
+rye
+
 # fix apparmor issues
 echo "abi <abi/4.0>,
 include <tunables/global>

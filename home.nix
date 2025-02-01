@@ -16,7 +16,8 @@ let
       transparent
       pgfplots
       catchfile
-      titlesec;
+      titlesec
+      ctex;
   };
   fixGL = config.lib.nixGL.wrap;
   ctx = {
@@ -46,6 +47,7 @@ in
       home-manager
       jetbrains-mono
       nerd-fonts.jetbrains-mono
+      source-han-serif-vf-ttf
 
       # build tools
       cmake
@@ -72,6 +74,8 @@ in
       clang
       jq
       reftools
+      rye
+      ruff
 
       # lsps
       nixd
@@ -82,10 +86,8 @@ in
       tailwindcss-language-server
       svelte-language-server
       biome
-      black
 
       # languages
-      rye
       go
       nodejs
       pnpm

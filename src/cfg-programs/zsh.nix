@@ -1,4 +1,4 @@
-{ HOME, mytexlive, pkgs, ... }:
+{ HOME, pkgs, ... }:
 {
   enable = true;
   enableCompletion = false;
