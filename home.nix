@@ -68,6 +68,7 @@ in
       buf
       sqlc
       atlas
+      templ
       pnpm
       cloc
       pipx
@@ -76,6 +77,7 @@ in
       reftools
       rye
       ruff
+      tailwindcss
 
       # lsps
       nixd
