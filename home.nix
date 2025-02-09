@@ -129,6 +129,7 @@ in
       (fixGL musescore)
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
+      (fixGL obs-studio)
       qpwgraph
       ueberzugpp # this is a dependency of yazi
       zathura
