@@ -77,7 +77,6 @@ in
       reftools
       rye
       ruff
-      tailwindcss
 
       # lsps
       nixd
