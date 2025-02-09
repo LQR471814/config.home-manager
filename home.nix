@@ -77,6 +77,7 @@ in
       reftools
       rye
       ruff
+      sqlite
 
       # lsps
       nixd
