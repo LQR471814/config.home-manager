@@ -70,3 +70,22 @@ profile bwrap /**/bwrap flags=(unconfined) {
 
 sudo systemctl restart apparmor
 
+# start warp-svc on startup
+
+echo "[Unit]
+Description=cloudflare warp-svc
+After=network.target
+
+[Service]
+ExecStart=/home/lqr471814/.nix-profile/bin/warp-svc
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target" | sudo tee /etc/systemd/system/warp-svc.service
+
+sudo systemctl enable warp-svc.service
+sudo systemctl start warp-svc.service
+
+warp-cli registration new
+
