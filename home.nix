@@ -146,6 +146,7 @@ in
       gimp
       inkscape
       ardour
+      scribus
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
