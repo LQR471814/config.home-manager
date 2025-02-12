@@ -117,6 +117,7 @@ in
       imagemagick
       (import ./src/derivations/yt-dlp.nix ctx)
       cloudflare-warp
+      watchman
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
