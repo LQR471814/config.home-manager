@@ -20,6 +20,7 @@
     };
     window = {
       dynamic_padding = true;
+      dynamic_title = true;
     };
     env = {
       TERM = "xterm-256color";

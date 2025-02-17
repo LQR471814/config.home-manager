@@ -13,6 +13,9 @@
     # allow ctrl-1, etc... special key combos to work
     set -s extended-keys on
 
+    # make tmux set the window title of the terminal
+    set-option -g set-titles on
+
     bind h select-pane -L
     bind l select-pane -R
     bind k select-pane -U
