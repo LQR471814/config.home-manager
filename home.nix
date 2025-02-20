@@ -133,6 +133,7 @@ in
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
       (fixGL obs-studio)
+      (fixGL anki)
       qpwgraph
       ueberzugpp # this is a dependency of yazi
       zathura
