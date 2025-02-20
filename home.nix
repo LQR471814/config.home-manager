@@ -118,6 +118,7 @@ in
       (import ./src/derivations/yt-dlp.nix ctx)
       cloudflare-warp
       watchman
+      wireguard-tools
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
