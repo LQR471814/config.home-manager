@@ -25,6 +25,8 @@
         TimeoutStartSec = 0;
         ExecStart = "${HOME}/.nix-profile/bin/aw-sync";
         WorkingDirectory = HOME;
+        Restart = "always";
+        RestartSec = 30;
       };
       Install = {
         WantedBy = ["default.target"];
