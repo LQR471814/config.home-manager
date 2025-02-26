@@ -16,6 +16,9 @@
     # make tmux set the window title of the terminal
     set-option -g set-titles on
 
+    # fix colors
+    set-option -ga terminal-overrides ",xterm-256color:Tc"
+
     bind h select-pane -L
     bind l select-pane -R
     bind k select-pane -U
