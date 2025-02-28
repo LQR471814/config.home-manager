@@ -24,6 +24,11 @@ nix-shell '<home-manager>' -A install
 # ----- things to run after setting up home-manager for the first time
 
 
+# make slock
+sudo apt install libx11-dev libxrandr-dev
+git clone https://github.com/LQR471814/slock.git ~/Code/config/slock
+cd ~/Code/config/slock && sudo make clean install
+
 # register dwm as a window manager
 echo "[Desktop Entry]
 Name=dwm

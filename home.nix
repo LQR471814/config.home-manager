@@ -100,6 +100,7 @@ in
       zulu23
 
       # general terminal tools
+      pdf2svg
       ffmpeg
       neovim
       yazi
@@ -118,6 +119,7 @@ in
       (import ./src/derivations/yt-dlp.nix ctx)
       cloudflare-warp
       watchman
+      tlaplus
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -149,6 +151,10 @@ in
       inkscape
       ardour
       scribus
+      tlaplusToolbox
+      rofi
+      xclip
+      xss-lock
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
