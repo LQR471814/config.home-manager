@@ -26,6 +26,7 @@ nix-shell '<home-manager>' -A install
 
 # make slock
 sudo apt install libx11-dev libxrandr-dev
+mkdir -p ~/Code/config/slock
 git clone https://github.com/LQR471814/slock.git ~/Code/config/slock
 cd ~/Code/config/slock && sudo make clean install
 
@@ -48,10 +49,10 @@ chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
 
 # register default apps
-sudo ln -f -s /home/lqr471814/.nix-profile/bin/alacritty /etc/alternatives/x-terminal-emulator
-sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/gnome-www-browser
-sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/www-browser
-sudo ln -f -s /home/lqr471814/.nix-profile/bin/thorium-browser /etc/alternatives/x-www-browser
+sudo ln -f -s $HOME/.nix-profile/bin/alacritty /etc/alternatives/x-terminal-emulator
+sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/gnome-www-browser
+sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/www-browser
+sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/x-www-browser
 
 # install python packages (cause python on nix is a mess)
 rye
@@ -85,7 +86,7 @@ Description=cloudflare warp-svc
 After=network.target
 
 [Service]
-ExecStart=/home/lqr471814/.nix-profile/bin/warp-svc
+ExecStart=$HOME/.nix-profile/bin/warp-svc
 Restart=always
 User=root
 
