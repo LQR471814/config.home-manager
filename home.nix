@@ -120,6 +120,7 @@ in
       cloudflare-warp
       watchman
       tlaplus
+      libqalculate
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
