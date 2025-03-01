@@ -98,3 +98,25 @@ sudo systemctl start warp-svc.service
 
 warp-cli registration new
 
+# remove and disable snap
+sudo snap remove firefox
+sudo snap remove gtk-common-themes
+sudo snap remove $(snap list | grep gnome | awk '{print $1}')
+sudo snap remove snapd-desktop-integration
+sudo snap remove snap-store
+sudo snap remove desktop-security-center
+sudo snap remove firmware-updater
+sudo snap remove prompting-client
+sudo snap remove $(snap list | grep core | awk '{print $1}')
+sudo snap remove bare
+sudo snap remove snapd
+sudo systemctl stop snapd
+sudo systemctl disable snapd
+sudo systemctl mask snapd
+sudo apt purge snapd -y
+sudo apt-mark hold snapd
+sudo rm -rf ~/snap /snap /var/snap /var/lib/snapd
+echo "Package: snapd
+Pin: release a=*
+Pin-Priority: -10" | sudo tee /etc/apt/preferences.d/nosnap.pref
+
