@@ -1,6 +1,7 @@
 { HOME, ... }:
 {
   enable = true;
+  # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
   services = {
     metasearch = {
       Unit = {
@@ -29,14 +30,13 @@
         RestartSec = 30;
       };
       Install = {
-        WantedBy = [ "network.target" ];
+        WantedBy = [ "default.target" ];
       };
     };
     syncthing = {
       Unit = {
         Description = "synchronize files";
         Documentation = "man:syncthing(1)";
-        After = "network.target";
         StartLimitIntervalSec = 60;
         StartLimitBurst = 4;
       };
@@ -57,7 +57,7 @@
         NoNewPrivileges = true;
       };
       Install = {
-        WantedBy = [ "network.target" ];
+        WantedBy = [ "default.target" ];
       };
     };
   };
