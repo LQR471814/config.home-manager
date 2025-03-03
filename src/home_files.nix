@@ -1,4 +1,4 @@
-{ pkgs, mytexlive, ... }:
+{ pkgs, mytexlive, HOME, ... }:
 let
   DIRNAME = builtins.toString ./..;
 
@@ -27,4 +27,11 @@ let
   };
 in
   # `//` merges 2 attribute sets
-  dotfiles // homefiles // texfiles
+  dotfiles // homefiles // texfiles // {
+    ".lv2" = {
+      source = "${HOME}/Production/Plugins/lv2";
+    };
+    ".vst3" = {
+      source = "${HOME}/Production/Plugins/vst3";
+    };
+  }

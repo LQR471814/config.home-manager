@@ -17,9 +17,11 @@ let
       pgfplots
       catchfile
       titlesec
-      ctex;
+      ctex
+      ;
   };
   fixGL = config.lib.nixGL.wrap;
+  fixPW = import ./src/derivations/fix_pipewire.nix { pkgs = pkgs; };
   ctx = {
     inherit HOME;
     inherit HOSTNAME;
@@ -27,6 +29,7 @@ let
     inherit IS_LAPTOP;
 
     inherit pkgs;
+    inherit config;
     inherit fixGL;
     inherit mytexlive;
   };
@@ -41,7 +44,7 @@ in
   home = {
     username = "lqr471814";
     homeDirectory = HOME;
-    stateVersion = "24.11";             
+    stateVersion = "24.11";
 
     packages = with pkgs; [
       home-manager
@@ -121,6 +124,8 @@ in
       watchman
       tlaplus
       libqalculate
+      wine
+      winetricks
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -132,12 +137,21 @@ in
       (import ./src/derivations/thorium.nix ctx)
       (fixGL alacritty)
       (fixGL localsend)
-      (fixGL musescore)
+      (fixPW {
+        package = fixGL musescore;
+        name = "musescore";
+        bin = "mscore";
+      })
+      (fixPW {
+        package = fixGL ardour;
+        name = "ardour";
+        bin = "ardour8";
+      })
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
       (fixGL obs-studio)
       (fixGL anki)
-      qpwgraph
+      (fixGL qpwgraph)
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
@@ -150,7 +164,6 @@ in
       libreoffice
       gimp
       inkscape
-      ardour
       scribus
       tlaplusToolbox
       rofi
@@ -165,9 +178,7 @@ in
       xorg.xdm
       dmenu
       picom
-      pulseaudio
-      pamixer
-      pavucontrol
+      pwvucontrol
       playerctl
       flameshot
     ];
