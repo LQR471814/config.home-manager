@@ -1,16 +1,15 @@
 #!/bin/sh
 
-# A dwm_bar function to show the master volume of ALSA
-# GNU GPLv3
+dwm_pipewire () {
+    STATUS=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
 
-# Dependencies: alsa-utils
+    raw_vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
+    percent_vol=$(echo "scale=0; $raw_vol * 100" | bc)
+    VOL="${percent_vol%.*}"
 
-dwm_alsa () {
-	STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
-    VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then
-    	if [ "$STATUS" = "off" ]; then
+    	if [ "$STATUS" = "[MUTED]" ]; then
 	            printf "🔇"
     	else
     		#removed this line becuase it may get confusing
@@ -23,7 +22,7 @@ dwm_alsa () {
 	        fi
 		fi
     else
-    	if [ "$STATUS" = "off" ]; then
+    	if [ "$STATUS" = "[MUTED]" ]; then
     		printf "MUTE"
     	else
 	        # removed this line because it may get confusing
@@ -39,4 +38,4 @@ dwm_alsa () {
     printf "%s\n" "$SEP2"
 }
 
-dwm_alsa
+dwm_pipewire

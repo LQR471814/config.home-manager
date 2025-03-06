@@ -36,7 +36,7 @@ export SEP2="]"
 #. "$DIR/bar-functions/dwm_mail.sh"
 #. "$DIR/bar-functions/dwm_mpc.sh"
 . "$DIR/bar-functions/dwm_networkmanager.sh"
-. "$DIR/bar-functions/dwm_pulse.sh"
+. "$DIR/bar-functions/dwm_pipewire.sh"
 #. "$DIR/bar-functions/dwm_resources.sh"
 #. "$DIR/bar-functions/dwm_spotify.sh"
 #. "$DIR/bar-functions/dwm_transmission.sh"
@@ -84,7 +84,7 @@ do
     #upperbar="$upperbar$(dwm_network_speed)"; dwm_network_speed_record
     # upperbar="$upperbar${__DWM_BAR_WEATHER__}"
     # upperbar="$upperbar$(dwm_keyboard)"
-    upperbar="$upperbar$(dwm_pulse)"
+    upperbar="$upperbar$(dwm_pipewire)"
     upperbar="$upperbar$(cat < $__DWM_BATTERY__)"
     upperbar="$upperbar$(dwm_date)"
 
