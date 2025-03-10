@@ -82,7 +82,6 @@ in
       ruff
       sqlite
       redis
-      libavif
 
       # lsps
       nixd
