@@ -98,6 +98,25 @@ sudo systemctl start warp-svc.service
 
 warp-cli registration new
 
+# start dockerd on startup
+
+echo "[Unit]
+Description=docker daemon
+After=default.target
+
+[Service]
+ExecStart=$HOME/.nix-profile/bin/dockerd
+User=root
+
+[Install]
+WantedBy=multi-user.target" | sudo tee /etc/systemd/system/docker.service
+
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo chown root:docker /var/run/docker.sock
+
 # remove and disable snap
 sudo snap remove firefox
 sudo snap remove gtk-common-themes
