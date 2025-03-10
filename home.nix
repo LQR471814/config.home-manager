@@ -81,6 +81,8 @@ in
       rye
       ruff
       sqlite
+      redis
+      libavif
 
       # lsps
       nixd
