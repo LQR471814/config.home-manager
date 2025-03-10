@@ -111,11 +111,13 @@ User=root
 [Install]
 WantedBy=multi-user.target" | sudo tee /etc/systemd/system/docker.service
 
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo chown root:docker /var/run/docker.sock
+
+# don't enable docker for now
+# sudo systemctl enable docker.service
+# sudo systemctl start docker.service
 
 # remove and disable snap
 sudo snap remove firefox
