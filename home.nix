@@ -170,6 +170,7 @@ in
       rofi
       xclip
       xss-lock
+      filezilla
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
