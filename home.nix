@@ -82,6 +82,7 @@ in
       ruff
       sqlite
       redis
+      croc
 
       # lsps
       nixd
@@ -127,6 +128,7 @@ in
       libqalculate
       wine
       winetricks
+      bluetuith
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
