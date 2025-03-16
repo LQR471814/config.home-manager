@@ -11,6 +11,9 @@ fi
 
 echo "Merging local and remote..."
 keepassxc-cli merge -s ~/Downloads/Passwords.kdbx.old ~/gdrive-shared/Passwords.kdbx
+if [ $? -ne 0 ]; then
+    exit 1
+fi
 mv ~/Downloads/Passwords.kdbx.old ~/gdrive-shared/Passwords.kdbx
 
 echo "Pushing merged database..."
