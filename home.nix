@@ -155,6 +155,7 @@ in
       (fixGL obs-studio)
       (fixGL anki)
       (fixGL qpwgraph)
+      (fixGL foliate)
       ueberzugpp # this is a dependency of yazi
       zathura
       legcord
@@ -173,6 +174,7 @@ in
       xclip
       xss-lock
       filezilla
+      vlc
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
