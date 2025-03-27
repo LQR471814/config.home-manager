@@ -93,10 +93,12 @@ User=root
 [Install]
 WantedBy=multi-user.target" | sudo tee /etc/systemd/system/warp-svc.service
 
-sudo systemctl enable warp-svc.service
-sudo systemctl start warp-svc.service
-
-warp-cli registration new
+# not using warp-svc for now
+#
+# sudo systemctl enable warp-svc.service
+# sudo systemctl start warp-svc.service
+#
+# warp-cli registration new
 
 # start dockerd on startup
 
