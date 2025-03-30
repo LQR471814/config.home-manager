@@ -93,6 +93,7 @@ in
       tailwindcss-language-server
       svelte-language-server
       biome
+      vscode-langservers-extracted
 
       # languages
       go
@@ -149,6 +150,11 @@ in
         package = fixGL ardour;
         name = "ardour";
         bin = "ardour8";
+      })
+      (fixPW {
+        package = easyeffects;
+        name = "easyeffects";
+        bin = "easyeffects";
       })
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
