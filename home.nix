@@ -18,6 +18,8 @@ let
       catchfile
       titlesec
       ctex
+      dvipng
+      standalone
       ;
   };
   fixGL = config.lib.nixGL.wrap;
