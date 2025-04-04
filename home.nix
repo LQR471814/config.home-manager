@@ -183,6 +183,7 @@ in
       xss-lock
       filezilla
       vlc
+      rhythmbox
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
