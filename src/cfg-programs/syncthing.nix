@@ -84,12 +84,6 @@ let
       id = "keepassxc";
       label = "Keepassxc";
       path = "~/Keepassxc";
-      type = "sendonly";
-    };
-    keeshare = {
-      id = "keeshare";
-      label = "Keeshare";
-      path = "~/Keeshare";
       type = "sendreceive";
     };
     inkscape-prefs = {
