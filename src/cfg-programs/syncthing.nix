@@ -80,6 +80,12 @@ let
       path = "~/ActivityWatchSync";
       type = "sendreceive";
     };
+    keepassxc = {
+      id = "keepassxc";
+      label = "Keepassxc";
+      path = "~/Keepassxc";
+      type = "sendonly";
+    };
     keeshare = {
       id = "keeshare";
       label = "Keeshare";
@@ -119,6 +125,8 @@ in
           devices =
             if folder.id == "activitywatch" then
               [ "laptop" ]
+            else if folder.id == "keepassxc" then
+              [ "raspberrypi" ]
             else
               [
                 "laptop"
@@ -146,6 +154,8 @@ in
           devices =
             if folder.id == "activitywatch" then
               [ "desktop" ]
+            else if folder.id == "keepassxc" then
+              [ "raspberrypi" ]
             else
               [
                 "desktop"
