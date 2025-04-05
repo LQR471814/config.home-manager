@@ -205,6 +205,7 @@ in
   programs.zsh = import ./src/cfg-programs/zsh.nix ctx;
   programs.git = import ./src/cfg-programs/git.nix ctx;
   programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
+  services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
 
   fonts.fontconfig = import ./src/cfg-system/fontconfig.nix ctx;
   xdg.mimeApps = import ./src/cfg-system/mimeapps.nix ctx;

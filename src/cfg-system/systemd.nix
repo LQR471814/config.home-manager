@@ -33,32 +33,5 @@
         WantedBy = [ "default.target" ];
       };
     };
-    syncthing = {
-      Unit = {
-        Description = "synchronize files";
-        Documentation = "man:syncthing(1)";
-        StartLimitIntervalSec = 60;
-        StartLimitBurst = 4;
-      };
-      Service = {
-        Type = "simple";
-        TimeoutStartSec = 0;
-        ExecStart = "${HOME}/.nix-profile/bin/syncthing serve --no-browser --no-restart --logflags=0";
-        WorkingDirectory = HOME;
-        Restart = "on-failure";
-        RestartSec = 1;
-        SuccessExitStatus = "3 4";
-        RestartForceExitStatus = "3 4";
-
-        ProtectSystem = "full";
-        PrivateTmp = true;
-        SystemCallArchitectures = "native";
-        MemoryDenyWriteExecute = true;
-        NoNewPrivileges = true;
-      };
-      Install = {
-        WantedBy = [ "default.target" ];
-      };
-    };
   };
 }
