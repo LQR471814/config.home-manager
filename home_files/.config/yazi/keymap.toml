@@ -1,0 +1,8 @@
+[manager]
+append_keymap = [
+    { on = ["g", "s"], run = "cd ~/Scores", desc = "Go to Scores" },
+    { on = ["g", "b"], run = "cd ~/Books", desc = "Go to Books" },
+    { on = ["g", "m"], run = "cd ~/Music", desc = "Go to Music" },
+    { on = ["g", "c"], run = "cd ~/Code", desc = "Go to Code" },
+    { on = ["g", "o"], run = "cd ~/Documents", desc = "Go to Documents" },
+]
