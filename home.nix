@@ -67,6 +67,7 @@ in
       tmux
       git
       git-credential-manager
+      git-filter-repo
       docker
       lazygit
       nix-prefetch-git
