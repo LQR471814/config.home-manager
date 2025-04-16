@@ -212,4 +212,19 @@ in
   xdg.mimeApps = import ./src/cfg-system/mimeapps.nix ctx;
   dconf = import ./src/cfg-system/dconf.nix ctx;
   systemd.user = import ./src/cfg-system/systemd.nix ctx;
+
+  # the systemd daemon created by this doesn't start automatically
+  # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [
+    fcitx5-gtk
+    libsForQt5.fcitx5-qt
+    libsForQt5.fcitx5-chinese-addons
+  ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+  ];
+  xdg.portal.config.common.default = "*";
 }
