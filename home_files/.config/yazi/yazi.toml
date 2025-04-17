@@ -1,0 +1,17 @@
+[open]
+rules = [
+    { name = "*.zip", use = "unzip" },
+    { name = "*", use = "open" }
+]
+
+[[opener.unzip]]
+run = 'unzip "$1" -d "${1%.*}"'
+block = false
+orphan = true
+desc = "Unzip the current file."
+
+[[opener.open]]
+run = 'xdg-open "$@"'
+desc = "Open with xdg."
+orphan = true
+
