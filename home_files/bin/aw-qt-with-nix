@@ -1,0 +1,3 @@
+#!/bin/sh
+. "/home/lqr471814/.nix-profile/etc/profile.d/hm-session-vars.sh"
+aw-qt --no-gui

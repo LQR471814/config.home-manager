@@ -1,8 +1,7 @@
-$HOME/.config/dwm-bar/dwm_bar.sh &
-picom --config $HOME/.config/picom/picom.conf &
-fcitx5 &
-aw-qt --no-gui &
-xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+systemctl --user start dwm-bar
+systemctl --user start picom
+systemctl --user start fcitx5
+systemctl --user start aw-qt
+systemctl --user start slock
 
-# enable lock screen
-xss-lock -- slock &
+xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
