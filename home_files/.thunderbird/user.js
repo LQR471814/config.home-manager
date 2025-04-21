@@ -1,5 +1,6 @@
-user_pref("calendar.categories.names", "Academics,Compulsory Event,Indulgence,Life Analysis,Physical Obligation,Sleep,Programming,Socializing,Systems Management,Transit");
+user_pref("calendar.categories.names", "Academics,Art,Compulsory Event,Indulgence,Life Analysis,Physical Obligation,Sleep,Programming,Socializing,Systems Management,Transit");
 user_pref("calendar.category.color.academics", "#ffa348");
+user_pref("calendar.category.color.art", "#a51d2d");
 user_pref("calendar.category.color.analysis", "#3d3846");
 user_pref("calendar.category.color.compulsory_event", "#dc8add");
 user_pref("calendar.category.color.indulgence", "#f66151");
