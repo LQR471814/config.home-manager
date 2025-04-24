@@ -12,6 +12,7 @@
   shellAliases = {
     lzg = "lazygit";
     y = "yazi";
+    ls = "ls --color=auto";
   };
   plugins = [
     {
