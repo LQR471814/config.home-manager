@@ -23,9 +23,9 @@ dwm_networkmanager () {
     fi
 
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "${SEP1}🌐 ${CONNAME} ${PRIVATE} ${PUBLIC}${SEP2}"
+        printf "${SEP1}🌐 ${CONNAME} | PR: ${PRIVATE} | PU: ${PUBLIC}${SEP2}"
     else
-        printf "${SEP1}NET ${CONNAME} ${PRIVATE} ${PUBLIC}${SEP2}"
+        printf "${SEP1}NET ${CONNAME} | PR: ${PRIVATE} | PU: ${PUBLIC}${SEP2}"
     fi
 }
 
