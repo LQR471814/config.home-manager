@@ -133,6 +133,7 @@ in
       wine
       winetricks
       bluetuith
+      socat
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -188,6 +189,7 @@ in
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
+      (import ./src/derivations/dwmblocks.nix ctx)
       xorg.libX11
       xorg.libXft
       xorg.libXinerama

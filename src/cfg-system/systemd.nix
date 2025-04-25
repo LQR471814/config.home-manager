@@ -1,5 +1,5 @@
 { HOME, ... }:
-let 
+let
   nixbin = name: "${HOME}/.nix-profile/bin/${name}";
   dotconfig = path: "${HOME}/.config/${path}";
 in
@@ -40,16 +40,21 @@ in
     };
 
     # the following are services that do not have a dependency because they are run in .dwm/autostart.sh
-    dwm-bar = {
+    dwmblocks = {
       Unit = {
-        Description = "dwm-bar scripts";
+        Description = "dwmblocks daemon";
         DefaultDependencies = "no";
       };
       Service = {
-        ExecStart = dotconfig "dwm-bar/dwm_bar.sh";
+        Type = "simple";
+        ExecStart = "${HOME}/bin/dwmblocks-with-nix";
         Restart = "no";
+        Environment = [
+          "PATH=${HOME}/bin:${HOME}/.nix-profile/bin:/nix/var/nix/profiles/default/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+        ];
+        Delegate = "yes";
       };
-      Install = {};
+      Install = { };
     };
 
     picom = {
@@ -61,7 +66,7 @@ in
         ExecStart = "${nixbin "picom"} --config ${dotconfig "picom/picom.conf"}";
         Restart = "no";
       };
-      Install = {};
+      Install = { };
     };
 
     fcitx5 = {
@@ -73,7 +78,7 @@ in
         ExecStart = nixbin "fcitx5";
         Restart = "no";
       };
-      Install = {};
+      Install = { };
     };
 
     aw-qt = {
@@ -87,7 +92,7 @@ in
         ExecStart = "${HOME}/bin/aw-qt-with-nix";
         Restart = "no";
       };
-      Install = {};
+      Install = { };
     };
 
     slock = {
@@ -99,7 +104,7 @@ in
         ExecStart = "${nixbin "xss-lock"} -- ${nixbin "slock"}";
         Restart = "no";
       };
-      Install = {};
+      Install = { };
     };
   };
 }

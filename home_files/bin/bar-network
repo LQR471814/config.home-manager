@@ -13,5 +13,5 @@ PRIVATE=$(nmcli -a | grep 'inet4' | awk '{print $2}' | grep -v -E '(127|172)' | 
 if [ "$CONNAME" = "" ]; then
     printf "🌐 Not connected"
 else
-    printf "🌐 ${CONNAME} | PR: ${PRIVATE}"
+    printf "🌐 ${CONNAME} | ${PRIVATE}"
 fi
