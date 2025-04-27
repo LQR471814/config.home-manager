@@ -79,6 +79,8 @@ in
       cloc
       pipx
       clang
+      clang-tools
+      bear
       jq
       reftools
       rye
