@@ -1,0 +1,6 @@
+. "/home/lqr471814/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
+dbus-monitor --system "interface='org.freedesktop.NetworkManager'" | \
+while read -r line; do
+    echo "\x02" | socat -u - UNIX-SENDTO:/tmp/dwmblocks
+done

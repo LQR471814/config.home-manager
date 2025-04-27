@@ -1,0 +1,18 @@
+. "/home/lqr471814/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
+last_exec=0
+
+upower -m | \
+while read -r line; do
+    now=$(date +%s.%N)
+    elapsed=$(echo "$now - $last_exec" | bc)
+
+    if test -n "${debounce_pid}" && ps -p "${debounce_pid}" > /dev/null; then
+        kill "${debounce_pid}"
+    fi
+
+    if [ "$(echo "$elapsed >= 0.5" | bc -l)" = "1" ]; then
+        echo "\x03" | socat - UNIX-SENDTO:/tmp/dwmblocks,bind=/tmp/bar_battery_watcher
+        last_exec="$now"
+    fi
+done

@@ -2,6 +2,7 @@
 let
   nixbin = name: "${HOME}/.nix-profile/bin/${name}";
   dotconfig = path: "${HOME}/.config/${path}";
+  PATH = "${HOME}/bin:${HOME}/.nix-profile/bin:/nix/var/nix/profiles/default/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
 in
 {
   enable = true;
@@ -50,7 +51,39 @@ in
         ExecStart = "${HOME}/bin/dwmblocks-with-nix";
         Restart = "no";
         Environment = [
-          "PATH=${HOME}/bin:${HOME}/.nix-profile/bin:/nix/var/nix/profiles/default/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+          "PATH=${PATH}"
+        ];
+        Delegate = "yes";
+      };
+      Install = { };
+    };
+    bar-network-watcher = {
+      Unit = {
+        Description = "daemon that watches changes in network";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${nixbin "zsh"} ${HOME}/bin/bar-network-watcher";
+        Restart = "no";
+        Environment = [
+          "PATH=${PATH}"
+        ];
+        Delegate = "yes";
+      };
+      Install = { };
+    };
+    bar-battery-watcher = {
+      Unit = {
+        Description = "daemon that watches changes in battery";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${nixbin "zsh"} ${HOME}/bin/bar-battery-watcher";
+        Restart = "no";
+        Environment = [
+          "PATH=${PATH}"
         ];
         Delegate = "yes";
       };
