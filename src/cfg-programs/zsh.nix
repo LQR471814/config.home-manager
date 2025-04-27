@@ -14,6 +14,7 @@
     y = "yazi";
     ls = "ls --color=auto";
     nvt = "tmux new-session -s \"$(basename \"$PWD\")\" 'nvim .'";
+    shut = "sudo shutdown now -h";
   };
   plugins = [
     {
