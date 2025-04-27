@@ -48,7 +48,7 @@ in
       };
       Service = {
         Type = "simple";
-        ExecStart = "${HOME}/bin/dwmblocks-with-nix";
+        ExecStart = "${nixbin "zsh"} -c 'dwmblocks'";
         Restart = "no";
         Environment = [
           "PATH=${PATH}"
@@ -122,7 +122,7 @@ in
       Service = {
         # wrapper script is executed because aw-qt needs to call some other processes
         # and it cannot do that without the nix env vars being present
-        ExecStart = "${HOME}/bin/aw-qt-with-nix";
+        ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
         Restart = "no";
       };
       Install = { };

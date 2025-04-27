@@ -1,5 +1,3 @@
-. "/home/lqr471814/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
 last_exec=0
 
 upower -m | \
