@@ -6,8 +6,8 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "LQR471814";
     repo = "dwmblocks-async";
-    rev = "97ba8cee40052f1b30b03c7378ae36e3b4613095";
-    hash = "sha256-6rainfPvCeTjX6VTNgoJO8TnAJzB/Qw4FXcqWmUE8os=";
+    rev = "c39377269b9691413663b73278c3149f3fb94727";
+    hash = "sha256-EfIZ3CzCRR8XzjaRqLa/SjZ0CoEX0+u0RldNKpWg+EQ=";
   };
 
   prePatch = ''
@@ -23,7 +23,7 @@ pkgs.stdenv.mkDerivation {
   makeFlags = [ "CC=${pkgs.stdenv.cc.targetPrefix}cc" ];
 
   meta = {
-    homepage = "https://github.com/LQR471814/dwm";
-    description = "My fork of dwm.";
+    homepage = "https://github.com/LQR471814/dwmblocks-async";
+    description = "My fork of dwmblocks-async.";
   };
 }
