@@ -13,7 +13,7 @@
     lzg = "lazygit";
     y = "yazi";
     ls = "ls --color=auto";
-    nvt = "tmux new-session -s \"$(basename \\\"$PWD\\\")\" 'nvim .'";
+    nvt = "tmux new-session -s \"$(basename \"$PWD\")\" 'nvim .'";
   };
   plugins = [
     {
