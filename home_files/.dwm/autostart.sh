@@ -1,4 +1,4 @@
-systemctl --user start dwm-bar
+systemctl --user start dwmblocks
 systemctl --user start picom
 systemctl --user start fcitx5
 systemctl --user start aw-qt
