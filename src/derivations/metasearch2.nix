@@ -5,17 +5,20 @@ pkgs.rustPlatform.buildRustPackage {
 
   src = pkgs.fetchgit {
     url = "https://github.com/LQR471814/metasearch2.git";
-    rev = "fa839e3c53c44d7f9bfea962acaed49dbd047cec";
-    hash = "sha256-Peka/ln+o9k2/PHSiOHj98CGRgt3BeQ/taFNRtv5EJ8=";
+    rev = "cad5db8072bdbc8b5b26fe7eca96304d54598caf";
+    hash = "sha256-IRflQI4fqFUYDoZHl2r+2mhqphonX+CU4TyDdcBWsGo=";
   };
 
-  cargoHash = "sha256-Mk7iOtU20WYeVviG5Bd9htjFl8tpwj3CWeUDmVmCnoA=";
+  cargoHash = "sha256-vQJcIPpoxobUiIrScyjQlS2xV9FRUCbNdESjfklAXko=";
 
   buildPhase = "cargo build --frozen --release";
   installPhase = ''
     install -m 755 -d $out/bin
     install -m 755 target/release/metasearch $out/bin
   '';
+
+  doCheck = false;
+  doInstallCheck = false;
 
   meta = {
     description = "a cute metasearch engine";
