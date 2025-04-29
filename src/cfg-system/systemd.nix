@@ -134,7 +134,7 @@ in
         DefaultDependencies = "no";
       };
       Service = {
-        ExecStart = "${nixbin "xss-lock"} -- ${nixbin "slock"}";
+        ExecStart = "${nixbin "xss-lock"} -- /usr/local/bin/slock";
         Restart = "no";
       };
       Install = { };
