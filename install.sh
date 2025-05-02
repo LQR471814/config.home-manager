@@ -1,5 +1,5 @@
 # install packages that must be available under sudo
-sudo apt install curl build-essential wireguard-tools -y
+sudo apt install curl build-essential wireguard-tools libfuse-dev -y
 
 # install nix & restart shell
 sh <(curl -L https://nixos.org/nix/install) --daemon
