@@ -46,7 +46,7 @@
       };
     }
   ];
-  initExtra = ''
+  initContent = ''
     ({
       autoload -Uz compinit
       # only run compinit once per day, instead of on startup

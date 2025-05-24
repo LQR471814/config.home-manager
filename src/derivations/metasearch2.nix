@@ -9,7 +9,7 @@ pkgs.rustPlatform.buildRustPackage {
     hash = "sha256-IRflQI4fqFUYDoZHl2r+2mhqphonX+CU4TyDdcBWsGo=";
   };
 
-  cargoHash = "sha256-vQJcIPpoxobUiIrScyjQlS2xV9FRUCbNdESjfklAXko=";
+  cargoHash = "sha256-wJxpZ5pczKUfo6npYLJvnPU+r3PPnqj/vIwa3qKlxug=";
 
   buildPhase = "cargo build --frozen --release";
   installPhase = ''

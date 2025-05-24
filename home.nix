@@ -46,7 +46,7 @@ in
   home = {
     username = "lqr471814";
     homeDirectory = HOME;
-    stateVersion = "24.11";
+    stateVersion = "25.05";
 
     packages = with pkgs; [
       home-manager
@@ -90,7 +90,7 @@ in
       redis
       croc
 
-      (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
+      # (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
       # lsps
       nixd
@@ -222,7 +222,8 @@ in
 
   # the systemd daemon created by this doesn't start automatically
   # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
-  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.enable = true;
+  i18n.inputMethod.type = "fcitx5";
   i18n.inputMethod.fcitx5.addons = with pkgs; [
     fcitx5-gtk
     libsForQt5.fcitx5-qt
