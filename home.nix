@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixgl, ... }:
 
 let
   HOSTNAME = builtins.readFile /etc/hostname;
@@ -38,8 +38,8 @@ let
 in
 {
   nixGL = {
+    packages = nixgl.packages;
     defaultWrapper = if IS_DESKTOP then "nvidia" else "mesa";
-    packages = import <nixgl> { inherit pkgs; };
   };
   targets.genericLinux.enable = true;
 
