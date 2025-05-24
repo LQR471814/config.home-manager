@@ -5,7 +5,7 @@ sudo apt install curl build-essential wireguard-tools libfuse-dev -y
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # allow unfree packages
-mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix 
+mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
 
 # enable experimental features
 mkdir -p ~/.config/nix
@@ -53,9 +53,6 @@ sudo ln -f -s $HOME/.nix-profile/bin/alacritty /etc/alternatives/x-terminal-emul
 sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/gnome-www-browser
 sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/www-browser
 sudo ln -f -s $HOME/.nix-profile/bin/thorium-browser /etc/alternatives/x-www-browser
-
-# install python packages (cause python on nix is a mess)
-rye
 
 # fix apparmor issues
 echo "abi <abi/4.0>,

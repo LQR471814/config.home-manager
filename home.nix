@@ -68,6 +68,7 @@ in
       git
       git-credential-manager
       git-filter-repo
+      mercurial
       docker
       lazygit
       nix-prefetch-git
@@ -83,11 +84,13 @@ in
       bear
       jq
       reftools
-      rye
+      uv
       ruff
       sqlite
       redis
       croc
+
+      (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
       # lsps
       nixd
