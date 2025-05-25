@@ -1,19 +1,24 @@
 { pkgs ? import <nixpkgs> { }, ... }:
-{ name, package, bin }:
+pkg:
 
 pkgs.stdenv.mkDerivation {
-  name = name + "-pw";
+  name = pkg.name + "-pw";
 
   buildInputs = [
     pkgs.pipewire.jack
-    package
+    pkg
   ];
 
   dontUnpack = true;
 
   installPhase = ''
     mkdir -p $out/bin
-    echo "${pkgs.pipewire.jack}/bin/pw-jack ${package}/bin/${bin}" > $out/bin/${bin}
-    chmod +x $out/bin/${bin}
+
+    for file in ${pkg}/bin/*; do
+      if [ -f "$file" ]; then
+        echo "${pkgs.pipewire.jack}/bin/pw-jack '$file'" > "$out/bin/$(basename "$file")"
+        chmod +x "$out/bin/$(basename "$file")"
+      fi
+    done
   '';
 }

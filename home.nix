@@ -1,4 +1,9 @@
-{ config, pkgs, nixgl, ... }:
+{
+  config,
+  pkgs,
+  nixgl,
+  ...
+}:
 
 let
   HOSTNAME = builtins.readFile /etc/hostname;
@@ -23,7 +28,7 @@ let
       ;
   };
   fixGL = config.lib.nixGL.wrap;
-  fixPW = import ./src/derivations/fix_pipewire.nix { pkgs = pkgs; };
+  fixPW = import ./src/derivations/fix_pipewire.nix { inherit pkgs; };
   ctx = {
     inherit HOME;
     inherit HOSTNAME;
@@ -150,21 +155,9 @@ in
       (import ./src/derivations/thorium.nix ctx)
       (fixGL alacritty)
       (fixGL localsend)
-      (fixPW {
-        package = fixGL musescore;
-        name = "musescore";
-        bin = "mscore";
-      })
-      (fixPW {
-        package = fixGL ardour;
-        name = "ardour";
-        bin = "ardour8";
-      })
-      (fixPW {
-        package = easyeffects;
-        name = "easyeffects";
-        bin = "easyeffects";
-      })
+      (fixPW (fixGL musescore))
+      (fixPW (fixGL ardour))
+      (fixPW (fixGL easyeffects))
       (fixGL blender)
       (fixGL kdePackages.kdenlive)
       (fixGL obs-studio)
@@ -209,16 +202,16 @@ in
     file = import ./src/home_files.nix ctx;
   };
 
-  programs.alacritty = import ./src/cfg-programs/alacritty.nix ctx;
-  programs.zsh = import ./src/cfg-programs/zsh.nix ctx;
-  programs.git = import ./src/cfg-programs/git.nix ctx;
-  programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
-  services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
+  programs.alacritty = import ./src/cfg_programs/alacritty.nix ctx;
+  programs.zsh = import ./src/cfg_programs/zsh.nix ctx;
+  programs.git = import ./src/cfg_programs/git.nix ctx;
+  programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
+  services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
 
-  fonts.fontconfig = import ./src/cfg-system/fontconfig.nix ctx;
-  xdg.mimeApps = import ./src/cfg-system/mimeapps.nix ctx;
-  dconf = import ./src/cfg-system/dconf.nix ctx;
-  systemd.user = import ./src/cfg-system/systemd.nix ctx;
+  fonts.fontconfig = import ./src/cfg_system/fontconfig.nix ctx;
+  xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
+  dconf = import ./src/cfg_system/dconf.nix ctx;
+  systemd.user = import ./src/cfg_system/systemd.nix ctx;
 
   # the systemd daemon created by this doesn't start automatically
   # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
