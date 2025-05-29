@@ -2,12 +2,12 @@
 
 pkgs.stdenv.mkDerivation {
   name = "thorium";
-  version = "128.0.6613.189";
+  version = "130.0.6723.174";
   system = "x86_64-linux";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/Alex313031/thorium/releases/download/M128.0.6613.189/thorium-browser_128.0.6613.189_AVX2.zip";
-    sha256 = "sha256-10sJ5AlSNcIydtAlRZBvahXaUXOSmtNJJmUY9p/syvM=";
+    url = "https://github.com/Alex313031/thorium/releases/download/M130.0.6723.174/thorium-browser_130.0.6723.174_AVX2.zip";
+    hash = "sha256-Kirb0f71bHnANwsI6Vs4fuaaANCD8+BpDjcZWEu+DJg=";
   };
 
   nativeBuildInputs = [ pkgs.unzip ];
