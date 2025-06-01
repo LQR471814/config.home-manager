@@ -3,6 +3,9 @@
   enable = true;
   defaultApplications = {
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+    "text/html" = [ "thorium-browser.desktop" ];
+    "x-scheme-handler/http" = [ "thorium-browser.desktop" ];
+    "x-scheme-handler/https" = [ "thorium-browser.desktop" ];
 
     "x-scheme-handler/mailto" = [ "userapp-Thunderbird-IFAK72.desktop" ];
     "message/rfc822" = [ "userapp-Thunderbird-IFAK72.desktop" ];

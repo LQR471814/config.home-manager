@@ -94,6 +94,7 @@ in
       sqlite
       redis
       croc
+      graphviz
 
       # (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
@@ -198,6 +199,10 @@ in
       playerctl
       flameshot
     ];
+
+    sessionVariables = {
+      BROWSER = "thorium-browser";
+    };
 
     file = import ./src/home_files.nix ctx;
   };
