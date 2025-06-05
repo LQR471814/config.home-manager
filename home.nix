@@ -95,6 +95,8 @@ in
       redis
       croc
       graphviz
+      llama-cpp
+      hugo
 
       # (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
@@ -151,6 +153,7 @@ in
       activitywatch
       syncthing
       cups
+      v2rayn
 
       # gui apps
       (import ./src/derivations/thorium.nix ctx)
