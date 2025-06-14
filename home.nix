@@ -97,6 +97,7 @@ in
       graphviz
       llama-cpp
       hugo
+      tlaplusToolbox
 
       # (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
@@ -143,10 +144,10 @@ in
       watchman
       tlaplus
       libqalculate
-      wine
-      winetricks
       bluetuith
       socat
+      xray
+      tun2socks
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
