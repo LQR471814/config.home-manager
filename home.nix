@@ -189,7 +189,6 @@ in
       filezilla
       vlc
       rhythmbox
-      flatpak
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
