@@ -189,7 +189,7 @@ in
       filezilla
       vlc
       rhythmbox
-      nyxt
+      (import ./src/derivations/fix_nyxt.nix ctx)
 
       # dwm
       (import ./src/derivations/dwm.nix ctx)
