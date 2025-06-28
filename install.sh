@@ -2,7 +2,7 @@
 sudo apt install curl build-essential wireguard-tools libfuse-dev -y
 
 # install nix & restart shell
-sh <(curl -L https://nixos.org/nix/install) --daemon
+# sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # allow unfree packages
 mkdir -p ~/.config/nixpkgs && echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
@@ -139,9 +139,6 @@ sudo rm -rf ~/snap /snap /var/snap /var/lib/snapd
 echo "Package: snapd
 Pin: release a=*
 Pin-Priority: -10" | sudo tee /etc/apt/preferences.d/nosnap.pref
-
-# disable wifi powersave
-sudo sed -i 's/wifi.powersave = 3/wifi.powersave = 2/' /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf && systemctl restart network-manager.service
 
 # add TLP
 

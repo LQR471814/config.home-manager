@@ -1,10 +1,10 @@
-{ IS_DESKTOP, pkgs, fixGL, ... }:
+{ pkgs, fixGL, ... }:
 {
   enable = true;
   package = fixGL pkgs.alacritty;
   settings = {
     font = {
-      size = if IS_DESKTOP then 10 else 6;
+      size = 10;
       normal = {
         family = "JetBrainsMono NF";
         style = "Mono";

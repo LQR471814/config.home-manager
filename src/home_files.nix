@@ -38,15 +38,19 @@ let
   );
 
   # thunderbird has special handling
-  tbdir = builtins.readDir "${HOME}/.thunderbird";
-  tbprofilename = builtins.head (
-    builtins.filter (name: builtins.match ".*\\.default" name != null) (builtins.attrNames tbdir)
-  );
-  tbfiles = {
-    ".thunderbird/${tbprofilename}/user.js" = {
-      source = DIRNAME + "/home_files/.thunderbird/user.js";
-    };
-  };
+  tbfiles = if builtins.pathExists "${HOME}/.thunderbird" then
+    let
+      tbdir = builtins.readDir "${HOME}/.thunderbird";
+      tbprofilename = builtins.head (
+        builtins.filter (name: builtins.match ".*\\.default" name != null) (builtins.attrNames tbdir)
+      );
+    in
+    {
+      ".thunderbird/${tbprofilename}/user.js" = {
+        source = DIRNAME + "/home_files/.thunderbird/user.js";
+      };
+    }
+  else {};
 
   texfiles = {
     texmf = {
@@ -54,14 +58,14 @@ let
     };
   };
 
-  pluginfiles = {
+  pluginfiles = if (builtins.pathExists "${HOME}/Production/Plugins/lv2") && (builtins.pathExists "${HOME}/Production/Plugins/vst3") then {
     ".lv2" = {
       source = "${HOME}/Production/Plugins/lv2";
     };
     ".vst3" = {
       source = "${HOME}/Production/Plugins/vst3";
     };
-  };
+  } else {};
 in
 # `//` merges 2 attribute sets
 dotfiles // homefiles // texfiles // tbfiles // pluginfiles

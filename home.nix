@@ -58,6 +58,7 @@ in
       jetbrains-mono
       nerd-fonts.jetbrains-mono
       source-han-serif-vf-ttf
+      noto-fonts-color-emoji
 
       # build tools
       cmake
