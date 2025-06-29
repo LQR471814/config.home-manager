@@ -149,6 +149,7 @@ in
       socat
       xray
       tun2socks
+      usbimager
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)

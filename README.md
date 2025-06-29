@@ -4,7 +4,14 @@
 
 ### Usage
 
-- `./install.sh` - sets up everything.
+```sh
+# install nix
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+# run rest of the install script
+./install.sh
+```
+
 - `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run this after home-manager switch if programs aren't showing up in `super+p`)
 - `nix-collect-garbage` - frees up space occupied by unnecessary nix packages.
 - `fcitx5-configtool` - configure enabled input methods, you will need to configure this manually after install.
