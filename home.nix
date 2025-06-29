@@ -191,16 +191,6 @@ in
       filezilla
       vlc
       rhythmbox
-
-      # dwm
-      (import ./src/derivations/dwm.nix ctx)
-      (import ./src/derivations/dwmblocks.nix ctx)
-      xorg.libX11
-      xorg.libXft
-      xorg.libXinerama
-      xorg.xdm
-      dmenu
-      picom
       pwvucontrol
       playerctl
       flameshot
