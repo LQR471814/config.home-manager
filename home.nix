@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nixgl,
   ...
 }:
 
@@ -27,7 +26,6 @@ let
       standalone
       ;
   };
-  fixGL = config.lib.nixGL.wrap;
   fixPW = import ./src/derivations/fix_pipewire.nix { inherit pkgs; };
   ctx = {
     inherit HOME;
@@ -37,15 +35,10 @@ let
 
     inherit pkgs;
     inherit config;
-    inherit fixGL;
     inherit mytexlive;
   };
 in
 {
-  nixGL = {
-    packages = nixgl.packages;
-    defaultWrapper = if IS_DESKTOP then "nvidia" else "mesa";
-  };
   targets.genericLinux.enable = true;
 
   home = {
@@ -55,10 +48,11 @@ in
 
     packages = with pkgs; [
       home-manager
+
+      # fonts
       jetbrains-mono
       nerd-fonts.jetbrains-mono
       source-han-serif-vf-ttf
-      noto-fonts-color-emoji
 
       # build tools
       cmake
@@ -69,7 +63,6 @@ in
       ripgrep
       fd
       zsh
-      zplug
       tmux
       git
       git-credential-manager
@@ -79,28 +72,19 @@ in
       lazygit
       nix-prefetch-git
       buf
+      cloc
       sqlc
       atlas
       templ
-      pnpm
-      cloc
-      pipx
-      clang
-      clang-tools
       bear
       jq
       reftools
-      uv
-      ruff
       sqlite
       redis
       croc
       graphviz
       llama-cpp
       hugo
-      tlaplusToolbox
-
-      # (if IS_DESKTOP then cudaPackages.cudatoolkit else null)
 
       # lsps
       nixd
@@ -120,14 +104,20 @@ in
       rustc
       cargo
       numbat
-      mytexlive
       zulu23
+      mytexlive
+      uv
+      pipx
+      ruff
+      tlaplusToolbox
+      clang
+      clang-tools
 
       # general terminal tools
       pdf2svg
       ffmpeg
-      neovim
       yazi
+      ueberzugpp # this is a dependency of yazi
       rclone
       ffmpeg
       htop
@@ -138,7 +128,6 @@ in
       tree
       sshfs
       aria2
-      cloudflare-warp
       imagemagick
       (import ./src/derivations/yt-dlp.nix ctx)
       cloudflare-warp
@@ -149,30 +138,36 @@ in
       socat
       xray
       tun2socks
-      usbimager
+      playerctl
+      xclip
+      xss-lock
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
       activitywatch
       syncthing
       cups
-      v2rayn
 
-      # gui apps
-      (import ./src/derivations/thorium.nix ctx)
-      (fixGL alacritty)
-      (fixGL localsend)
-      (fixPW (fixGL musescore))
-      (fixPW (fixGL ardour))
-      (fixPW (fixGL easyeffects))
-      (fixGL blender)
-      (fixGL kdePackages.kdenlive)
-      (fixGL obs-studio)
-      (fixGL anki)
-      (fixGL qpwgraph)
-      (fixGL foliate)
-      ueberzugpp # this is a dependency of yazi
-      zathura
+      # basic apps
+      (import ./src/derivations/thorium.nix ctx) # browser
+      alacritty # terminal
+      zathura # pdf viewer
+      vlc # media viewer
+      rhythmbox # music player
+      flameshot # screenshots
+      pwvucontrol # audio patcher
+
+      # additional apps
+      localsend
+      (fixPW musescore)
+      (fixPW ardour)
+      (fixPW easyeffects)
+      blender
+      kdePackages.kdenlive
+      obs-studio
+      anki
+      qpwgraph
+      foliate
       legcord
       dbeaver-bin
       miru
@@ -184,16 +179,9 @@ in
       gimp
       inkscape
       scribus
-      tlaplusToolbox
-      rofi
-      xclip
-      xss-lock
       filezilla
-      vlc
-      rhythmbox
-      pwvucontrol
-      playerctl
-      flameshot
+      qbittorrent-enhanced
+      usbimager
     ];
 
     sessionVariables = {
