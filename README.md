@@ -12,9 +12,18 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 ./install.sh
 ```
 
-- `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run this after home-manager switch if programs aren't showing up in `super+p`)
+- `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run
+  this after home-manager switch if programs aren't showing up in `super+p`)
 - `nix-collect-garbage` - frees up space occupied by unnecessary nix packages.
-- `fcitx5-configtool` - configure enabled input methods, you will need to configure this manually after install.
+- `fcitx5-configtool` - configure enabled input methods, you will need to
+  configure this manually after install.
+
+### Note on flake behavior
+
+Since this is a flake, it only sees the files that have been committed or
+staged to the git repo in this repository, if you are getting strange issues
+where your changes aren't being applied or your `flake.nix` is not being found,
+try staging/commit all your files.
 
 ### References
 

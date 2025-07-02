@@ -40,56 +40,6 @@ in
       };
     };
 
-    # the following are services that do not have a dependency because they are run in .dwm/autostart.sh
-    dwmblocks = {
-      Unit = {
-        Description = "dwmblocks daemon";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        Type = "simple";
-        ExecStart = "${nixbin "zsh"} -c 'dwmblocks'";
-        Restart = "no";
-        Environment = [
-          "PATH=${PATH}"
-        ];
-        Delegate = "yes";
-      };
-      Install = { };
-    };
-    bar-network-watcher = {
-      Unit = {
-        Description = "daemon that watches changes in network";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        Type = "simple";
-        ExecStart = "${nixbin "zsh"} ${HOME}/bin/bar-network-watcher";
-        Restart = "no";
-        Environment = [
-          "PATH=${PATH}"
-        ];
-        Delegate = "yes";
-      };
-      Install = { };
-    };
-    bar-battery-watcher = {
-      Unit = {
-        Description = "daemon that watches changes in battery";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        Type = "simple";
-        ExecStart = "${nixbin "zsh"} ${HOME}/bin/bar-battery-watcher";
-        Restart = "no";
-        Environment = [
-          "PATH=${PATH}"
-        ];
-        Delegate = "yes";
-      };
-      Install = { };
-    };
-
     picom = {
       Unit = {
         Description = "picom X compositor";

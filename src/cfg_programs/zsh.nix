@@ -1,14 +1,6 @@
 { HOME, pkgs, ... }:
 {
   enable = true;
-  enableCompletion = false;
-  zprof = {
-    enable = false;
-  };
-  history = {
-    append = true;
-    ignoreAllDups = true;
-  };
   shellAliases = {
     lzg = "lazygit";
     y = "yazi";
@@ -47,20 +39,10 @@
     }
   ];
   initContent = ''
-    ({
-      autoload -Uz compinit
-      # only run compinit once per day, instead of on startup
-      if [ $(date +'%j') != $(date -d "$(stat -c %y ~/.zcompdump | cut -d' ' -f1)" +%j) ]; then
-        compinit
-      else
-        compinit -C
-      fi
-    } &) > /dev/null 2>&1
-
     # system clipboard workaround
     zvm_vi_yank () {
       zvm_yank
-      printf %s "$CUTBUFFER" | xsel --clipboard --input
+      printf %s "$CUTBUFFER" | ${pkgs.wl-clipboard}/bin/wl-copy
       zvm_exit_visual_mode
     }
 

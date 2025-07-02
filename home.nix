@@ -39,35 +39,26 @@ let
   };
 in
 {
-  targets.genericLinux.enable = true;
-
   home = {
     username = "lqr471814";
     homeDirectory = HOME;
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      home-manager
-
-      # fonts
-      jetbrains-mono
-      nerd-fonts.jetbrains-mono
-      source-han-serif-vf-ttf
-
       # build tools
       cmake
       gnumake
       pkg-config
+      git
+      tmux
+      git
+      git-filter-repo
+      git-credential-manager
+      gh
 
       # dev tools
       ripgrep
       fd
-      zsh
-      tmux
-      git
-      git-credential-manager
-      git-filter-repo
-      mercurial
       docker
       lazygit
       nix-prefetch-git
@@ -122,7 +113,6 @@ in
       ffmpeg
       htop
       btop
-      xsel
       rclone
       mprocs
       tree
@@ -149,8 +139,7 @@ in
       cups
 
       # basic apps
-      (import ./src/derivations/thorium.nix ctx) # browser
-      alacritty # terminal
+      firefox
       zathura # pdf viewer
       vlc # media viewer
       rhythmbox # music player
@@ -184,10 +173,6 @@ in
       usbimager
     ];
 
-    sessionVariables = {
-      BROWSER = "thorium-browser";
-    };
-
     file = import ./src/home_files.nix ctx;
   };
 
@@ -197,9 +182,7 @@ in
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
 
-  fonts.fontconfig = import ./src/cfg_system/fontconfig.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
-  dconf = import ./src/cfg_system/dconf.nix ctx;
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
 
   # the systemd daemon created by this doesn't start automatically
@@ -212,9 +195,9 @@ in
     libsForQt5.fcitx5-chinese-addons
   ];
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-  ];
-  xdg.portal.config.common.default = "*";
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [
+  #   pkgs.xdg-desktop-portal-gtk
+  # ];
+  # xdg.portal.config.common.default = "*";
 }

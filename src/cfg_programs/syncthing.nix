@@ -98,6 +98,8 @@ in
   enable = true;
   cert = "~/syncthing/cert.pem";
   key = "~/syncthing/key.pem";
+  overrideDevices = true;
+  overrideFolders = true;
 }
 // (
   if IS_DESKTOP then

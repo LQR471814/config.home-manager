@@ -2,9 +2,9 @@
 mkdir -p ~/svr-home
 sshfs "lqr471814@192.168.1.10:/home/lqr471814" ~/svr-home/
 
-rm -rf ~/.local/state/syncthing
-mkdir -p ~/.local/state/syncthing
-cp -r ~/svr-home/syncthing/$(hostname)/* ~/.local/state/syncthing
+rm -rf ~/syncthing
+mkdir -p ~/syncthing
+cp -r ~/svr-home/syncthing/$(hostname)/* ~/syncthing
 
 fusermount -u ~/svr-home/
 
