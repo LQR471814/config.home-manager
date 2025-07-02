@@ -6,7 +6,7 @@
   extraConfig = {
     credential = {
       helper = "${HOME}/.nix-profile/bin/git-credential-manager";
-      credentialStore = "secretservice";
+      credentialStore = "gpg";
     };
   };
 }

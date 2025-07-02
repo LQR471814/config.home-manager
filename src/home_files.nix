@@ -15,7 +15,11 @@ let
         source = DIRNAME + "/home_files/.config/" + name;
       };
     }) (builtins.readDir ../home_files/.config)
-  );
+  ) // {
+    ".gnupg/gpg-agent.conf" = {
+      text = "pinentry-program /home/lqr471814/.nix-profile/bin/pinentry";
+    };
+  };
 
   # directories in `home_files/<dir>` will be symlinked to `~/<dir>` besides `.config` and `.thunderbird`
   homefiles = (

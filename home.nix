@@ -54,6 +54,9 @@ in
       git
       git-filter-repo
       git-credential-manager
+      gnupg
+      pinentry-tty
+      pass-wayland
       gh
 
       # dev tools
