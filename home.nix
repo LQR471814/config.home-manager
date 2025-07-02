@@ -54,9 +54,6 @@ in
       git
       git-filter-repo
       git-credential-manager
-      gnupg
-      pinentry-tty
-      pass-wayland
       gh
 
       # dev tools
@@ -197,10 +194,4 @@ in
     libsForQt5.fcitx5-qt
     libsForQt5.fcitx5-chinese-addons
   ];
-
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [
-  #   pkgs.xdg-desktop-portal-gtk
-  # ];
-  # xdg.portal.config.common.default = "*";
 }
