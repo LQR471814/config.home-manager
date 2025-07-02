@@ -182,8 +182,14 @@ in
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
 
+  dconf = import ./src/cfg_system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
+  gtk.enable = true;
+  gtk.iconTheme = {
+    name = "Papirus-Light";
+    package = pkgs.papirus-icon-theme;
+  };
 
   # the systemd daemon created by this doesn't start automatically
   # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
