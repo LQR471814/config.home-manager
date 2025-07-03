@@ -120,7 +120,7 @@ if [ ! -p $FIFO_BAR ]; then
 fi
 
 sandbard() {
-  while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "JetBrainsMono NF" -scale 2
+  while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale 2
 }
 
 sandbard &

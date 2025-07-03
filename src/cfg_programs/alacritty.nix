@@ -6,15 +6,15 @@
     font = {
       size = if IS_DESKTOP then 10 else 12;
       normal = {
-        family = "JetBrainsMono NF";
+        family = "IBM Plex Mono";
         style = "Mono";
       };
       bold = {
-        family = "JetBrainsMono NF";
+        family = "IBM Plex Mono";
         style = "Bold";
       };
       italic = {
-        family = "JetBrainsMono NF";
+        family = "IBM Plex Mono";
         style = "Italic";
       };
     };
