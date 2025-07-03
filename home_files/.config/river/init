@@ -37,7 +37,7 @@ riverctl map normal $mod Tab cycle-layout
 riverctl map normal $mod+Shift Space toggle-float
 riverctl map normal $mod+Control+Shift q spawn "riverctl exit"
 riverctl map normal $mod Return swap left
-riverctl map normal None 3270_PrintScreen spawn 'grim -g "$(slurp)"'
+riverctl map normal $mod+Shift p spawn 'grim -g "$(slurp)"'
 
 riverctl map normal $mod 9 set-focused-tags 256
 riverctl map normal $mod 8 set-focused-tags 128
