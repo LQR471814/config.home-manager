@@ -143,7 +143,6 @@ in
       zathura # pdf viewer
       vlc # media viewer
       rhythmbox # music player
-      flameshot # screenshots
       pwvucontrol # audio patcher
 
       # additional apps
