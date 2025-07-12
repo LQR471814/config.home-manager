@@ -164,7 +164,7 @@ in
       thunderbird
       obsidian
       libreoffice
-      gimp
+      gimp3
       inkscape
       scribus
       filezilla
