@@ -129,8 +129,6 @@ in
       xray
       tun2socks
       playerctl
-      xclip
-      xss-lock
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -173,6 +171,13 @@ in
     ];
 
     file = import ./src/home_files.nix ctx;
+
+    sessionVariables = {
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE  = "fcitx";
+      XMODIFIERS    = "@im=fcitx";
+      SDL_IM_MODULE = "fcitx";
+    };
   };
 
   programs.alacritty = import ./src/cfg_programs/alacritty.nix ctx;

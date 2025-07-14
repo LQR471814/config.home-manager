@@ -40,18 +40,6 @@ in
       };
     };
 
-    picom = {
-      Unit = {
-        Description = "picom X compositor";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = "${nixbin "picom"} --config ${dotconfig "picom/picom.conf"}";
-        Restart = "no";
-      };
-      Install = { };
-    };
-
     fcitx5 = {
       Unit = {
         Description = "fcitx5 input method daemon";
@@ -73,18 +61,6 @@ in
         # wrapper script is executed because aw-qt needs to call some other processes
         # and it cannot do that without the nix env vars being present
         ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
-        Restart = "no";
-      };
-      Install = { };
-    };
-
-    slock = {
-      Unit = {
-        Description = "lock screen";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = "${nixbin "xss-lock"} -- /usr/local/bin/slock";
         Restart = "no";
       };
       Install = { };
