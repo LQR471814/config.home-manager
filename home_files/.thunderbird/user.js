@@ -14,4 +14,4 @@ user_pref("calendar.category.color.transit", "#77767b");
 
 user_pref("calendar.alarms.eventalarmlen", 0);
 user_pref("calendar.alarms.onforevents", 1);
-user_pref("network.cookie.cookieBehavior", 2); // don't accept cookies from sites
+user_pref("network.cookie.cookieBehavior", 0); // don't accept cookies from sites
