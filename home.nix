@@ -174,9 +174,16 @@ in
 
     sessionVariables = {
       GTK_IM_MODULE = "fcitx";
-      QT_IM_MODULE  = "fcitx";
-      XMODIFIERS    = "@im=fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
       SDL_IM_MODULE = "fcitx";
+    };
+
+    pointerCursor = {
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+      size = 32;
+      gtk.enable = true;
     };
   };
 
