@@ -77,9 +77,14 @@ riverctl map-pointer normal Mod4 BTN_LEFT move-view
 riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
 
 
+# Thinkpad trackpoint
+touchpoint_dev=$(riverctl list-inputs | grep -i "trackpoint")
+riverctl input "${touchpoint_dev}" pointer-accel -0.25
+
+
 # Natural scrolling
 touchpad_dev=$(riverctl list-inputs | grep -i "touchpad")
-riverctl input $(touchpad_dev) natural-scroll enabled
+riverctl input "${touchpad_dev}" natural-scroll disabled
 
 
 # Auto-focus windows
