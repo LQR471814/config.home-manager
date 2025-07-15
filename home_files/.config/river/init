@@ -101,6 +101,11 @@ systemctl --user start aw-qt
 systemctl --user start slock
 
 
+# Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)
+riverctl rule-add -app-id thunderbird float
+riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
+
+
 # Bar
 /home/lqr471814/.config/river/bar.sh
 
