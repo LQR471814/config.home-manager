@@ -4,7 +4,7 @@
   package = pkgs.alacritty;
   settings = {
     font = {
-      size = if IS_DESKTOP then 10 else 12;
+      size = 12;
       normal = {
         family = "IBM Plex Mono";
         style = "Mono";
