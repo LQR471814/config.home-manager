@@ -5,8 +5,18 @@ riverctl border-color-unfocused 0x444444
 riverctl border-color-focused 0x005577
 
 
-# Scaling & refresh rate
-riverctl spawn "wlr-randr --output eDP-1 --scale 1.5 --adaptive-sync enabled --mode 2560x1600@90.000999Hz"
+if [[ $(hostname) == *"laptop" ]]; then
+	# Thinkpad trackpoint
+	touchpoint_dev=$(riverctl list-inputs | grep -i "trackpoint")
+	riverctl input "${touchpoint_dev}" pointer-accel -0.25
+
+	# Natural scrolling
+	touchpad_dev=$(riverctl list-inputs | grep -i "touchpad")
+	riverctl input "${touchpad_dev}" natural-scroll disabled
+
+	# Scaling & refresh rate
+	riverctl spawn "wlr-randr --output eDP-1 --scale 1.5 --adaptive-sync enabled --mode 2560x1600@90.000999Hz"
+fi
 
 
 # Monitor brightness
@@ -75,16 +85,6 @@ riverctl map normal $mod+Control 0 toggle-focused-tags 511
 # Mouse controls
 riverctl map-pointer normal Mod4 BTN_LEFT move-view
 riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
-
-
-# Thinkpad trackpoint
-touchpoint_dev=$(riverctl list-inputs | grep -i "trackpoint")
-riverctl input "${touchpoint_dev}" pointer-accel -0.25
-
-
-# Natural scrolling
-touchpad_dev=$(riverctl list-inputs | grep -i "touchpad")
-riverctl input "${touchpad_dev}" natural-scroll disabled
 
 
 # Auto-focus windows
