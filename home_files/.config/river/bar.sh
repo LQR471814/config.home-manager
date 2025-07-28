@@ -120,7 +120,11 @@ if [ ! -p $FIFO_BAR ]; then
 fi
 
 sandbard() {
-  while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale 4
+  local scale=1
+  if [ echo "$(hostname)" | grep -q "laptop" ]; then
+    scale=4
+  fi
+  while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale $scale
 }
 
 sandbard &
