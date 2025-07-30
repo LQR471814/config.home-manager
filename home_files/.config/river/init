@@ -16,7 +16,12 @@ if [[ $(hostname) == *"laptop" ]]; then
 
 	# Scaling & refresh rate
 	riverctl spawn "wlr-randr --output eDP-1 --scale 1.5 --adaptive-sync enabled --mode 2560x1600@90.000999Hz"
+
+	# Lid close lock
+	riverctl map-switch normal lid close spawn swaylock
 fi
+
+
 
 
 # Monitor brightness
@@ -80,6 +85,10 @@ riverctl map normal $mod+Control 3 toggle-focused-tags 4
 riverctl map normal $mod+Control 2 toggle-focused-tags 2
 riverctl map normal $mod+Control 1 toggle-focused-tags 1
 riverctl map normal $mod+Control 0 toggle-focused-tags 511
+
+
+# Lock screen
+riverctl map normal $mod l spawn swaylock
 
 
 # Mouse controls

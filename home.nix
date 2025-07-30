@@ -192,6 +192,7 @@ in
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
+  programs.swaylock.enable = true;
 
   dconf = import ./src/cfg_system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;

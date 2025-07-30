@@ -121,8 +121,8 @@ fi
 
 sandbard() {
   local scale=1
-  if [ echo "$(hostname)" | grep -q "laptop" ]; then
-    scale=4
+  if echo "$(hostname)" | grep -q "laptop"; then
+    scale=2
   fi
   while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale $scale
 }
