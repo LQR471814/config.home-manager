@@ -132,8 +132,7 @@ in
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
-      activitywatch
-      syncthing
+      # activitywatch
       cups
 
       # basic apps
@@ -168,6 +167,8 @@ in
       filezilla
       qbittorrent-enhanced
       usbimager
+      jan
+      nextcloud-client
     ];
 
     file = import ./src/home_files.nix ctx;
@@ -191,7 +192,6 @@ in
   programs.zsh = import ./src/cfg_programs/zsh.nix ctx;
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
-  services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
   programs.swaylock.enable = true;
 
   dconf = import ./src/cfg_system/dconf.nix ctx;
