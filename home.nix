@@ -167,7 +167,6 @@ in
       filezilla
       qbittorrent-enhanced
       usbimager
-      jan
       nextcloud-client
     ];
 
