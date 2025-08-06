@@ -111,8 +111,7 @@ riverctl map normal $mod e spawn "alacritty -e 'yazi'"
 
 # Start graphical-target systemd services
 systemctl --user start fcitx5
-systemctl --user start aw-qt
-systemctl --user start slock
+systemctl --user start nextcloud
 
 
 # Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)
