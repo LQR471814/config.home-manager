@@ -52,6 +52,18 @@ in
       Install = { };
     };
 
+    nextcloud = {
+      Unit = {
+        Description = "nextcloud client";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        ExecStart = (nixbin "nextcloud") + " --background";
+        Restart = "no";
+      };
+      Install = { };
+    };
+
     # aw-qt = {
     #   Unit = {
     #     Description = "activitywatch daemon";
