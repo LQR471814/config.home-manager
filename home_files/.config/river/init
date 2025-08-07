@@ -109,6 +109,10 @@ riverctl default-layout rivertile
 riverctl map normal $mod e spawn "alacritty -e 'yazi'"
 
 
+# Notes
+riverctl map normal $mod n spawn "alacritty -e tmux new-session -c ~/Nextcloud/Documents/Notes -s notes \"nvim .\""
+
+
 # Start graphical-target systemd services
 systemctl --user start fcitx5
 systemctl --user start nextcloud
