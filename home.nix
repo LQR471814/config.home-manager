@@ -76,6 +76,7 @@ in
       graphviz
       llama-cpp
       hugo
+      tree-sitter
 
       # lsps
       nixd
