@@ -160,7 +160,6 @@ in
       keepassxc
       tor-browser
       thunderbird
-      obsidian
       libreoffice
       gimp3
       inkscape
