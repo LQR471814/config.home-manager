@@ -16,6 +16,10 @@
     # make tmux set the window title of the terminal
     set-option -g set-titles on
 
+    # make terminal images work
+    set -gq allow-passthrough on
+    set -g visual-activity off
+
     # fix colors
     set-option -ga terminal-overrides ",xterm-256color:Tc"
 

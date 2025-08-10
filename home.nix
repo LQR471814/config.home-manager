@@ -24,6 +24,9 @@ let
       ctex
       dvipng
       standalone
+      varwidth
+      preview
+      biber
       ;
   };
   fixPW = import ./src/derivations/fix_pipewire.nix { inherit pkgs; };
@@ -130,6 +133,8 @@ in
       xray
       tun2socks
       playerctl
+      ghostscript
+      mermaid-cli
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
