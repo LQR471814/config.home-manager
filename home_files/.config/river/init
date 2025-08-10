@@ -22,8 +22,6 @@ if [[ $(hostname) == *"laptop" ]]; then
 fi
 
 
-
-
 # Monitor brightness
 riverctl map normal None XF86MonBrightnessUp spawn "light -A 5"
 riverctl map normal None XF86MonBrightnessDown spawn "light -U 5"
@@ -110,7 +108,7 @@ riverctl map normal $mod e spawn "alacritty -e 'yazi'"
 
 
 # Notes
-riverctl map normal $mod n spawn "alacritty -e tmux new-session -c ~/Nextcloud/Documents/Notes -s notes \"nvim .\""
+riverctl map normal $mod n spawn "alacritty -e tmux new-session -c ~/Nextcloud/Documents/Notes -A -s notes \"nvim .\""
 
 
 # Start graphical-target systemd services
