@@ -15,6 +15,7 @@
     nvconf = "tmux new-session -A -c ~/.config/nvim -s nvim 'nvim .'";
   };
   interactiveShellInit = ''
+    set fish_greeting ""
     set -g fish_key_bindings fish_vi_key_bindings
 
     function __fish_yank_selection
