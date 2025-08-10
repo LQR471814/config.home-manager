@@ -53,8 +53,6 @@ in
       gnumake
       pkg-config
       git
-      tmux
-      git
       git-filter-repo
       git-credential-manager
       gh
@@ -193,7 +191,7 @@ in
   };
 
   programs.kitty = import ./src/cfg_programs/kitty.nix ctx;
-  programs.zsh = import ./src/cfg_programs/zsh.nix ctx;
+  programs.fish = import ./src/cfg_programs/fish.nix ctx;
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   programs.swaylock.enable = true;
