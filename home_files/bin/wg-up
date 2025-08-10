@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo wg-quick up ~/Code/config/wireguard/wireguard.conf
+sudo wg-quick up ~/Nextcloud/Wireguard/wireguard.conf
