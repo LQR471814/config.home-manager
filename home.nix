@@ -187,7 +187,7 @@ in
     };
   };
 
-  programs.alacritty = import ./src/cfg_programs/alacritty.nix ctx;
+  programs.kitty = import ./src/cfg_programs/kitty.nix ctx;
   programs.zsh = import ./src/cfg_programs/zsh.nix ctx;
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;

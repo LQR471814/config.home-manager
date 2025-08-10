@@ -35,9 +35,8 @@ riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK
 
 # Keybinds
 mod='Super'
-term='alacritty'
 
-riverctl map normal $mod+Shift Return spawn "$term"
+riverctl map normal $mod+Shift Return spawn "kitty"
 riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
 riverctl map normal $mod q spawn "riverctl close"
 riverctl map normal $mod j focus-view next
@@ -104,11 +103,11 @@ riverctl default-layout rivertile
 
 
 # File explorer
-riverctl map normal $mod e spawn "alacritty -e 'yazi'"
+riverctl map normal $mod e spawn "kitty --wait yazi"
 
 
 # Notes
-riverctl map normal $mod n spawn "alacritty -e tmux new-session -c ~/Nextcloud/Documents/Notes -A -s notes \"nvim .\""
+riverctl map normal $mod n spawn "kitty --wait tmux new-session -c ~/Nextcloud/Documents/Notes -A -s notes \"nvim .\""
 
 
 # Start graphical-target systemd services
