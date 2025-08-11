@@ -1,4 +1,4 @@
-{ ... }:
+{ HOME, ... }:
 {
   enable = true;
   shellAliases = {
@@ -45,5 +45,10 @@
         # paste from system clipboard in normal mode with 'p'
         bind 'p' fish_clipboard_paste
     end
+
+    export PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/go/bin:$PATH"
+
+    export TEXINPUTS="${HOME}/texmf//:${HOME}/.config/texmf//"
   '';
 }
