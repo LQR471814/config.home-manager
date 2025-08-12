@@ -145,6 +145,7 @@ in
       vlc # media viewer
       rhythmbox # music player
       pwvucontrol # audio patcher
+      gnome-clocks
 
       # additional apps
       localsend
