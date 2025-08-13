@@ -134,6 +134,7 @@ in
       ghostscript
       mermaid-cli
       sc-im
+      librsvg
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
