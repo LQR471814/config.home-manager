@@ -133,6 +133,7 @@ in
       playerctl
       ghostscript
       mermaid-cli
+      sc-im
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
