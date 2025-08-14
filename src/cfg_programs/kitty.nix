@@ -1,9 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 {
   enable = true;
   enableGitIntegration = true;
   shellIntegration.enableFishIntegration = true;
   themeFile = "Catppuccin-Mocha";
+  font.package = pkgs.nerd-fonts.monaspace;
+  font.name = "MonaspiceNe NF Light";
   settings = {
     confirm_os_window_close = 0;
 	clear_all_shortcuts = true;
