@@ -110,7 +110,6 @@ in
       pdf2svg
       ffmpeg
       yazi
-      ueberzugpp # this is a dependency of yazi
       rclone
       ffmpeg
       htop
