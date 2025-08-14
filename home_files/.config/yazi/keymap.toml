@@ -6,6 +6,7 @@ append_keymap = [
     { on = ["g", "c"], run = "cd ~/Code", desc = "Go to Code" },
     { on = ["g", "o"], run = "cd ~/Nextcloud/Documents", desc = "Go to Documents" },
     { on = ["g", "p"], run = "cd ~/Nextcloud/Pictures", desc = "Go to Pictures" },
-    { on = ["g", "n"], run = "cd ~/Nextcloud", desc = "Go to Nextcloud" },
+    { on = ["g", "n"], run = "cd ~/Nextcloud/Documents/Notes", desc = "Go to Notes" },
+    { on = ["g", "x"], run = "cd ~/Nextcloud", desc = "Go to Nextcloud" },
 ]
 
