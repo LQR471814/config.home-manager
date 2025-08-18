@@ -78,6 +78,7 @@ in
       llama-cpp
       hugo
       tree-sitter
+      nushell
 
       # lsps
       nixd
@@ -105,6 +106,7 @@ in
       tlaplusToolbox
       clang
       clang-tools
+      marksman
 
       # general terminal tools
       pdf2svg
