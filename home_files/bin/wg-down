@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo wg-quick down ~/Nextcloud/wireguard/wireguard.conf
+sudo wg-quick down ~/Nextcloud/Wireguard/wireguard.conf
