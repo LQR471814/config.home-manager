@@ -41,23 +41,6 @@ let
       )
   );
 
-  # thunderbird has special handling
-  tbfiles =
-    if builtins.pathExists "${HOME}/.thunderbird" then
-      let
-        tbdir = builtins.readDir "${HOME}/.thunderbird";
-        tbprofilename = builtins.head (
-          builtins.filter (name: builtins.match ".*\\.default" name != null) (builtins.attrNames tbdir)
-        );
-      in
-      {
-        ".thunderbird/${tbprofilename}/user.js" = {
-          source = DIRNAME + "/home_files/.thunderbird/user.js";
-        };
-      }
-    else
-      { };
-
   texfiles = {
     texmf = {
       source = mytexlive + "/share/texmf";
@@ -81,4 +64,4 @@ let
       { };
 in
 # `//` merges 2 attribute sets
-dotfiles // homefiles // texfiles // tbfiles // pluginfiles
+dotfiles // homefiles // texfiles // pluginfiles
