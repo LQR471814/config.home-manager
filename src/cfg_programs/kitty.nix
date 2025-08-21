@@ -21,6 +21,7 @@
     "ctrl+7" = "send_text all \\u001b[55;5u";
     "ctrl+8" = "send_text all \\u001b[56;5u";
     "ctrl+9" = "send_text all \\u001b[57;5u";
+    "ctrl+shift+c" = "copy_to_clipboard";
     "ctrl+shift+v" = "paste_from_clipboard";
   };
 }

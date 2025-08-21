@@ -1,2 +1,5 @@
 #!/bin/sh
 sudo wg-quick up ~/Nextcloud/Wireguard/wireguard.conf
+
+default_gateway=$(ip ro show default | awk '{print $3}')
+sudo ip ro add "10.20.90.50/32" via $default_gateway

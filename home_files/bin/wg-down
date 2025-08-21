@@ -1,2 +1,4 @@
 #!/bin/sh
 sudo wg-quick down ~/Nextcloud/Wireguard/wireguard.conf
+
+sudo ip ro del "10.20.90.50/32"
