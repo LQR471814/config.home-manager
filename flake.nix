@@ -19,6 +19,10 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        config = {
+          cudaSupport = builtins.pathExists /etc/nixos/DESKTOP;
+          allowUnfree = true;
+        };
       };
     in
     {

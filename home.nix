@@ -155,9 +155,7 @@ in
       (fixPW musescore)
       (fixPW ardour)
       (fixPW easyeffects)
-      (blender.override {
-        cudaSupport = true;
-      })
+      blender
       kdePackages.kdenlive
       obs-studio
       anki
