@@ -175,6 +175,7 @@ in
       qbittorrent-enhanced
       usbimager
       nextcloud-client
+      zoom-us
     ];
 
     file = import ./src/home_files.nix ctx;
