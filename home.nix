@@ -27,6 +27,7 @@ let
       varwidth
       preview
       biber
+      cm-super
       ;
   };
   fixPW = import ./src/derivations/fix_pipewire.nix { inherit pkgs; };
