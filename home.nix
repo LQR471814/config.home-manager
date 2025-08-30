@@ -80,6 +80,7 @@ in
       hugo
       tree-sitter
       nushell
+      ast-grep
 
       # lsps
       nixd
