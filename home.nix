@@ -203,6 +203,12 @@ in
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   programs.swaylock.enable = true;
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    acceleration = if IS_DESKTOP then "cuda" else null;
+  };
+
   dconf = import ./src/cfg_system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
