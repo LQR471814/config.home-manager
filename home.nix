@@ -76,11 +76,11 @@ in
       redis
       croc
       graphviz
-      llama-cpp
       hugo
       tree-sitter
       nushell
       ast-grep
+      ollama-cuda
 
       # lsps
       nixd
