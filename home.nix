@@ -80,7 +80,7 @@ in
       tree-sitter
       nushell
       ast-grep
-      ollama-cuda
+      (if IS_DESKTOP then ollama-cuda else ollama)
 
       # lsps
       nixd
@@ -205,7 +205,7 @@ in
 
   services.ollama = {
     enable = true;
-    package = pkgs.ollama-cuda;
+    package = if IS_DESKTOP then pkgs.ollama-cuda else pkgs.ollama;
     acceleration = if IS_DESKTOP then "cuda" else null;
   };
 
