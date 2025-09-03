@@ -159,7 +159,6 @@ in
       (fixPW easyeffects)
       blender
       kdePackages.kdenlive
-      obs-studio
       anki
       qpwgraph
       foliate
@@ -202,6 +201,15 @@ in
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
   programs.swaylock.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
 
   services.ollama = {
     enable = true;
