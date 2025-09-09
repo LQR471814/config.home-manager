@@ -8,6 +8,7 @@
     nvt = "tmux new-session -A -s \"$(basename \"$PWD\")\" 'nvim .'";
     shut = "sudo shutdown now -h";
     batchargefull = "sudo tlp setcharge 0 100";
+    batcharge80 = "sudo tlp setcharge 0 80";
     batreset = "sudo tlp start";
     notes = "tmux new-session -A -c ~/Nextcloud/Documents/Notes -s notes 'nvim .'";
     hmconf = "tmux new-session -A -c ~/.config/home-manager -s home-manager 'nvim .'";
