@@ -177,6 +177,7 @@ in
       usbimager
       nextcloud-client
       zoom-us
+      arduino-cli
     ];
 
     file = import ./src/home_files.nix ctx;
@@ -206,7 +207,6 @@ in
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
-      obs-backgroundremoval
       obs-pipewire-audio-capture
     ];
   };
