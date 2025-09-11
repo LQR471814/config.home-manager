@@ -99,7 +99,6 @@ in
       pnpm
       rustc
       cargo
-      numbat
       zulu23
       mytexlive
       uv
