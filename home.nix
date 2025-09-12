@@ -176,7 +176,6 @@ in
       usbimager
       nextcloud-client
       zoom-us
-      arduino-cli
     ];
 
     file = import ./src/home_files.nix ctx;
