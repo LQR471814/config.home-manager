@@ -5,15 +5,15 @@
     lzg = "lazygit";
     y = "yazi";
     ls = "ls --color=auto";
-    nvt = "tmux new-session -A -s \"$(basename \"$PWD\")\" 'nvim .'";
+    nvt = "tmux-spawn $PWD 'nvim .'";
     shut = "sudo shutdown now -h";
     batchargefull = "sudo tlp setcharge 0 100";
     batcharge80 = "sudo tlp setcharge 0 80";
     batreset = "sudo tlp start";
-    notes = "tmux new-session -A -c ~/Nextcloud/Documents/Notes -s notes 'nvim .'";
-    hmconf = "tmux new-session -A -c ~/.config/home-manager -s home-manager 'nvim .'";
-    osconf = "tmux new-session -A -c ~/.config/nixos -s nixos 'nvim .'";
-    nvconf = "tmux new-session -A -c ~/.config/nvim -s nvim 'nvim .'";
+    notes = "tmux-spawn ~/Nextcloud/Documents/Notes 'nvim ~/Nextcloud/Documents/Notes'";
+    hmconf = "tmux-spawn ~/.config/home-manager 'nvim ~/.config/home-manager'";
+    osconf = "tmux-spawn ~/.config/nixos 'nvim ~/.config/nixos'";
+    nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
   };
   interactiveShellInit = ''
     set fish_greeting ""
@@ -46,10 +46,5 @@
         # paste from system clipboard in normal mode with 'p'
         bind 'p' fish_clipboard_paste
     end
-
-    export PATH="$HOME/bin:$PATH"
-    export PATH="$HOME/go/bin:$PATH"
-
-    export TEXINPUTS="${HOME}/texmf//:${HOME}/.config/texmf//"
   '';
 }

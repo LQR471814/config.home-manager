@@ -107,7 +107,7 @@ riverctl map normal $mod e spawn "kitty --wait yazi"
 
 
 # Notes
-riverctl map normal $mod n spawn "kitty --wait fish -c 'tmux new-session -c ~/Nextcloud/Documents/Notes -A -s notes \"nvim .\"'"
+riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/Nextcloud/Documents/Notes '~/Nextcloud/Documents/Notes'"
 
 
 # Start graphical-target systemd services
@@ -122,4 +122,5 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 
 # Bar
 /home/lqr471814/.config/river/bar.sh
+
 

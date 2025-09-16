@@ -30,7 +30,7 @@ let
       cm-super
       ;
   };
-  fixPW = import ./src/derivations/fix_pipewire.nix { inherit pkgs; };
+  fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
   ctx = {
     inherit HOME;
     inherit HOSTNAME;
@@ -185,7 +185,13 @@ in
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
       SDL_IM_MODULE = "fcitx";
+      TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
     };
+
+    sessionPath = [
+      "${HOME}/bin"
+      "${HOME}/go/bin"
+    ];
 
     pointerCursor = {
       name = "phinger-cursors-light";

@@ -1,3 +1,5 @@
+# this derivation fixes all apps that require pipewire
+
 { pkgs ? import <nixpkgs> { }, ... }:
 pkg:
 
