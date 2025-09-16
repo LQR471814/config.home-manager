@@ -107,7 +107,7 @@ riverctl map normal $mod e spawn "kitty --wait yazi"
 
 
 # Notes
-riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/Nextcloud/Documents/Notes '~/Nextcloud/Documents/Notes'"
+riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/Nextcloud/Documents/Notes 'nvim ~/Nextcloud/Documents/Notes'"
 
 
 # Start graphical-target systemd services

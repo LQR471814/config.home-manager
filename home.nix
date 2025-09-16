@@ -141,7 +141,6 @@ in
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
       # activitywatch
-      cups
 
       # basic apps
       firefox
