@@ -10,3 +10,7 @@ append_keymap = [
     { on = ["g", "x"], run = "cd ~/Nextcloud", desc = "Go to Nextcloud" },
 ]
 
+prepend_keymap = [
+    { on = ["<Space>", "f"], run = ["search_do --via=fd", "filter --smart"], desc = "Find files using fd" },
+]
+
