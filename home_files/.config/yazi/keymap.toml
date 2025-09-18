@@ -11,6 +11,6 @@ append_keymap = [
 ]
 
 prepend_keymap = [
-    { on = ["<Space>", "f"], run = ["search_do --via=fd", "filter --smart"], desc = "Find files using fd" },
+    { on = ["F"], run = ["search_do --via=fd", "filter --smart"], desc = "Find files using fd" },
 ]
 
