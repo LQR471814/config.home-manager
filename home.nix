@@ -81,6 +81,7 @@ in
       nushell
       ast-grep
       (if IS_DESKTOP then ollama-cuda else ollama)
+      ast-grep
 
       # lsps
       nixd
