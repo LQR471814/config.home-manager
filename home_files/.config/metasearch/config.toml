@@ -14,17 +14,26 @@ enabled = true
 
 [engines]
 google = { weight = 1.05, enabled = true }
-bing = { enabled = false }
 brave = { weight = 1.25, enabled = true }
-numbat = { weight = 10, enabled = true }
 mdn = { weight = 1.0, enabled = true, max_sections = 1 }
 
-wikipedia = { enabled = false }
+colorpicker = { weight = 10, enabled = true }
+numbat = { weight = 10, enabled = true }
+notepad = { weight = 10, enabled = true }
+dictionary = { weight = 10, enabled = true }
+thesaurus = { weight = 10, enabled = true }
+timezone = { weight = 10, enabled = true }
+useragent = { weight = 10, enabled = true }
+
+wikipedia = { weight = 1.25, enabled = true, max_sections = 1 }
+github = { weight = 1.25, enabled = true }
+
 google_scholar = { enabled = false }
+marginalia = { enabled = false }
+bing = { enabled = false }
 rightdao = { enabled = false }
 stract = { enabled = false }
 yep = { enabled = false }
-marginalia = { enabled = false }
 # fend = true
 
 [urls.replace]
