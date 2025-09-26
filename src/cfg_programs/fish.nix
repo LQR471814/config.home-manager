@@ -46,5 +46,7 @@
         # paste from system clipboard in normal mode with 'p'
         bind 'p' fish_clipboard_paste
     end
+
+    bind -M insert ctrl-f accept-autosuggestion
   '';
 }
