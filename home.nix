@@ -93,6 +93,7 @@ in
       svelte-language-server
       biome
       vscode-langservers-extracted
+      pyright
 
       # languages
       go
