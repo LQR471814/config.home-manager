@@ -23,5 +23,7 @@
     "ctrl+9" = "send_text all \\u001b[57;5u";
     "ctrl+shift+c" = "copy_to_clipboard";
     "ctrl+shift+v" = "paste_from_clipboard";
+    "ctrl+equal" = "change_font_size all +1.0";
+    "ctrl+minus" = "change_font_size all -1.0";
   };
 }
