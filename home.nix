@@ -139,6 +139,7 @@ in
       mermaid-cli
       sc-im
       librsvg
+      numbat
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
