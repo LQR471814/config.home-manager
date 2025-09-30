@@ -1,2 +1,1 @@
-#!/usr/bin/env fish
 git merge $1 --no-ff
