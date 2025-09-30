@@ -81,6 +81,7 @@ in
       nushell
       ast-grep
       (if IS_DESKTOP then ollama-cuda else ollama)
+      openssl
 
       # lsps
       nixd
@@ -92,6 +93,7 @@ in
       svelte-language-server
       biome
       vscode-langservers-extracted
+      pyright
 
       # languages
       go
@@ -137,6 +139,7 @@ in
       mermaid-cli
       sc-im
       librsvg
+      numbat
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -173,8 +176,6 @@ in
       filezilla
       qbittorrent-enhanced
       usbimager
-      nextcloud-client
-      zoom-us
     ];
 
     file = import ./src/home_files.nix ctx;
@@ -218,6 +219,32 @@ in
     enable = true;
     package = if IS_DESKTOP then pkgs.ollama-cuda else pkgs.ollama;
     acceleration = if IS_DESKTOP then "cuda" else null;
+  };
+  services.syncthing = {
+    enable = true;
+    settings = {
+      devices = {
+        homeserver = {
+          addresses = [
+            "tcp://192.168.1.10:22000"
+            "quic://192.168.1.10:22000"
+          ];
+          id = "VS3PDKE-TBTBRWJ-L2OTOUD-Z36HTYA-GCBUQUB-GOR5IN3-VYOPHCJ-MOJK7AZ";
+        };
+      };
+      folders = {
+        files = {
+          id = "files";
+          label = "Files";
+          path = "${HOME}/files";
+          devices = [ "homeserver" ];
+          versioning = {
+            type = "trashcan";
+            params.cleanoutDays = "30";
+          };
+        };
+      };
+    };
   };
 
   dconf = import ./src/cfg_system/dconf.nix ctx;

@@ -5,11 +5,11 @@ pkgs.rustPlatform.buildRustPackage {
 
   src = pkgs.fetchgit {
     url = "https://github.com/LQR471814/metasearch2.git";
-    rev = "cad5db8072bdbc8b5b26fe7eca96304d54598caf";
-    hash = "sha256-IRflQI4fqFUYDoZHl2r+2mhqphonX+CU4TyDdcBWsGo=";
+    rev = "940012121c73a24e95995af2ef09dff768ab2b8d";
+    hash = "sha256-PmTWrSYUeiGkok9m1IauTVQ1PcyfIEJjzaR0o5TH0cA=";
   };
 
-  cargoHash = "sha256-wJxpZ5pczKUfo6npYLJvnPU+r3PPnqj/vIwa3qKlxug=";
+  cargoHash = "sha256-x3F/ykuxAofop3L/i/zAmXfGa6qccJg8UKgWB1rdkRM=";
 
   buildPhase = "cargo build --frozen --release";
   installPhase = ''
