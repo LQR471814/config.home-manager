@@ -234,7 +234,6 @@ in
       };
       folders = {
         files = {
-          # enable = true;
           id = "files";
           label = "Files";
           path = "${HOME}/files";
