@@ -107,12 +107,11 @@ riverctl map normal $mod e spawn "kitty --wait yazi"
 
 
 # Notes
-riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/Nextcloud/Documents/Notes 'nvim ~/Nextcloud/Documents/Notes'"
+riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'"
 
 
 # Start graphical-target systemd services
 systemctl --user start fcitx5
-systemctl --user start nextcloud
 
 
 # Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)

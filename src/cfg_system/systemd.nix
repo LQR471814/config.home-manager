@@ -2,7 +2,6 @@
 let
   nixbin = name: "${HOME}/.nix-profile/bin/${name}";
   dotconfig = path: "${HOME}/.config/${path}";
-  PATH = "${HOME}/bin:${HOME}/.nix-profile/bin:/nix/var/nix/profiles/default/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
 in
 {
   enable = true;
@@ -47,18 +46,6 @@ in
       };
       Service = {
         ExecStart = nixbin "fcitx5";
-        Restart = "no";
-      };
-      Install = { };
-    };
-
-    nextcloud = {
-      Unit = {
-        Description = "nextcloud client";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = (nixbin "nextcloud") + " --background";
         Restart = "no";
       };
       Install = { };
