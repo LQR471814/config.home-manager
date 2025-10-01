@@ -250,11 +250,7 @@ in
   dconf = import ./src/cfg_system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
-  gtk.enable = true;
-  gtk.iconTheme = {
-    name = "Papirus-Light";
-    package = pkgs.papirus-icon-theme;
-  };
+  gtk = import ./src/cfg_system/gtk.nix ctx;
 
   # the systemd daemon created by this doesn't start automatically
   # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
