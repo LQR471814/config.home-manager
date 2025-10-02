@@ -176,6 +176,7 @@ in
       filezilla
       qbittorrent-enhanced
       usbimager
+      zotero
     ];
 
     file = import ./src/home_files.nix ctx;
