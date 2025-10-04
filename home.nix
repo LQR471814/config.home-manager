@@ -107,9 +107,13 @@ in
       pipx
       ruff
       tlaplusToolbox
+      marksman
       clang
       clang-tools
-      marksman
+      lld
+      lldb
+      conan
+      libcxx
 
       # general terminal tools
       pdf2svg
