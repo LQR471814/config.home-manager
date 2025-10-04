@@ -140,6 +140,7 @@ in
       sc-im
       librsvg
       numbat
+      pandoc
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
