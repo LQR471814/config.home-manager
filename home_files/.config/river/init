@@ -109,7 +109,7 @@ riverctl map normal $mod e spawn "kitty --wait yazi"
 # Notes
 riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'"
 # Open new note
-riverctl map normal $mod n spawn "kitty --wait $HOME/bin/new-note"
+riverctl map normal $mod+Shift n spawn "kitty --wait $HOME/bin/new-note"
 
 
 # Start graphical-target systemd services
