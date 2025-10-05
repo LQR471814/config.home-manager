@@ -182,6 +182,7 @@ in
       qbittorrent-enhanced
       usbimager
       zotero
+      ungoogled-chromium
     ];
 
     file = import ./src/home_files.nix ctx;
