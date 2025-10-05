@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-cd ~/files/Documents/Notes/Quick\ notes/ && nvim $(date +%F)
+cd ~/files/Documents/Notes/Quick\ notes/ && nvim $(date +%F).md
