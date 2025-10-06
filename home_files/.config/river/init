@@ -37,18 +37,27 @@ riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK
 mod='Super'
 
 riverctl map normal $mod+Shift Return spawn "kitty"
-riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
 riverctl map normal $mod q spawn "riverctl close"
+
 riverctl map normal $mod j focus-view next
 riverctl map normal $mod k focus-view previous
+
 riverctl map normal $mod h send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal $mod l send-layout-cmd rivertile "main-ratio +0.05"
 riverctl map normal $mod o send-layout-cmd rivertile "main-ratio 0.5"
+
+riverctl map normal $mod+Shift h send-layout-cmd rivertile "main-location top"
+riverctl map normal $mod+Shift v send-layout-cmd rivertile "main-location left"
+riverctl map normal $mod i send-layout-cmd rivertile "main-count +1"
+riverctl map normal $mod d send-layout-cmd rivertile "main-count -1"
+
 riverctl map normal $mod m toggle-fullscreen
 riverctl map normal $mod Tab cycle-layout
 riverctl map normal $mod+Shift Space toggle-float
 riverctl map normal $mod+Control+Shift q spawn "riverctl exit"
 riverctl map normal $mod Return swap left
+
+riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
 riverctl map normal $mod+Shift p spawn 'grim -g "$(slurp)"'
 riverctl map normal $mod y spawn "playerctl play-pause"
 
