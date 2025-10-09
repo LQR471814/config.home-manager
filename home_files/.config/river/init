@@ -55,7 +55,12 @@ riverctl map normal $mod m toggle-fullscreen
 riverctl map normal $mod Tab cycle-layout
 riverctl map normal $mod+Shift Space toggle-float
 riverctl map normal $mod+Control+Shift q spawn "riverctl exit"
-riverctl map normal $mod Return swap next
+
+riverctl map normal $mod+Shift k swap up
+riverctl map normal $mod+Shift j swap down
+riverctl map normal $mod+Shift h swap left
+riverctl map normal $mod+Shift l swap right
+riverctl map normal $mod Return swap left
 
 riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
 riverctl map normal $mod+Shift p spawn 'grim -g "$(slurp)"'
@@ -94,7 +99,7 @@ riverctl map normal $mod+Control 0 toggle-focused-tags 511
 
 
 # Lock screen
-riverctl map normal $mod+Shift l spawn swaylock
+riverctl map normal $mod+Control l spawn swaylock
 
 
 # Mouse controls
