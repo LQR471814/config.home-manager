@@ -28,6 +28,8 @@ let
       preview
       biber
       cm-super
+      biblatex
+      biblatex-apa
       ;
   };
   fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
