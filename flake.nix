@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
+    unstable.url = "github:flox/nixpkgs/stable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +14,7 @@
   outputs =
     {
       nixpkgs,
+      unstable,
       home-manager,
       ...
     }:
@@ -26,13 +29,51 @@
       };
     in
     {
-      homeConfigurations = {
-        lqr471814 = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home.nix ];
-          extraSpecialArgs = {
-            inherit system;
-          };
+      homeConfigurations.lqr471814 = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home.nix
+          {
+            nixpkgs.overlays = [
+              (
+                super: self: with unstable.legacyPackages.${system}; {
+                  inherit firefox;
+                  inherit thunderbird;
+                  inherit kitty;
+                  inherit zathura;
+                  inherit vlc;
+                  inherit rhythmbox;
+                  inherit pwvucontrol;
+                  inherit gnome-clocks;
+                  inherit localsend;
+                  inherit musescore;
+                  inherit ardour;
+                  inherit easyeffects;
+                  inherit blender;
+                  inherit anki;
+                  inherit qpwgraph;
+                  inherit foliate;
+                  inherit legcord;
+                  inherit dbeaver-bin;
+                  inherit keepassxc;
+                  inherit tor-browser;
+                  inherit libreoffice;
+                  inherit gimp3;
+                  inherit inkscape;
+                  inherit scribus;
+                  inherit filezilla;
+                  inherit qbittorrent-enhanced;
+                  inherit usbimager;
+                  inherit zotero;
+                  inherit ungoogled-chromium;
+                  inherit obs-studio;
+                }
+              )
+            ];
+          }
+        ];
+        extraSpecialArgs = {
+          inherit system;
         };
       };
     };
