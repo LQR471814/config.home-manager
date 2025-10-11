@@ -185,6 +185,7 @@ in
       usbimager
       zotero
       ungoogled-chromium
+      (import ./src/derivations/rdfglance.nix ctx)
     ];
 
     file = import ./src/home_files.nix ctx;
