@@ -115,7 +115,6 @@ in
       clang-tools
       lld
       lldb
-      conan
       libcxx
 
       # general terminal tools
@@ -148,6 +147,7 @@ in
       librsvg
       numbat
       pandoc
+      picocom
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
@@ -202,6 +202,7 @@ in
     sessionPath = [
       "${HOME}/bin"
       "${HOME}/go/bin"
+      "${HOME}/.local/bin"
     ];
 
     pointerCursor = {
