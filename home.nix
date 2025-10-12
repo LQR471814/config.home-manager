@@ -84,6 +84,7 @@ in
       ast-grep
       (if IS_DESKTOP then ollama-cuda else ollama)
       openssl
+      sbcl
 
       # lsps
       nixd
