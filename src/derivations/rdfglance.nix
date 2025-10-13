@@ -23,7 +23,7 @@ pkgs.rustPlatform.buildRustPackage {
     wayland-protocols
     libxkbcommon
     vulkan-loader
-    mesa.drivers
+    mesa
     udev
   ];
   OPENSSL_NO_VENDOR = 1;
