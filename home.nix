@@ -163,7 +163,7 @@ in
 
       # windows emulation
       winetricks
-      wineWowPackages.waylandFull
+      wineWowPackages.full
 
       # additional apps
       localsend
