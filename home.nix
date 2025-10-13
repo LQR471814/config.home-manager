@@ -186,6 +186,7 @@ in
       usbimager
       zotero
       ungoogled-chromium
+      upscayl-ncnn
       (import ./src/derivations/rdfglance.nix ctx)
     ];
 
