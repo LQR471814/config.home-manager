@@ -85,6 +85,7 @@ in
       (if IS_DESKTOP then ollama-cuda else ollama)
       openssl
       sbcl
+      sbclPackages.lisp-stat
 
       # lsps
       nixd
