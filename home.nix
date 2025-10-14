@@ -86,6 +86,7 @@ in
       openssl
       sbcl
       sbclPackages.lisp-stat
+      sbclPackages.fft
 
       # lsps
       nixd
