@@ -151,6 +151,7 @@ in
       numbat
       pandoc
       picocom
+      fzf
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
