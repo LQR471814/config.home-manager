@@ -99,6 +99,7 @@ in
       biome
       vscode-langservers-extracted
       pyright
+      ltex-ls-plus
 
       # languages
       go
