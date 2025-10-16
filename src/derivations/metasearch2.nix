@@ -5,8 +5,8 @@ pkgs.rustPlatform.buildRustPackage {
 
   src = pkgs.fetchgit {
     url = "https://github.com/LQR471814/metasearch2.git";
-    rev = "940012121c73a24e95995af2ef09dff768ab2b8d";
-    hash = "sha256-PmTWrSYUeiGkok9m1IauTVQ1PcyfIEJjzaR0o5TH0cA=";
+    rev = "37dc3364731f3a62c554f2d19160c22bd5f260fe";
+    hash = "sha256-UwDYpjgiFQbDIK1PsZNXmu0gUXBKEAfLHS17/JuD0Bs=";
   };
 
   cargoHash = "sha256-x3F/ykuxAofop3L/i/zAmXfGa6qccJg8UKgWB1rdkRM=";
