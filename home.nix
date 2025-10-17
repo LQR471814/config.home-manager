@@ -153,6 +153,7 @@ in
       pandoc
       picocom
       fzf
+      zenity
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)

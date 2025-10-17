@@ -1,0 +1,13 @@
+#!/bin/sh
+FORM_INPUT=$(zenity --forms \
+  --title="Windows VM" \
+  --text="Enter windows credentials" \
+  --add-entry="Username" \
+  --add-password="Password" \
+  --separator="|")
+
+IFS="|" read -r USERNAME PASSWORD <<EOF
+$FORM_INPUT
+EOF
+
+sdl-freerdp /u:$USERNAME /p:$PASSWORD /v:127.0.0.1 /cert:tofu
