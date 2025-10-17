@@ -167,10 +167,6 @@ in
       pwvucontrol # audio patcher
       gnome-clocks
 
-      # windows emulation
-      winetricks
-      wineWowPackages.full
-
       # additional apps
       localsend
       (fixPW musescore)
