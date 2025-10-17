@@ -1,10 +1,15 @@
 #!/bin/sh
-FORM_INPUT=$(zenity --forms \
-  --title="Windows VM" \
-  --text="Enter windows credentials" \
-  --add-entry="Username" \
-  --add-password="Password" \
-  --separator="|")
+
+if [ -f ~/files/Windows/creds ]; then
+	FORM_INPUT=$(cat ~/files/Windows/creds)
+else
+	FORM_INPUT=$(zenity --forms \
+	  --title="Windows VM" \
+	  --text="Enter windows credentials" \
+	  --add-entry="Username" \
+	  --add-password="Password" \
+	  --separator="|")
+fi
 
 IFS="|" read -r USERNAME PASSWORD <<EOF
 $FORM_INPUT
