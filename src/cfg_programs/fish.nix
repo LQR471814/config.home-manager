@@ -14,7 +14,7 @@
     hmconf = "tmux-spawn ~/.config/home-manager 'nvim ~/.config/home-manager'";
     osconf = "tmux-spawn ~/.config/nixos 'nvim ~/.config/nixos'";
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
-    mansearch = "man -k . | fzf | awk '{print $1}' | xargs -r man";
+    mansearch = "man -k . | fzf | awk '{print $1 $2}' | xargs -r man";
   };
   interactiveShellInit = ''
     set fish_greeting ""
