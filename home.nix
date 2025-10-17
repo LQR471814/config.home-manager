@@ -30,6 +30,7 @@ let
       cm-super
       biblatex
       biblatex-apa
+      hyperref
       ;
   };
   fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
