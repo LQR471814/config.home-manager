@@ -240,7 +240,13 @@ in
     ];
   };
 
-  services.mako.enable = true;
+  services.mako = {
+    enable = true;
+    settings = {
+      width = "400";
+      height = "200";
+    };
+  };
   services.ollama = {
     enable = true;
     package = if IS_DESKTOP then pkgs.ollama-cuda else pkgs.ollama;
