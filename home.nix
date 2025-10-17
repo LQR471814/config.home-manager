@@ -182,7 +182,7 @@ in
       foliate
       legcord
       dbeaver-bin
-      miru
+      # miru
       keepassxc
       tor-browser
       thunderbird
@@ -197,6 +197,12 @@ in
       ungoogled-chromium
       upscayl-ncnn
       (import ./src/derivations/rdfglance.nix ctx)
+
+      # dependencies necessary for winapps
+      freerdp
+      dialog
+      netcat-openbsd
+      libnotify
     ];
 
     file = import ./src/home_files.nix ctx;
