@@ -128,6 +128,7 @@ riverctl map normal $mod+Shift n spawn "kitty --wait $HOME/bin/new-note"
 
 # Start graphical-target systemd services
 systemctl --user start fcitx5
+riverctl spawn mako
 
 
 # Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)

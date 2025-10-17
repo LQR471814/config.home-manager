@@ -243,6 +243,7 @@ in
     ];
   };
 
+  services.mako.enable = true;
   services.ollama = {
     enable = true;
     package = if IS_DESKTOP then pkgs.ollama-cuda else pkgs.ollama;
