@@ -15,4 +15,4 @@ IFS="|" read -r USERNAME PASSWORD <<EOF
 $FORM_INPUT
 EOF
 
-sdl-freerdp /u:$USERNAME /p:$PASSWORD /v:127.0.0.1 /cert:tofu /clipboard
+xfreerdp /u:$USERNAME /p:$PASSWORD /v:127.0.0.1 /cert:tofu /clipboard

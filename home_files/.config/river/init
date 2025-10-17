@@ -62,6 +62,11 @@ riverctl map normal $mod+Shift h swap left
 riverctl map normal $mod+Shift l swap right
 riverctl map normal $mod Return swap left
 
+# common applications
+riverctl map normal $mod o spawn "makoctl restore"
+riverctl map normal $mod w spawn "windows"
+riverctl map normal $mod f spawn "sh -c 'notify-send -t 1000 -e \"Starting firefox...\"; firefox'"
+riverctl map normal $mod t spawn "sh -c 'notify-send -t 1000 -e \"Starting thunderbird...\"; thunderbird'"
 riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
 riverctl map normal $mod+Shift p spawn 'grim -g "$(slurp)"'
 riverctl map normal $mod y spawn "playerctl play-pause"
