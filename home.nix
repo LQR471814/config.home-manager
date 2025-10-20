@@ -193,6 +193,7 @@ in
       zotero
       ungoogled-chromium
       upscayl-ncnn
+      swayimg
       (import ./src/derivations/rdfglance.nix ctx)
 
       # dependencies necessary for winapps
