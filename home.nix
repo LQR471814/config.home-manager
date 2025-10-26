@@ -120,7 +120,7 @@ in
       lld
       lldb
       libcxx
-      julia
+      julia-bin
 
       # general terminal tools
       pdf2svg
