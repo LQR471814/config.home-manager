@@ -8,8 +8,9 @@
 # install nix
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
-# run rest of the install script
-./install.sh
+# other installation
+julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
+julia install.jl
 ```
 
 - `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run
