@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
-    unstable.url = "github:flox/nixpkgs/stable";
+    unstable.url = "github:flox/nixpkgs/unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -67,6 +67,7 @@
                   inherit zotero;
                   inherit ungoogled-chromium;
                   inherit obs-studio;
+                  inherit julia-bin;
                 }
               )
             ];
