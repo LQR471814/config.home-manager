@@ -121,6 +121,7 @@ in
       lldb
       libcxx
       julia-bin
+      mermaid-cli
 
       # general terminal tools
       pdf2svg
