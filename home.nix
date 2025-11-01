@@ -155,6 +155,7 @@ in
       picocom
       fzf
       zenity
+      (import ./src/derivations/espresso-logic.nix ctx)
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
