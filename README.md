@@ -9,7 +9,8 @@
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # other installation
-julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
+julia --project=~/.julia/environments/nvim-lspconfig
+install_lsp.jl
 julia install.jl
 ```
 
