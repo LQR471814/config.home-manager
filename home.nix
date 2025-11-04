@@ -234,7 +234,12 @@ in
   programs.fish = import ./src/cfg_programs/fish.nix ctx;
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+    };
+  };
 
   programs.obs-studio = {
     enable = true;
