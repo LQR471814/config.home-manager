@@ -157,6 +157,7 @@ in
       fzf
       zenity
       (import ./src/derivations/espresso-logic.nix ctx)
+      (import ./src/derivations/rddlsim.nix ctx)
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
