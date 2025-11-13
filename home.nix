@@ -199,6 +199,7 @@ in
       upscayl-ncnn
       swayimg
       (import ./src/derivations/rdfglance.nix ctx)
+      rustdesk-flutter
 
       # dependencies necessary for winapps
       freerdp

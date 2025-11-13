@@ -49,6 +49,6 @@
         bind 'p' fish_clipboard_paste
     end
 
-    bind -M insert ctrl-f accept-autosuggestion
+    bind -M insert \t accept-autosuggestion or complete
   '';
 }
