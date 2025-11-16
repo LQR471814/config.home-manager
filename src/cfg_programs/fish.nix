@@ -8,8 +8,8 @@
     nvt = "tmux-spawn $PWD 'nvim .'";
     shut = "sudo shutdown now -h";
     batchargefull = "sudo tlp setcharge 0 100";
-    batcharge80 = "sudo tlp setcharge 0 80";
-    batcharge50 = "sudo tlp setcharge 48 50";
+    batcharge70 = "sudo tlp setcharge 0 70";
+    batcharge40 = "sudo tlp setcharge 40 60";
     batreset = "sudo tlp start";
     notes = "tmux-spawn ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'";
     hmconf = "tmux-spawn ~/.config/home-manager 'nvim ~/.config/home-manager'";
