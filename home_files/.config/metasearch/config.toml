@@ -13,7 +13,7 @@ stylesheet_url = "/themes/catppuccin-mocha.css"
 enabled = true
 
 [engines]
-google = { weight = 1.05, enabled = true }
+google = { weight = 1.05, enabled = false } # google doesn't work right now
 brave = { weight = 1.25, enabled = true }
 google_scholar = { weight = 0.8, enabled = true }
 
