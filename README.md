@@ -8,6 +8,10 @@
 # install nix
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
+# symlinks
+ln -s ~/.lv2 ~/files/Plugins/lv2
+ln -s ~/.vst3 ~/files/Plugins/vst3
+
 # other installation
 julia --project=~/.julia/environments/nvim-lspconfig install_lsp.jl
 julia install.jl

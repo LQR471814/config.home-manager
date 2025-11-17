@@ -200,6 +200,7 @@ in
       swayimg
       (import ./src/derivations/rdfglance.nix ctx)
       rustdesk-flutter
+      linvstmanager
 
       # dependencies necessary for winapps
       freerdp
