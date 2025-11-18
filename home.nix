@@ -201,6 +201,8 @@ in
       (import ./src/derivations/rdfglance.nix ctx)
       rustdesk-flutter
       linvstmanager
+      wineWowPackages.stable
+      winetricks
 
       # dependencies necessary for winapps
       freerdp
