@@ -25,10 +25,11 @@ let
       standalone
       varwidth
       preview
-      biber
       cm-super
+      biber
       biblatex
       biblatex-apa
+      biblatex-mla
       hyperref
       setspace
       texcount
