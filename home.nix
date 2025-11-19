@@ -21,7 +21,6 @@ let
       pgfplots
       catchfile
       titlesec
-      ctex
       dvipng
       standalone
       varwidth
@@ -31,6 +30,11 @@ let
       biblatex
       biblatex-apa
       hyperref
+      setspace
+      texcount
+      fontspec
+      ctex
+      xecjk
       ;
   };
   fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
