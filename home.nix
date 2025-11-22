@@ -36,6 +36,8 @@ let
       fontspec
       ctex
       xecjk
+      enumitem
+      moderncv
       ;
   };
   fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
@@ -163,6 +165,7 @@ in
       zenity
       (import ./src/derivations/espresso-logic.nix ctx)
       (import ./src/derivations/rddlsim.nix ctx)
+      claude-code
 
       # daemons
       (import ./src/derivations/metasearch2.nix ctx)
