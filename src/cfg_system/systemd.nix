@@ -22,6 +22,42 @@ in
       };
     };
 
+    fcitx5 = {
+      Unit = {
+        Description = "fcitx5 input method daemon";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        ExecStart = nixbin "fcitx5";
+        Restart = "no";
+      };
+      Install = { };
+    };
+
+    sandbar = {
+      Unit = {
+        Description = "sandbar";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        ExecStart = dotconfig "river/bar.sh";
+      };
+    };
+
+    # aw-qt = {
+    #   Unit = {
+    #     Description = "activitywatch daemon";
+    #     DefaultDependencies = "no";
+    #   };
+    #   Service = {
+    #     # wrapper script is executed because aw-qt needs to call some other processes
+    #     # and it cannot do that without the nix env vars being present
+    #     ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
+    #     Restart = "no";
+    #   };
+    #   Install = { };
+    # };
+
     # awsync = {
     #   Unit = {
     #     Description = "synchronize activitywatch data";
@@ -39,30 +75,5 @@ in
     #   };
     # };
 
-    fcitx5 = {
-      Unit = {
-        Description = "fcitx5 input method daemon";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = nixbin "fcitx5";
-        Restart = "no";
-      };
-      Install = { };
-    };
-
-    # aw-qt = {
-    #   Unit = {
-    #     Description = "activitywatch daemon";
-    #     DefaultDependencies = "no";
-    #   };
-    #   Service = {
-    #     # wrapper script is executed because aw-qt needs to call some other processes
-    #     # and it cannot do that without the nix env vars being present
-    #     ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
-    #     Restart = "no";
-    #   };
-    #   Install = { };
-    # };
   };
 }
