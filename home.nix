@@ -112,6 +112,7 @@ in
       # languages
       go
       nodejs
+      deno
       pnpm
       rustc
       cargo
