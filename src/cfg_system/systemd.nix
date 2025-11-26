@@ -5,6 +5,7 @@ let
 in
 {
   enable = true;
+
   # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
   services = {
     metasearch = {
@@ -32,16 +33,6 @@ in
         Restart = "no";
       };
       Install = { };
-    };
-
-    sandbar = {
-      Unit = {
-        Description = "sandbar";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = dotconfig "river/bar.sh";
-      };
     };
 
     # aw-qt = {

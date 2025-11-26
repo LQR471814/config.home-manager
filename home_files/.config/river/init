@@ -144,5 +144,5 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 
 
 # Bar
-systemctl --user start bar
+$HOME/.config/river/bar.sh
 
