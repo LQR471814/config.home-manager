@@ -19,6 +19,8 @@ if [[ $(hostname) == *"laptop" ]]; then
 
 	# Lid close lock
 	riverctl map-switch normal lid close spawn swaylock
+elif [[ $(hostname) == *"desktop" ]]; then
+	riverctl spawn "wlr-randr --output DP-1 --scale 2 --adaptive-sync enabled --mode 3840x2160@120.000000Hz"
 fi
 
 
