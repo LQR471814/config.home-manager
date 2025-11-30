@@ -20,7 +20,8 @@ if [[ $(hostname) == *"laptop" ]]; then
 	# Lid close lock
 	riverctl map-switch normal lid close spawn swaylock
 elif [[ $(hostname) == *"desktop" ]]; then
-	riverctl spawn "wlr-randr --output DP-1 --scale 2 --adaptive-sync enabled --mode 3840x2160@120.000000Hz"
+	riverctl spawn "wlr-randr --output DP-1 --scale 2 --adaptive-sync enabled --mode 3840x2160@120.000000Hz --pos 0,0"
+	riverctl spawn "wlr-randr --output HDMI-A-1 --scale 1 --mode 1920x1080@144.001007Hz --pos 1920,0"
 fi
 
 
@@ -46,7 +47,7 @@ riverctl map normal $mod k focus-view previous
 
 riverctl map normal $mod h send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal $mod l send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal $mod o send-layout-cmd rivertile "main-ratio 0.5"
+riverctl map normal $mod u send-layout-cmd rivertile "main-ratio 0.5"
 
 riverctl map normal $mod+Shift h send-layout-cmd rivertile "main-location top"
 riverctl map normal $mod+Shift v send-layout-cmd rivertile "main-location left"
@@ -54,7 +55,6 @@ riverctl map normal $mod i send-layout-cmd rivertile "main-count +1"
 riverctl map normal $mod d send-layout-cmd rivertile "main-count -1"
 
 riverctl map normal $mod m toggle-fullscreen
-riverctl map normal $mod Tab cycle-layout
 riverctl map normal $mod+Shift Space toggle-float
 riverctl map normal $mod+Control+Shift q spawn "riverctl exit"
 
@@ -105,6 +105,14 @@ riverctl map normal $mod+Control 3 toggle-focused-tags 4
 riverctl map normal $mod+Control 2 toggle-focused-tags 2
 riverctl map normal $mod+Control 1 toggle-focused-tags 1
 riverctl map normal $mod+Control 0 toggle-focused-tags 511
+
+
+# Focus other monitor
+riverctl map normal $mod o focus-output next
+
+
+# Send window to other monitor
+riverctl map normal $mod+Shift o send-to-output next
 
 
 # Lock screen
