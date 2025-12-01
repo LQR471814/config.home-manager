@@ -128,6 +128,7 @@ in
       marksman
       clang
       clang-tools
+      gcc
       lld
       lldb
       libcxx
