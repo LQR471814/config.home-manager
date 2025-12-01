@@ -1,5 +1,5 @@
 {
-  metasearch2
+  metasearch2,
 }:
 {
   config,
@@ -128,7 +128,6 @@ in
       marksman
       clang
       clang-tools
-      gcc
       lld
       lldb
       libcxx
@@ -228,6 +227,7 @@ in
     file = import ./src/home_files.nix ctx;
 
     sessionVariables = {
+      CC = "${pkgs.clang}/bin/clang";
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
