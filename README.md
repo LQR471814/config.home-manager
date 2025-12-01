@@ -30,6 +30,12 @@ staged to the git repo in this repository, if you are getting strange issues
 where your changes aren't being applied or your `flake.nix` is not being found,
 try staging/commit all your files.
 
+### Note on environment vars
+
+Environment variables defined in `sessionVariables` will only be
+updated after a reboot in `tmux` sessions as the `tmux` daemon
+will not be restarted after logging-in and logging-out?
+
 ### References
 
 - [nixpkgs api docs](https://nixos.org/manual/nixpkgs/stable/)
