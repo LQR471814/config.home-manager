@@ -15,7 +15,8 @@ enabled = true
 [engines]
 google = { weight = 1.05, enabled = false } # google doesn't work right now
 brave = { weight = 1.25, enabled = true }
-google_scholar = { weight = 0.8, enabled = true }
+bing = { weight = 1.0, enabled = true }
+google_scholar = { weight = 0.8, enabled = false }
 
 colorpicker = { weight = 10, enabled = true }
 numbat = { weight = 10, enabled = true }
@@ -30,7 +31,7 @@ wikipedia = { weight = 1.25, enabled = true, max_sections = 1 }
 github = { weight = 1.25, enabled = true }
 
 marginalia = { enabled = false }
-bing = { enabled = false }
+# bing = { enabled = false }
 rightdao = { enabled = false }
 stract = { enabled = false }
 yep = { enabled = false }

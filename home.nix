@@ -1,4 +1,7 @@
 {
+  metasearch2
+}:
+{
   config,
   pkgs,
   ...
@@ -116,7 +119,7 @@ in
       pnpm
       rustc
       cargo
-      zulu23
+      zulu
       mytexlive
       uv
       pipx
@@ -169,7 +172,8 @@ in
       claude-code
 
       # daemons
-      (import ./src/derivations/metasearch2.nix ctx)
+      # (import ./src/derivations/metasearch2.nix ctx)
+      # metasearch2
       # activitywatch
 
       # basic apps
@@ -314,6 +318,6 @@ in
   i18n.inputMethod.fcitx5.addons = with pkgs; [
     fcitx5-gtk
     libsForQt5.fcitx5-qt
-    libsForQt5.fcitx5-chinese-addons
+    kdePackages.fcitx5-chinese-addons
   ];
 }

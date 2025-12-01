@@ -8,7 +8,7 @@ in
 
   # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
   services = {
-    metasearch = {
+    metasearch2 = {
       Unit = {
         Description = "metasearch engine, to avoid using google with an account";
       };

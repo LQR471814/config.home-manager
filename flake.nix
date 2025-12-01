@@ -2,13 +2,17 @@
   description = "Home manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     unstable.url = "github:flox/nixpkgs/unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # metasearch2 = {
+    #   url = "github:mat-1/metasearch2";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
@@ -16,6 +20,7 @@
       nixpkgs,
       unstable,
       home-manager,
+      # metasearch2,
       ...
     }:
     let
@@ -32,7 +37,10 @@
       homeConfigurations.lqr471814 = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home.nix
+          (import ./home.nix {
+            metasearch2 = null;
+            # metasearch2 = metasearch2.packages.${system}.default;
+          })
           {
             nixpkgs.overlays = [
               (
