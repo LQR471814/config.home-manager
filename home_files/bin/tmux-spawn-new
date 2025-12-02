@@ -1,0 +1,13 @@
+#!/bin/sh
+path="$1"
+base="$(basename "$1")"
+cmd="$2"
+i=0
+
+name="$base"
+while tmux has-session -t "$name" 2>/dev/null; do
+	i="$(echo "$i+1" | bc)"
+	name="$base-$i"
+done
+
+tmux new-session -c "$path" -s "$name" "$cmd"

@@ -1,2 +1,12 @@
 #!/bin/sh
-tmux new-session -A -c "$1" -s $(basename "$1") "$2"
+path="$1"
+base="$(basename "$1")"
+cmd="$2"
+
+session="$base"
+existing=$(tmux ls | grep -oP "^$base([^:]*)(?=:)")
+if [ "$existing" != "" ]; then
+	session=$(echo "$existing" | fzf --layout=reverse)
+fi
+
+tmux new-session -A -c "$path" -s "$session" "$cmd"
