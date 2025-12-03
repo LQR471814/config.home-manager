@@ -4,7 +4,7 @@ base="$(basename "$1")"
 cmd="$2"
 
 session="$base"
-existing=$(tmux ls | grep -oP "^$base([^:]*)(?=:)")
+existing=$(tmux ls 2> /dev/null | grep -oP "^$base([^:]*)(?=:)")
 IFS='
 '
 set -- $existing
