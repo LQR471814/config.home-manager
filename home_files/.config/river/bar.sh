@@ -8,7 +8,29 @@ STAT_DATE="/tmp/sandbar-stat-date"
 FIFO_BAR="/tmp/sandbar"
 
 bar_display() {
-  local status="$(< $STAT_NET)  $(< $STAT_SOUND)  $(< $STAT_BAT)  $(< $STAT_DATE)"
+  local stat_net="$(< $STAT_NET)"
+  local stat_sound="$(< $STAT_SOUND)"
+  local stat_bat="$(< $STAT_BAT)"
+  local stat_date="$(< $STAT_DATE)"
+
+  local status=""
+  if [ "$stat_net" != "" ]; then
+    status="$status  $stat_net"
+  fi
+  if [ "$stat_sound" != "" ]; then
+    status="$status  $stat_sound"
+  fi
+  if [ "$stat_bat" != "" ]; then
+    status="$status  $stat_bat"
+  fi
+  if [ "$stat_date" != "" ]; then
+    status="$status  $stat_date"
+  fi
+  # remove prefix is present
+  case "$status" in
+    "  "*) status="${status#??}" ;;
+  esac
+
   echo "all status $status" > $FIFO_BAR
 }
 
