@@ -223,7 +223,7 @@ in
   # basic configuration
   home.username = "lqr471814";
   home.homeDirectory = HOME;
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   # home files (.config, etc...)
   home.file = import ./src/home_files.nix ctx;
