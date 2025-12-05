@@ -1,3 +1,7 @@
+# Adjust display
+systemctl --user start kanshi
+
+
 # Styling
 riverctl background-color 0x000000
 riverctl border-width 1
