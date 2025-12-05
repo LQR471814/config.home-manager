@@ -149,7 +149,6 @@ in
     watchman
     tlaplus
     libqalculate
-    bluetuith
     socat
     xray
     tun2socks
@@ -261,6 +260,7 @@ in
   programs.obs-studio = import ./src/cfg_programs/obs-studio.nix ctx;
   services.ollama = import ./src/cfg_programs/ollama.nix ctx;
   services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
+  programs.bluetuith.enable = true;
 
   # wayland stuff
   services.mako = import ./src/cfg_system/mako.nix ctx;
