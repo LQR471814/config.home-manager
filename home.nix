@@ -211,6 +211,7 @@ in
     linvstmanager
     wineWowPackages.stable
     winetricks
+    bambu-studio
 
     # dependencies necessary for winapps
     freerdp
