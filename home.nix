@@ -202,7 +202,7 @@ in
     filezilla
     qbittorrent-enhanced
     usbimager
-    zotero
+    (import ./src/derivations/zotero.nix ctx)
     ungoogled-chromium
     upscayl-ncnn
     swayimg
