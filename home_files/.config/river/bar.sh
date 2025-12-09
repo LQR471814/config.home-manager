@@ -72,7 +72,7 @@ bar_sound() {
   local VOL="${percent_vol%.*}"
 
   if [ "$STATUS" = "[MUTED]" ]; then
-    "🔇" > $STAT_SOUND
+    echo "🔇" > $STAT_SOUND
   else
     if [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
       printf "🔈 %s%%" "$VOL" > $STAT_SOUND
