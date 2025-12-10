@@ -165,6 +165,7 @@ in
     (import ./src/derivations/espresso-logic.nix ctx)
     (import ./src/derivations/rddlsim.nix ctx)
     claude-code
+    qpdf
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
@@ -211,13 +212,12 @@ in
     linvstmanager
     wineWowPackages.stable
     winetricks
-    bambu-studio
-
     # dependencies necessary for winapps
     freerdp
     dialog
     netcat-openbsd
     libnotify
+    freecad-wayland
   ];
 
   # basic configuration

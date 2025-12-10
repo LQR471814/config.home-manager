@@ -76,6 +76,7 @@
                   inherit ungoogled-chromium;
                   inherit obs-studio;
                   inherit julia-bin;
+                  inherit freecad-wayland;
                 }
               )
             ];
