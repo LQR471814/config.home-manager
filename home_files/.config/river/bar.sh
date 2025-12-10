@@ -146,18 +146,19 @@ sandbard() {
 }
 
 sandbard &
+battery_watcher &
+network_watcher &
+date_watcher &
+sound_watcher &
 
 # initial run
 bar_date
-bar_sound
 bar_battery
 bar_display
 bar_network
 bar_display
 
-battery_watcher &
-network_watcher &
-date_watcher &
-sound_watcher &
+sleep 0.5 # to somewhat avoid race condition
+bar_sound
 
 wait
