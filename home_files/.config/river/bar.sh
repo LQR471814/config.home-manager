@@ -66,9 +66,8 @@ bar_network() {
 
 bar_sound() {
   local STATUS=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
-
   local raw_vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
-  local percent_vol=$(echo "scale=0; $raw_vol * 100" | bc)
+  local percent_vol=$(echo "$raw_vol * 100" | bc)
   local VOL="${percent_vol%.*}"
 
   if [ "$STATUS" = "[MUTED]" ]; then
@@ -158,7 +157,7 @@ bar_display
 bar_network
 bar_display
 
-sleep 0.5 # to somewhat avoid race condition
+sleep 1 # to somewhat avoid race condition
 bar_sound
 
 wait
