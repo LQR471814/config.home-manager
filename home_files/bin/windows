@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PROGRAM="$1"
+
 if [ -f ~/files/Windows/creds ]; then
 	FORM_INPUT=$(cat ~/files/Windows/creds)
 else
@@ -15,4 +17,13 @@ IFS="|" read -r USERNAME PASSWORD <<EOF
 $FORM_INPUT
 EOF
 
-xfreerdp /u:$USERNAME /p:$PASSWORD /v:127.0.0.1 /cert:tofu /clipboard
+if [ "$PROGRAM" = "" ]; then
+	echo "$USERNAME
+
+	$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution
+else
+	echo "$USERNAME
+
+	$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution "/app:program:$PROGRAM"
+fi
+
