@@ -20,10 +20,10 @@ EOF
 if [ "$PROGRAM" = "" ]; then
 	echo "$USERNAME
 
-	$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution
+$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution
 else
 	echo "$USERNAME
 
-	$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution "/app:program:$PROGRAM"
+$PASSWORD" | xfreerdp /from-stdin /v:127.0.0.1 /cert:tofu /clipboard +dynamic-resolution "/app:program:$PROGRAM"
 fi
 

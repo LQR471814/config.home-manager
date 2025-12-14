@@ -10,7 +10,7 @@ in
   services = {
     metasearch2 = {
       Unit = {
-        Description = "metasearch engine, to avoid using google with an account";
+        Description = "metasearch engine";
       };
       Service = {
         Type = "simple";

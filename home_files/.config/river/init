@@ -152,6 +152,10 @@ riverctl rule-add -app-id thunderbird float
 riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 
 
+# FreeRDP floating window by default
+riverctl rule-add -app-id xfreerdp float
+
+
 # Bar
 $HOME/.config/river/bar.sh &
 riverctl map normal $mod s spawn "$HOME/.config/river/bar.sh"
