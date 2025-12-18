@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # metasearch2 = {
     #   url = "github:mat-1/metasearch2";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -76,7 +77,7 @@
                   inherit ungoogled-chromium;
                   inherit obs-studio;
                   inherit julia-bin;
-                  inherit freecad-wayland;
+                  inherit freecad;
                 }
               )
             ];

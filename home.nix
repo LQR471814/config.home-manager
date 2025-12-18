@@ -13,6 +13,13 @@ let
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
 
+  nu-lint = pkgs.callPackage (pkgs.fetchFromGitHub {
+    owner = "wvhulle";
+    repo = "nu-lint";
+    rev = "905635ab0cb980fd15d29949cb08337375db8032";
+    sha256 = "sha256-FaL7iF9cMC6/VF5QbgfIQhUBs3TtsXcuoOyqrK1PwpI=";
+  }) { };
+
   mytexlive = pkgs.texlive.combine {
     inherit (pkgs.texlive)
       scheme-basic
@@ -166,6 +173,7 @@ in
     (import ./src/derivations/rddlsim.nix ctx)
     claude-code
     qpdf
+    nu-lint
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
@@ -217,7 +225,7 @@ in
     dialog
     netcat-openbsd
     libnotify
-    freecad-wayland
+    freecad
   ];
 
   # basic configuration
