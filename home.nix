@@ -174,6 +174,8 @@ in
     claude-code
     qpdf
     nu-lint
+    rendercv
+    imv
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
@@ -226,6 +228,9 @@ in
     netcat-openbsd
     libnotify
     freecad
+    android-studio
+    httptoolkit
+    httptoolkit-server
   ];
 
   # basic configuration
