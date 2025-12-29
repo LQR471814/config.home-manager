@@ -174,7 +174,6 @@ in
     claude-code
     qpdf
     nu-lint
-    rendercv
     imv
 
     # daemons
