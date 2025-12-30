@@ -6,6 +6,12 @@
     "text/html" = [ "firefox.desktop" ];
     "x-scheme-handler/http" = [ "firefox.desktop" ];
     "x-scheme-handler/https" = [ "firefox.desktop" ];
+    "image/svg+xml" = [ "firefox.desktop" ];
+    "image/png" = [ "imv.desktop" ];
+    "image/jpeg" = [ "imv.desktop" ];
+    "image/gif" = [ "imv.desktop" ];
+    "image/webp" = [ "imv.desktop" ];
+    "image/bmp" = [ "imv.desktop" ];
 
     "x-scheme-handler/mailto" = [ "userapp-Thunderbird-IFAK72.desktop" ];
     "message/rfc822" = [ "userapp-Thunderbird-IFAK72.desktop" ];

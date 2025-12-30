@@ -1,2 +1,15 @@
 #!/bin/sh
-tmux new-session -A -c "$1" -s $(basename "$1") "sh -c \"source '$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh' && $2\""
+path="$1"
+base="$(basename "$1")"
+cmd="$2"
+
+session="$base"
+existing=$(tmux ls 2> /dev/null | grep -oP "^$base([^:]*)(?=:)")
+IFS='
+'
+set -- $existing
+if [ "$#" -gt 1 ]; then
+	session=$(echo "$existing" | fzf --layout=reverse)
+fi
+
+tmux new-session -A -c "$path" -s "$session" "$cmd"

@@ -2,12 +2,12 @@
 
 pkgs.stdenv.mkDerivation {
   name = "yt-dlp";
-  version = "2025.01.15";
+  version = "2025.09.26";
   system = "x86_64-linux";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp_linux";
-    hash = "sha256-5CIlu4X0/bMyODQ1HR7nwydMhkxAFJPJ9Oh4TgovAaE=";
+    url = "https://github.com/yt-dlp/yt-dlp/releases/download/2025.09.26/yt-dlp_linux";
+    hash = "sha256-0vBzghOPS9iCJUmWUCY29aZ6jF7lq4olgH4nhKSHhkI=";
   };
 
   dontUnpack = true;

@@ -8,8 +8,13 @@
 # install nix
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
-# run rest of the install script
-./install.sh
+# symlinks
+ln -s ~/.lv2 ~/files/Plugins/lv2
+ln -s ~/.vst3 ~/files/Plugins/vst3
+
+# other installation
+julia --project=~/.julia/environments/nvim-lspconfig install_lsp.jl
+julia install.jl
 ```
 
 - `rm -rf ~/.cache/dmenu_run` - clears the dmenu cache (you may need to run
@@ -24,6 +29,12 @@ Since this is a flake, it only sees the files that have been committed or
 staged to the git repo in this repository, if you are getting strange issues
 where your changes aren't being applied or your `flake.nix` is not being found,
 try staging/commit all your files.
+
+### Note on environment vars
+
+Environment variables defined in `sessionVariables` will only be
+updated after a reboot in `tmux` sessions as the `tmux` daemon
+will not be restarted after logging-in and logging-out?
 
 ### References
 

@@ -7,6 +7,19 @@
 let
   DIRNAME = builtins.toString ./..;
 
+  filterAttrs =
+    pred: set:
+    builtins.listToAttrs (
+      builtins.filter (a: pred a.name a.value) (
+        builtins.attrValues (
+          builtins.mapAttrs (n: v: {
+            name = n;
+            value = v;
+          }) set
+        )
+      )
+    );
+
   # directories in `home_files/.config/<dir>` will be symlinked to `~/.config/<dir>`
   dotfiles =
     (pkgs.lib.attrsets.mapAttrs' (name: value: {
@@ -14,7 +27,7 @@ let
       value = {
         source = DIRNAME + "/home_files/.config/" + name;
       };
-    }) (builtins.readDir ../home_files/.config))
+    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home_files/.config)))
     // {
       ".gnupg/gpg-agent.conf" = {
         text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
@@ -47,21 +60,11 @@ let
     };
   };
 
-  pluginfiles =
-    if
-      (builtins.pathExists "${HOME}/Production/Plugins/lv2")
-      && (builtins.pathExists "${HOME}/Production/Plugins/vst3")
-    then
-      {
-        ".lv2" = {
-          source = "${HOME}/Production/Plugins/lv2";
-        };
-        ".vst3" = {
-          source = "${HOME}/Production/Plugins/vst3";
-        };
-      }
-    else
-      { };
+  nushell = {
+    ".config/nushell/config.nu" = {
+      source = DIRNAME + "/home_files/.config/nushell/config.nu";
+    };
+  };
 in
 # `//` merges 2 attribute sets
-dotfiles // homefiles // texfiles // pluginfiles
+dotfiles // homefiles // texfiles // nushell

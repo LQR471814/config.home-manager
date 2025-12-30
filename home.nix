@@ -1,4 +1,7 @@
 {
+  metasearch2,
+}:
+{
   config,
   pkgs,
   ...
@@ -9,6 +12,13 @@ let
   HOME = builtins.getEnv "HOME";
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
+
+  nu-lint = pkgs.callPackage (pkgs.fetchFromGitHub {
+    owner = "wvhulle";
+    repo = "nu-lint";
+    rev = "905635ab0cb980fd15d29949cb08337375db8032";
+    sha256 = "sha256-FaL7iF9cMC6/VF5QbgfIQhUBs3TtsXcuoOyqrK1PwpI=";
+  }) { };
 
   mytexlive = pkgs.texlive.combine {
     inherit (pkgs.texlive)
@@ -21,13 +31,23 @@ let
       pgfplots
       catchfile
       titlesec
-      ctex
       dvipng
       standalone
       varwidth
       preview
-      biber
       cm-super
+      biber
+      biblatex
+      biblatex-apa
+      biblatex-mla
+      hyperref
+      setspace
+      texcount
+      fontspec
+      ctex
+      xecjk
+      enumitem
+      moderncv
       ;
   };
   fixPW = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
@@ -43,226 +63,250 @@ let
   };
 in
 {
-  home = {
-    username = "lqr471814";
-    homeDirectory = HOME;
-    stateVersion = "25.05";
+  # packages
+  home.packages = with pkgs; [
+    # build tools
+    cmake
+    gnumake
+    pkg-config
+    git
+    git-filter-repo
+    git-credential-manager
+    gh
 
-    packages = with pkgs; [
-      # build tools
-      cmake
-      gnumake
-      pkg-config
-      git
-      git-filter-repo
-      git-credential-manager
-      gh
+    # dev tools
+    ripgrep
+    fd
+    docker
+    lazygit
+    nix-prefetch-git
+    buf
+    cloc
+    sqlc
+    atlas
+    templ
+    bear
+    jq
+    reftools
+    sqlite
+    redis
+    croc
+    graphviz
+    hugo
+    tree-sitter
+    nushell
+    ast-grep
+    (if IS_DESKTOP then ollama-cuda else ollama)
+    openssl
+    sbcl
+    sbclPackages.lisp-stat
+    sbclPackages.fft
 
-      # dev tools
-      ripgrep
-      fd
-      docker
-      lazygit
-      nix-prefetch-git
-      buf
-      cloc
-      sqlc
-      atlas
-      templ
-      bear
-      jq
-      reftools
-      sqlite
-      redis
-      croc
-      graphviz
-      hugo
-      tree-sitter
-      nushell
-      ast-grep
-      (if IS_DESKTOP then ollama-cuda else ollama)
-      openssl
+    # lsps
+    nixd
+    nixfmt
+    texlab
+    lua-language-server
+    vtsls
+    tailwindcss-language-server
+    svelte-language-server
+    biome
+    vscode-langservers-extracted
+    pyright
+    ltex-ls-plus
 
-      # lsps
-      nixd
-      nixfmt-rfc-style
-      texlab
-      lua-language-server
-      vtsls
-      tailwindcss-language-server
-      svelte-language-server
-      biome
-      vscode-langservers-extracted
-      pyright
+    # languages
+    go
+    nodejs
+    deno
+    pnpm
+    rustc
+    cargo
+    zulu
+    mytexlive
+    uv
+    pipx
+    ruff
+    tlaplusToolbox
+    marksman
+    clang
+    clang-tools
+    lld
+    lldb
+    libcxx
+    julia-bin
+    mermaid-cli
 
-      # languages
-      go
-      nodejs
-      pnpm
-      rustc
-      cargo
-      zulu23
-      mytexlive
-      uv
-      pipx
-      ruff
-      tlaplusToolbox
-      clang
-      clang-tools
-      marksman
+    # general terminal tools
+    pdf2svg
+    ffmpeg
+    yazi
+    rclone
+    ffmpeg
+    htop
+    btop
+    rclone
+    mprocs
+    tree
+    sshfs
+    aria2
+    imagemagick
+    (import ./src/derivations/yt-dlp.nix ctx)
+    cloudflare-warp
+    watchman
+    tlaplus
+    libqalculate
+    socat
+    xray
+    tun2socks
+    playerctl
+    ghostscript
+    mermaid-cli
+    sc-im
+    librsvg
+    numbat
+    pandoc
+    picocom
+    fzf
+    zenity
+    (import ./src/derivations/espresso-logic.nix ctx)
+    (import ./src/derivations/rddlsim.nix ctx)
+    claude-code
+    qpdf
+    nu-lint
+    imv
 
-      # general terminal tools
-      pdf2svg
-      ffmpeg
-      yazi
-      rclone
-      ffmpeg
-      htop
-      btop
-      rclone
-      mprocs
-      tree
-      sshfs
-      aria2
-      imagemagick
-      (import ./src/derivations/yt-dlp.nix ctx)
-      cloudflare-warp
-      watchman
-      tlaplus
-      libqalculate
-      bluetuith
-      socat
-      xray
-      tun2socks
-      playerctl
-      ghostscript
-      mermaid-cli
-      sc-im
-      librsvg
-      numbat
+    # daemons
+    # (import ./src/derivations/metasearch2.nix ctx)
+    # metasearch2
+    # activitywatch
 
-      # daemons
-      (import ./src/derivations/metasearch2.nix ctx)
-      # activitywatch
+    # basic apps
+    firefox
+    zathura # pdf viewer
+    vlc # media viewer
+    rhythmbox # music player
+    pwvucontrol # audio patcher
+    gnome-clocks
 
-      # basic apps
-      firefox
-      zathura # pdf viewer
-      vlc # media viewer
-      rhythmbox # music player
-      pwvucontrol # audio patcher
-      gnome-clocks
+    # additional apps
+    localsend
+    (fixPW musescore)
+    (fixPW ardour)
+    (fixPW easyeffects)
+    blender
+    kdePackages.kdenlive
+    anki
+    qpwgraph
+    foliate
+    legcord
+    dbeaver-bin
+    # miru
+    keepassxc
+    tor-browser
+    thunderbird
+    libreoffice
+    gimp3
+    inkscape
+    scribus
+    filezilla
+    qbittorrent-enhanced
+    usbimager
+    (import ./src/derivations/zotero.nix ctx)
+    ungoogled-chromium
+    upscayl-ncnn
+    (import ./src/derivations/rdfglance.nix ctx)
+    rustdesk-flutter
+    linvstmanager
+    wineWowPackages.stable
+    winetricks
+    # dependencies necessary for winapps
+    freerdp
+    dialog
+    netcat-openbsd
+    libnotify
+    freecad
+    android-studio
+    httptoolkit
+    httptoolkit-server
+    sway-audio-idle-inhibit
+  ];
 
-      # additional apps
-      localsend
-      (fixPW musescore)
-      (fixPW ardour)
-      (fixPW easyeffects)
-      blender
-      kdePackages.kdenlive
-      anki
-      qpwgraph
-      foliate
-      legcord
-      dbeaver-bin
-      miru
-      keepassxc
-      tor-browser
-      thunderbird
-      libreoffice
-      gimp3
-      inkscape
-      scribus
-      filezilla
-      qbittorrent-enhanced
-      usbimager
-    ];
+  # basic configuration
+  home.username = "lqr471814";
+  home.homeDirectory = HOME;
+  home.stateVersion = "25.11";
 
-    file = import ./src/home_files.nix ctx;
+  # home files (.config, etc...)
+  home.file = import ./src/home_files.nix ctx;
 
-    sessionVariables = {
-      GTK_IM_MODULE = "fcitx";
-      QT_IM_MODULE = "fcitx";
-      XMODIFIERS = "@im=fcitx";
-      SDL_IM_MODULE = "fcitx";
-      TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
-    };
-
-    sessionPath = [
-      "${HOME}/bin"
-      "${HOME}/go/bin"
-    ];
-
-    pointerCursor = {
-      name = "phinger-cursors-light";
-      package = pkgs.phinger-cursors;
-      size = 32;
-      gtk.enable = true;
-    };
+  # env vars
+  home.sessionVariables = {
+    CC = "${pkgs.clang}/bin/clang";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+    TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
   };
+  home.sessionPath = [
+    "${HOME}/bin"
+    "${HOME}/go/bin"
+    "${HOME}/.local/bin"
+  ];
+
+  # cursor
+  home.pointerCursor = {
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 32;
+    gtk.enable = true;
+  };
+
+  # userland program configuration
 
   programs.kitty = import ./src/cfg_programs/kitty.nix ctx;
   programs.fish = import ./src/cfg_programs/fish.nix ctx;
   programs.git = import ./src/cfg_programs/git.nix ctx;
   programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
-  programs.swaylock.enable = true;
+  programs.swaylock = import ./src/cfg_programs/swaylock.nix ctx;
+  programs.obs-studio = import ./src/cfg_programs/obs-studio.nix ctx;
+  services.ollama = import ./src/cfg_programs/ollama.nix ctx;
+  services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
+  programs.bluetuith.enable = true;
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-    ];
-  };
+  # wayland stuff
+  services.mako = import ./src/cfg_system/mako.nix ctx;
+  services.kanshi = import ./src/cfg_system/kanshi.nix ctx;
 
-  services.ollama = {
-    enable = true;
-    package = if IS_DESKTOP then pkgs.ollama-cuda else pkgs.ollama;
-    acceleration = if IS_DESKTOP then "cuda" else null;
-  };
-  services.syncthing = {
-    enable = true;
-    settings = {
-      devices = {
-        homeserver = {
-          addresses = [
-            "tcp://192.168.1.10:22000"
-            "quic://192.168.1.10:22000"
-          ];
-          id = "VS3PDKE-TBTBRWJ-L2OTOUD-Z36HTYA-GCBUQUB-GOR5IN3-VYOPHCJ-MOJK7AZ";
-        };
-      };
-      folders = {
-        files = {
-          id = "files";
-          label = "Files";
-          path = "${HOME}/files";
-          devices = [ "homeserver" ];
-          versioning = {
-            type = "trashcan";
-            params.cleanoutDays = "30";
-          };
-        };
-      };
-    };
-  };
-
+  # xdg and desktop stuff
   dconf = import ./src/cfg_system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
-  systemd.user = import ./src/cfg_system/systemd.nix ctx;
-  gtk.enable = true;
-  gtk.iconTheme = {
-    name = "Papirus-Light";
-    package = pkgs.papirus-icon-theme;
-  };
+  gtk = import ./src/cfg_system/gtk.nix ctx;
+  i18n = import ./src/cfg_system/i18n.nix ctx;
 
-  # the systemd daemon created by this doesn't start automatically
-  # because I am running dwm, therefore fcitx5 is started in ~/.dwm/autostart.sh
-  i18n.inputMethod.enable = true;
-  i18n.inputMethod.type = "fcitx5";
-  i18n.inputMethod.fcitx5.addons = with pkgs; [
-    fcitx5-gtk
-    libsForQt5.fcitx5-qt
-    libsForQt5.fcitx5-chinese-addons
-  ];
+  # systemd
+  systemd.user = import ./src/cfg_system/systemd.nix ctx;
+
+  # sleep & idle lock
+  services.swayidle = {
+    enable = true;
+
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock";
+      }
+      {
+        event = "lock";
+        command = "${pkgs.swaylock}/bin/swaylock";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 600;
+        command = "/run/current-system/sw/bin/systemctl suspend";
+      }
+    ];
+  };
 }

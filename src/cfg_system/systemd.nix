@@ -5,11 +5,12 @@ let
 in
 {
   enable = true;
+
   # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
   services = {
-    metasearch = {
+    metasearch2 = {
       Unit = {
-        Description = "metasearch engine, to avoid using google with an account";
+        Description = "metasearch engine";
       };
       Service = {
         Type = "simple";
@@ -21,23 +22,6 @@ in
         WantedBy = [ "default.target" ];
       };
     };
-
-    # awsync = {
-    #   Unit = {
-    #     Description = "synchronize activitywatch data";
-    #   };
-    #   Service = {
-    #     Type = "simple";
-    #     TimeoutStartSec = 0;
-    #     ExecStart = nixbin "aw-sync";
-    #     WorkingDirectory = HOME;
-    #     Restart = "always";
-    #     RestartSec = 30;
-    #   };
-    #   Install = {
-    #     WantedBy = [ "default.target" ];
-    #   };
-    # };
 
     fcitx5 = {
       Unit = {
@@ -64,5 +48,23 @@ in
     #   };
     #   Install = { };
     # };
+
+    # awsync = {
+    #   Unit = {
+    #     Description = "synchronize activitywatch data";
+    #   };
+    #   Service = {
+    #     Type = "simple";
+    #     TimeoutStartSec = 0;
+    #     ExecStart = nixbin "aw-sync";
+    #     WorkingDirectory = HOME;
+    #     Restart = "always";
+    #     RestartSec = 30;
+    #   };
+    #   Install = {
+    #     WantedBy = [ "default.target" ];
+    #   };
+    # };
+
   };
 }
