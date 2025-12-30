@@ -215,7 +215,6 @@ in
     (import ./src/derivations/zotero.nix ctx)
     ungoogled-chromium
     upscayl-ncnn
-    swayimg
     (import ./src/derivations/rdfglance.nix ctx)
     rustdesk-flutter
     linvstmanager
@@ -230,6 +229,7 @@ in
     android-studio
     httptoolkit
     httptoolkit-server
+    sway-audio-idle-inhibit
   ];
 
   # basic configuration
@@ -287,4 +287,26 @@ in
 
   # systemd
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
+
+  # sleep & idle lock
+  services.swayidle = {
+    enable = true;
+
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock";
+      }
+      {
+        event = "lock";
+        command = "${pkgs.swaylock}/bin/swaylock";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 600;
+        command = "/run/current-system/sw/bin/systemctl suspend";
+      }
+    ];
+  };
 }

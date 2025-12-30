@@ -156,7 +156,12 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 riverctl rule-add -app-id xfreerdp float
 
 
+# Audio idle-inhibit
+riverctl spawn sway-audio-idle-inhibit
+
+
 # Bar
+pkill bar.sh
 $HOME/.config/river/bar.sh &
-riverctl map normal $mod s spawn "$HOME/.config/river/bar.sh"
+riverctl map normal $mod s spawn "pkill bar.sh; $HOME/.config/river/bar.sh"
 
