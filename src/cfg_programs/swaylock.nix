@@ -2,6 +2,6 @@
 {
   enable = true;
   settings = {
-    color = "000000";
+    color = "111111";
   };
 }

@@ -141,7 +141,10 @@ if [ ! -p $FIFO_BAR ]; then
 fi
 
 sandbard() {
-  while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale 2
+  while $(exit 0); do
+    while cat $FIFO_BAR; do :; done | sandbar -no-layout -hide-normal-mode -font "IBM Plex Mono" -scale 2
+    sleep 1
+  done
 }
 
 sandbard &
