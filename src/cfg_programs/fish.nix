@@ -17,6 +17,7 @@
     osconf = "tmux-spawn ~/.config/nixos 'nvim ~/.config/nixos'";
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
     mansearch = "man -k . | fzf | awk '{print $1 $2}' | xargs -r man";
+    noidle = "systemd-inhibit --what=idle --who=manual --why='preventing sleep' sleep infinity";
   };
   interactiveShellInit = ''
     set fish_greeting ""
