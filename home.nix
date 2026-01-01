@@ -95,6 +95,7 @@ in
     hugo
     tree-sitter
     nushell
+    nushellPlugins.query
     ast-grep
     (if IS_DESKTOP then ollama-cuda else ollama)
     openssl
