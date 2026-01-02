@@ -102,6 +102,7 @@ in
     sbcl
     sbclPackages.lisp-stat
     sbclPackages.fft
+    (import ./src/derivations/please-build.nix ctx)
 
     # lsps
     nixd
