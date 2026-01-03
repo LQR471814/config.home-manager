@@ -1,15 +1,18 @@
 #!/bin/sh
 
-trap 'kill 0' EXIT
-
 notify-user() {
 	while $(exit 0); do
-		notify-send -t 5000 -e "Idle inhibited."
-		sleep 20
+		notify-send "Inhibiting idle..." -t 3000
+		sleep 15
 	done
 }
 
+cleanup() {
+	kill 0
+	systemctl --user start swayidle
+}
+systemctl --user stop swayidle
+trap cleanup EXIT
+
 notify-user &
-
-systemd-inhibit --what=idle --who=manual --why='preventing sleep' sleep infinity
-
+sleep 100000000

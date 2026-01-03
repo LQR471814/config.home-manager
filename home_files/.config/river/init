@@ -1,3 +1,6 @@
+#!/bin/sh
+
+
 # Adjust display
 systemctl --user start kanshi
 
@@ -69,7 +72,7 @@ riverctl map normal $mod w spawn "windows"
 riverctl map normal $mod+Shift p spawn "sh -c 'notify-send -t 1000 -e \"Starting keepassxc...\"; keepassxc'"
 riverctl map normal $mod f spawn "sh -c 'notify-send -t 1000 -e \"Starting firefox...\"; firefox'"
 riverctl map normal $mod t spawn "sh -c 'notify-send -t 1000 -e \"Starting thunderbird...\"; thunderbird'"
-riverctl map normal $mod p spawn "tofi-run | xargs -r sh -c"
+riverctl map normal $mod p spawn "tofiw"
 riverctl map normal None Print spawn 'grim -g "$(slurp)"'
 riverctl map normal $mod y spawn "playerctl play-pause"
 
@@ -157,7 +160,8 @@ riverctl rule-add -app-id xfreerdp float
 
 
 # Audio idle-inhibit
-riverctl spawn sway-audio-idle-inhibit
+pkill -f sway-audio-idle-inhibit
+sway-audio-idle-inhibit &
 
 
 # Bar
