@@ -7,7 +7,7 @@ width = "100%"
 height = 24
 
 # font
-font = "IBM Plex Mono"
+font = "/nix/store/i1yq2l1bzjp5c630k6zgjpxi5w0azmq7-ibm-plex-1.1.0/share/fonts/opentype/IBMPlexMono-Regular.otf"
 font-size = 12
 
 # styling
