@@ -293,21 +293,10 @@ in
   # sleep & idle lock
   services.swayidle = {
     enable = true;
-
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock";
-      }
-      {
-        event = "lock";
-        command = "${pkgs.swaylock}/bin/swaylock";
-      }
-    ];
     timeouts = [
       {
         timeout = 600;
-        command = "/run/current-system/sw/bin/systemctl suspend";
+        command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
       }
     ];
   };

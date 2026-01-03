@@ -19,7 +19,7 @@ if [[ $(hostname) == *"laptop" ]]; then
 	riverctl input "${touchpad_dev}" natural-scroll disabled
 
 	# Lid close lock
-	riverctl map-switch normal lid close spawn swaylock
+	riverctl map-switch normal lid close spawn swaylock -f
 fi
 
 

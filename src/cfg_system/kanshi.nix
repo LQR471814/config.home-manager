@@ -1,5 +1,5 @@
 # wayland display configuration
-{ ... }:
+{ HOME, ... }:
 {
   enable = true;
   settings = [
