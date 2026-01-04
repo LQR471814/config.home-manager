@@ -80,6 +80,7 @@
                   inherit freecad;
                 }
               )
+              (import ./src/overlays/bambu-studio.nix)
             ];
           }
         ];

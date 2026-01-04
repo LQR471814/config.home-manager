@@ -230,6 +230,7 @@ in
     httptoolkit
     httptoolkit-server
     sway-audio-idle-inhibit
+    bambu-studio
   ];
 
   # basic configuration
