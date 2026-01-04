@@ -96,6 +96,7 @@ in
     tree-sitter
     nushell
     nushellPlugins.query
+    nushellPlugins.polars
     ast-grep
     (if IS_DESKTOP then ollama-cuda else ollama)
     openssl
@@ -104,6 +105,7 @@ in
     sbclPackages.fft
     (import ./src/derivations/please-build.nix ctx)
     libGL
+    sqlite-utils
 
     # lsps
     nixd
