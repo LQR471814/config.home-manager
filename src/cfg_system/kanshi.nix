@@ -46,7 +46,7 @@
         {
           criteria = "Dell Inc. DELL S2725QS 21SDT84";
           status = "enable";
-          mode = "3840x2160@60.000000Hz";
+          mode = "3840x2160@120.000000Hz";
           scale = 2.0;
           adaptiveSync = false;
           position = "0,0";

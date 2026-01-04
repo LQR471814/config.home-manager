@@ -220,11 +220,8 @@ in
     (import ./src/derivations/rdfglance.nix ctx)
     rustdesk-flutter
     linvstmanager
-    wineWowPackages.stable
-    winetricks
-    # dependencies necessary for winapps
-    freerdp
-    dialog
+    # wineWowPackages.stable
+    # winetricks
     netcat-openbsd
     libnotify
     freecad
