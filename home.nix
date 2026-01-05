@@ -105,7 +105,6 @@ in
     sbclPackages.fft
     (import ./src/derivations/please-build.nix ctx)
     libGL
-    sqlite-utils
 
     # lsps
     nixd

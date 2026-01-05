@@ -159,6 +159,10 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 riverctl rule-add -app-id xfreerdp float
 
 
+# pwvucontrol floating window by default
+riverctl rule-add -title "Pipewire Volume Control" float
+
+
 # Audio idle-inhibit
 pkill -f sway-audio-idle-inhibit
 sway-audio-idle-inhibit &
