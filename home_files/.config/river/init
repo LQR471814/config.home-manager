@@ -159,7 +159,8 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 riverctl rule-add -app-id xfreerdp float
 
 
-# pwvucontrol floating window by default
+# pwvucontrol
+riverctl map normal $mod v spawn pwvucontrol
 riverctl rule-add -title "Pipewire Volume Control" float
 
 
