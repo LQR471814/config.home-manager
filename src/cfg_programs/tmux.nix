@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   enable = true;
 
@@ -8,8 +8,17 @@
   prefix = "M-a";
   terminal = "tmux-256color";
   clock24 = true;
+  mouse = true;
+
+  plugins = with pkgs.tmuxPlugins; [
+    resurrect
+    continuum
+  ];
 
   extraConfig = ''
+    # enable continuum
+    set -g @continuum-restore 'on'
+
     # allow ctrl-1, etc... special key combos to work
     set -s extended-keys on
 
