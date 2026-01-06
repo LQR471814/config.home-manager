@@ -105,6 +105,7 @@ in
     sbclPackages.fft
     (import ./src/derivations/please-build.nix ctx)
     libGL
+    frida-tools
 
     # lsps
     nixd
