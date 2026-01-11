@@ -108,6 +108,7 @@ in
     libGL
     frida-tools
     xs
+    claude-code
 
     # lsps
     nixd
@@ -143,6 +144,7 @@ in
     libcxx
     julia-bin
     mermaid-cli
+    nu-lint
 
     # general terminal tools
     pdf2svg
@@ -178,10 +180,9 @@ in
     zenity
     (import ./src/derivations/espresso-logic.nix ctx)
     (import ./src/derivations/rddlsim.nix ctx)
-    claude-code
     qpdf
-    nu-lint
     imv
+    unrar
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
