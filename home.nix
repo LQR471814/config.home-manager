@@ -1,5 +1,6 @@
 {
   metasearch2,
+  xs,
 }:
 {
   config,
@@ -100,12 +101,13 @@ in
     ast-grep
     (if IS_DESKTOP then ollama-cuda else ollama)
     openssl
-    sbcl
-    sbclPackages.lisp-stat
-    sbclPackages.fft
+    # sbcl
+    # sbclPackages.lisp-stat
+    # sbclPackages.fft
     (import ./src/derivations/please-build.nix ctx)
     libGL
     frida-tools
+    xs
 
     # lsps
     nixd

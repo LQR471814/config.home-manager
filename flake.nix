@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    xs.url = "github:cablehead/xs";
+
     # metasearch2 = {
     #   url = "github:mat-1/metasearch2";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +23,7 @@
       nixpkgs,
       unstable,
       home-manager,
+      xs,
       # metasearch2,
       ...
     }:
@@ -40,6 +43,7 @@
         modules = [
           (import ./home.nix {
             metasearch2 = null;
+            inherit xs;
             # metasearch2 = metasearch2.packages.${system}.default;
           })
           {
