@@ -109,6 +109,12 @@ in
     frida-tools
     xs
     claude-code
+    # dune
+    # ocaml
+    # ocamlPackages.ocaml-lsp
+    # ocamlPackages.utop
+    # ocamlPackages.odoc
+    # ocamlPackages.ocamlformat
 
     # lsps
     nixd
@@ -236,6 +242,7 @@ in
     httptoolkit-server
     sway-audio-idle-inhibit
     bambu-studio
+    antigravity-fhs
   ];
 
   # basic configuration
@@ -254,6 +261,7 @@ in
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
     TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
+    GOBIN = "${HOME}/go/bin";
   };
   home.sessionPath = [
     "${HOME}/bin"
