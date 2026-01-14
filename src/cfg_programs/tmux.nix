@@ -42,6 +42,10 @@
     unbind '"'
     unbind %
 
+    bind-key H command-prompt -p "Join pane from window (horizontal):" "join-pane -s :%%"
+    bind-key V command-prompt -p "Join pane from window (vertical):" "join-pane -h -s :%%"
+    bind-key S command-prompt -p "Swap pane with window:" "swap-window -t %%"
+
     bind -T copy-mode-vi v send -X begin-selection
     bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
     bind r source-file ~/.config/tmux/tmux.conf
