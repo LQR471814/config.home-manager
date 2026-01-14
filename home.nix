@@ -305,7 +305,7 @@ in
 
   # sleep & idle lock
   services.swayidle = {
-    enable = true;
+    enable = IS_LAPTOP;
     timeouts = [
       {
         timeout = 600;
