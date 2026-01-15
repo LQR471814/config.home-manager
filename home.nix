@@ -244,6 +244,7 @@ in
     bambu-studio
     antigravity-fhs
     openrefine
+    wlvncc
   ];
 
   # basic configuration
