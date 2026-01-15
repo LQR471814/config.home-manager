@@ -243,6 +243,7 @@ in
     sway-audio-idle-inhibit
     bambu-studio
     antigravity-fhs
+    openrefine
   ];
 
   # basic configuration
