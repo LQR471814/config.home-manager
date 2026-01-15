@@ -18,6 +18,7 @@
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
     mansearch = "man -k . | fzf | awk '{print $1 $2}' | xargs -r man";
     ta = "tmux a";
+    ndev = "nix develop --command fish";
   };
   interactiveShellInit = ''
     set fish_greeting ""
