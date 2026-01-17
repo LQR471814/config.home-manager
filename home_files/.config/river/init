@@ -164,11 +164,6 @@ riverctl map normal $mod v spawn pwvucontrol
 riverctl rule-add -title "Pipewire Volume Control" float
 
 
-# Audio idle-inhibit
-# pkill -f sway-audio-idle-inhibit
-# sway-audio-idle-inhibit & > ~/swayaudio.log 2> ~/swayaudio.stderr.log
-
-
 # Bar
 pkill bar.sh
 $HOME/.config/river/bar.sh &
