@@ -306,13 +306,18 @@ in
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
 
   # sleep & idle lock
-  services.swayidle = {
+  services.hypridle = {
     enable = IS_LAPTOP;
-    timeouts = [
-      {
-        timeout = 600;
-        command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
-      }
-    ];
+    settings = {
+      general = {
+        ignore_dbus_inhibit = false;
+      };
+      listener = [
+        {
+          timeout = 600;
+          command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
+        }
+      ];
+    };
   };
 }
