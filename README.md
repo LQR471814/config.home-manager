@@ -10,6 +10,7 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # symlinks
 ln -s ~/files/Plugins/lv2 ~/.lv2
+ln -s ~/files/Plugins/vst ~/.lxvst
 ln -s ~/files/Plugins/vst3 ~/.vst3
 
 # other installation

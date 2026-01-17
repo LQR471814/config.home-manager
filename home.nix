@@ -206,7 +206,7 @@ in
     # additional apps
     localsend
     (fixPW musescore)
-    (fixPW ardour)
+    ardour
     (fixPW easyeffects)
     blender
     kdePackages.kdenlive
