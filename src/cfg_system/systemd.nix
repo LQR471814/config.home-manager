@@ -35,6 +35,20 @@ in
       Install = { };
     };
 
+    sway-audio-idle-inhibit = {
+      Unit = {
+        Description = "Inhibit idle when audio is playing";
+      };
+      Service = {
+        Type = "simple";
+        TimeoutStartSec = 0;
+        ExecStart = nixbin "sway-audio-idle-inhibit";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+
     # aw-qt = {
     #   Unit = {
     #     Description = "activitywatch daemon";
