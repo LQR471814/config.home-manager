@@ -115,6 +115,7 @@ in
     # ocamlPackages.utop
     # ocamlPackages.odoc
     # ocamlPackages.ocamlformat
+    openapi-generator-cli
 
     # lsps
     nixd
@@ -189,6 +190,7 @@ in
     qpdf
     imv
     unrar
+    wayland-pipewire-idle-inhibit
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
@@ -240,7 +242,6 @@ in
     android-studio
     httptoolkit
     httptoolkit-server
-    sway-audio-idle-inhibit
     bambu-studio
     antigravity-fhs
     openrefine
@@ -306,18 +307,13 @@ in
   systemd.user = import ./src/cfg_system/systemd.nix ctx;
 
   # sleep & idle lock
-  services.hypridle = {
+  services.swayidle = {
     enable = IS_LAPTOP;
-    settings = {
-      general = {
-        ignore_dbus_inhibit = false;
-      };
-      listener = [
-        {
-          timeout = 600;
-          command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
-        }
-      ];
-    };
+    timeouts = [
+      {
+        timeout = 600;
+        command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
+      }
+    ];
   };
 }
