@@ -35,14 +35,14 @@ in
       Install = { };
     };
 
-    sway-audio-idle-inhibit = {
+    wayland-pipewire-idle-inhibit = {
       Unit = {
         Description = "Inhibit idle when audio is playing";
       };
       Service = {
         Type = "simple";
         TimeoutStartSec = 0;
-        ExecStart = nixbin "sway-audio-idle-inhibit";
+        ExecStart = nixbin "wayland-pipewire-idle-inhibit";
       };
       Install = {
         WantedBy = [ "default.target" ];
