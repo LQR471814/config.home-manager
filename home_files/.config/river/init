@@ -65,6 +65,8 @@ riverctl map normal $mod+Shift h swap left
 riverctl map normal $mod+Shift l swap right
 riverctl map normal $mod Return zoom
 
+riverctl map normal $mod Tab riverctl focus-previous-tags
+
 # common applications
 riverctl map normal $mod+Shift g spawn "makoctl restore"
 riverctl map normal $mod g spawn "makoctl dismiss"
