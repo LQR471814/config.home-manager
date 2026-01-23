@@ -76,7 +76,7 @@ riverctl map normal $mod f spawn "sh -c 'notify-send -t 1000 -e \"Starting firef
 riverctl map normal $mod t spawn "sh -c 'notify-send -t 1000 -e \"Starting thunderbird...\"; thunderbird'"
 riverctl map normal $mod p spawn "tofiw"
 riverctl map normal None Print spawn 'grim -g "$(slurp)"'
-riverctl map normal $mod y spawn "playerctl play-pause"
+riverctl map normal $mod y spawn "playerctl play-pause -p playerctld"
 
 riverctl map normal $mod 9 set-focused-tags 256
 riverctl map normal $mod 8 set-focused-tags 128
