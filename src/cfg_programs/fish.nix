@@ -3,6 +3,7 @@
   enable = true;
   shellAliases = {
     lzg = "lazygit";
+    lzd = "lazydocker";
     y = "yazi";
     ls = "ls --color=auto";
     nvt = "tmux-spawn $PWD 'nvim .'";

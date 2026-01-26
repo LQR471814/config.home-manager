@@ -191,6 +191,7 @@ in
     imv
     unrar
     wayland-pipewire-idle-inhibit
+    lazydocker
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
