@@ -116,6 +116,9 @@ in
     # ocamlPackages.odoc
     # ocamlPackages.ocamlformat
     openapi-generator-cli
+    eclipses.eclipse-cpp
+    R
+    rPackages.distr6
 
     # lsps
     nixd
