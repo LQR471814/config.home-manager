@@ -117,8 +117,6 @@ in
     # ocamlPackages.ocamlformat
     openapi-generator-cli
     eclipses.eclipse-cpp
-    R
-    rPackages.distr6
 
     # lsps
     nixd
@@ -164,6 +162,7 @@ in
     ffmpeg
     htop
     btop
+    powertop
     rclone
     mprocs
     tree
@@ -195,6 +194,7 @@ in
     unrar
     wayland-pipewire-idle-inhibit
     lazydocker
+    static-web-server
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
@@ -313,10 +313,16 @@ in
   # sleep & idle lock
   services.swayidle = {
     enable = IS_LAPTOP;
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+    ];
     timeouts = [
       {
         timeout = 600;
-        command = "${HOME}/.nix-profile/bin/swaylock -f; /run/current-system/sw/bin/systemctl suspend";
+        command = "/run/current-system/sw/bin/systemctl suspend";
       }
     ];
   };
