@@ -5,7 +5,7 @@
   shellIntegration.enableFishIntegration = true;
   themeFile = "Catppuccin-Mocha";
   font.package = pkgs.nerd-fonts.monaspace;
-  font.name = "MonaspiceNe NF Light";
+  font.name = "IBM Plex Mono";
   settings = {
     confirm_os_window_close = 0;
     clear_all_shortcuts = true;
