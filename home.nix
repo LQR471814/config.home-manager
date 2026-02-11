@@ -195,6 +195,7 @@ in
     wayland-pipewire-idle-inhibit
     lazydocker
     static-web-server
+    zip
 
     # daemons
     # (import ./src/derivations/metasearch2.nix ctx)
