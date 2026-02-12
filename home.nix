@@ -1,6 +1,6 @@
 {
   metasearch2,
-  xs,
+  cross-stream,
 }:
 {
   config,
@@ -106,7 +106,6 @@ in
     (import ./src/derivations/please-build.nix ctx)
     libGL
     frida-tools
-    xs
     claude-code
     # dune
     # ocaml
@@ -116,6 +115,7 @@ in
     # ocamlPackages.ocamlformat
     openapi-generator-cli
     eclipses.eclipse-cpp
+    cross-stream
 
     # lsps
     nixd

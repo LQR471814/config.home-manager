@@ -43,7 +43,7 @@
         modules = [
           (import ./home.nix {
             metasearch2 = null;
-            inherit xs;
+            cross-stream = xs.packages.${system}.default;
             # metasearch2 = metasearch2.packages.${system}.default;
           })
           {
