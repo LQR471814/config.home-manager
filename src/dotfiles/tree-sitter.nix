@@ -1,0 +1,79 @@
+{
+  pkgs ? import <nixpkgs> { },
+  ...
+}:
+{
+  ".config/tree-sitter/config.json" = {
+    text = builtins.toJSON {
+      "parser-directories" = [
+        (import ../derivations/ts-markdown.nix { inherit pkgs; })
+        (import ../derivations/ts-html.nix { inherit pkgs; })
+      ];
+      "theme" = {
+        "punctuation.delimiter" = 239;
+        "constant.builtin" = {
+          "color" = 94;
+          "bold" = true;
+        };
+        "tag" = 18;
+        "embedded" = null;
+        "module" = 136;
+        "variable" = 252;
+        "number" = {
+          "color" = 94;
+          "bold" = true;
+        };
+        "comment" = {
+          "color" = 245;
+          "italic" = true;
+        };
+        "function.builtin" = {
+          "color" = 26;
+          "bold" = true;
+        };
+        "property" = 124;
+        "function" = 26;
+        "property.builtin" = {
+          "color" = 124;
+          "bold" = true;
+        };
+        "string" = 28;
+        "punctuation" = 239;
+        "type" = 23;
+        "keyword" = 56;
+        "type.builtin" = {
+          "color" = 23;
+          "bold" = true;
+        };
+        "operator" = {
+          "color" = 239;
+          "bold" = true;
+        };
+        "punctuation.special" = 239;
+        "punctuation.bracket" = 239;
+        "constant" = 94;
+        "string.special" = 30;
+        "variable.builtin" = {
+          "bold" = true;
+          "color" = 252;
+        };
+        "variable.parameter" = {
+          "color" = 252;
+          "underline" = true;
+        };
+        "constructor" = 136;
+        "attribute" = {
+          "italic" = true;
+          "color" = 124;
+        };
+      };
+    };
+  };
+  ".config/tree-sitter/queries/injections.scm" = {
+    text = ''
+      ; 1. Match raw HTML blocks (standard Markdown behavior)
+      ((html_block (_) @injection.content)
+        (#set! injection.language "html"))
+    '';
+  };
+}

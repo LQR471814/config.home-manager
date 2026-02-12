@@ -94,7 +94,6 @@ in
     croc
     graphviz
     hugo
-    tree-sitter
     nushell
     nushellPlugins.query
     nushellPlugins.polars
@@ -153,6 +152,7 @@ in
     julia-bin
     mermaid-cli
     nu-lint
+    tree-sitter
 
     # general terminal tools
     pdf2svg
@@ -251,6 +251,7 @@ in
     antigravity-fhs
     openrefine
     wlvncc
+    (import ./src/derivations/houdoku.nix ctx)
   ];
 
   # basic configuration

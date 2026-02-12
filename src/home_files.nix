@@ -21,18 +21,14 @@ let
     );
 
   # directories in `home_files/.config/<dir>` will be symlinked to `~/.config/<dir>`
-  dotfiles =
-    (pkgs.lib.attrsets.mapAttrs' (name: value: {
+  dotfiles = (
+    pkgs.lib.attrsets.mapAttrs' (name: value: {
       name = ".config/${name}";
       value = {
         source = DIRNAME + "/home_files/.config/" + name;
       };
-    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home_files/.config)))
-    // {
-      ".gnupg/gpg-agent.conf" = {
-        text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
-      };
-    };
+    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home_files/.config))
+  );
 
   # directories in `home_files/<dir>` will be symlinked to `~/<dir>` besides `.config` and `.thunderbird`
   homefiles = (
@@ -53,18 +49,19 @@ let
         ) (builtins.readDir ../home_files)
       )
   );
-
-  texfiles = {
-    texmf = {
-      source = mytexlive + "/share/texmf";
-    };
-  };
-
-  nushell = {
-    ".config/nushell/config.nu" = {
-      source = DIRNAME + "/home_files/.config/nushell/config.nu";
-    };
-  };
 in
 # `//` merges 2 attribute sets
-dotfiles // homefiles // texfiles // nushell
+dotfiles
+// homefiles
+// (import ./dotfiles/tree-sitter.nix { inherit pkgs; })
+// {
+  ".gnupg/gpg-agent.conf" = {
+    text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
+  };
+  texmf = {
+    source = mytexlive + "/share/texmf";
+  };
+  ".config/nushell/config.nu" = {
+    source = DIRNAME + "/home_files/.config/nushell/config.nu";
+  };
+}
