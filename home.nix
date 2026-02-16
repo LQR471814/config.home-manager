@@ -1,6 +1,5 @@
 {
   metasearch2,
-  cross-stream,
 }:
 {
   config,
@@ -94,9 +93,6 @@ in
     croc
     graphviz
     hugo
-    nushell
-    nushellPlugins.query
-    nushellPlugins.polars
     ast-grep
     (if IS_DESKTOP then ollama-cuda else ollama)
     openssl
@@ -298,6 +294,7 @@ in
   services.ollama = import ./src/cfg_programs/ollama.nix ctx;
   services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
   programs.bluetuith.enable = true;
+  programs.nushell = import ./src/cfg_programs/nushell.nix ctx;
 
   # wayland stuff
   services.mako = import ./src/cfg_system/mako.nix ctx;

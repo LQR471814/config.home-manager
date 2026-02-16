@@ -1,4 +1,4 @@
-{
+ctx@{
   pkgs,
   mytexlive,
   HOME,
@@ -53,16 +53,13 @@ in
 # `//` merges 2 attribute sets
 dotfiles
 // homefiles
-// (import ./dotfiles/tree-sitter.nix { inherit pkgs; })
-// (import ./dotfiles/tofi.nix { inherit pkgs; })
+// (import ./dotfiles/tree-sitter.nix ctx)
+// (import ./dotfiles/tofi.nix ctx)
 // {
   ".gnupg/gpg-agent.conf" = {
     text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
   };
   texmf = {
     source = mytexlive + "/share/texmf";
-  };
-  ".config/nushell/config.nu" = {
-    source = DIRNAME + "/home_files/.config/nushell/config.nu";
   };
 }

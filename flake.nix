@@ -36,6 +36,7 @@
           allowUnfree = true;
         };
       };
+      cross-stream = xs.packages.${system}.default;
     in
     {
       homeConfigurations.lqr471814 = home-manager.lib.homeManagerConfiguration {
@@ -43,13 +44,13 @@
         modules = [
           (import ./home.nix {
             metasearch2 = null;
-            cross-stream = xs.packages.${system}.default;
             # metasearch2 = metasearch2.packages.${system}.default;
           })
           {
             nixpkgs.overlays = [
               (
-                super: self: with unstable.legacyPackages.${system}; {
+                super: self:
+                (with unstable.legacyPackages.${system}; {
                   inherit firefox;
                   inherit thunderbird;
                   inherit kitty;
@@ -82,6 +83,9 @@
                   inherit obs-studio;
                   inherit julia-bin;
                   inherit freecad;
+                })
+                // {
+                  inherit cross-stream;
                 }
               )
               (import ./src/overlays/bambu-studio.nix)
