@@ -54,6 +54,7 @@ in
 dotfiles
 // homefiles
 // (import ./dotfiles/tree-sitter.nix { inherit pkgs; })
+// (import ./dotfiles/tofi.nix { inherit pkgs; })
 // {
   ".gnupg/gpg-agent.conf" = {
     text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
