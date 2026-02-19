@@ -1,13 +1,19 @@
-{ pkgs ? import <nixpkgs> {}, ... }:
+{
+  pkgs ? import <nixpkgs> { },
+  ...
+}:
 
+let
+  version = "2026.02.04";
+in
 pkgs.stdenv.mkDerivation {
   name = "yt-dlp";
-  version = "2025.09.26";
+  inherit version;
   system = "x86_64-linux";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_linux";
-    hash = "sha256-RX8/Kob3R6XzuGCBO3rCiCjCj5L3yQMMmYC2nGY3hZ8=";
+    url = "https://github.com/yt-dlp/yt-dlp/releases/download/${version}/yt-dlp_linux";
+    hash = "sha256-BR7YJ6g29Wdy1mLDjr+r2NYToho5N2c31WiTGEvMU/g=";
   };
 
   dontUnpack = true;

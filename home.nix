@@ -112,6 +112,7 @@ in
     openapi-generator-cli
     eclipses.eclipse-cpp
     cross-stream
+    nufmt
 
     # lsps
     nixd
@@ -248,6 +249,7 @@ in
     openrefine
     wlvncc
     (import ./src/derivations/houdoku.nix ctx)
+    qucs-s
   ];
 
   # basic configuration
