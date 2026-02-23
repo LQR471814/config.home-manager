@@ -113,6 +113,7 @@ in
     eclipses.eclipse-cpp
     cross-stream
     nufmt
+    dust
 
     # lsps
     nixd
