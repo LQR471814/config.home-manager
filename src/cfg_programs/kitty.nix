@@ -25,5 +25,8 @@
     "ctrl+shift+v" = "paste_from_clipboard";
     "ctrl+equal" = "change_font_size all +1.0";
     "ctrl+minus" = "change_font_size all -1.0";
+    "ctrl+o" = "kitten hints --type url --program default";
+    "ctrl+y" = "kitten hints --type url --program @";
+    "ctrl+p" = "kitten hints --type url --program -";
   };
 }
