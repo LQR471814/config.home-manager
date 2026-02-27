@@ -114,6 +114,7 @@ in
     cross-stream
     nufmt
     dust
+    patchelf
 
     # lsps
     nixd
