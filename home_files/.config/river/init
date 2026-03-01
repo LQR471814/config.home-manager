@@ -140,11 +140,12 @@ riverctl default-layout rivertile
 riverctl map normal $mod e spawn "kitty --wait yazi"
 
 
-# Notes
-riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'"
-riverctl map normal $mod+Shift n spawn "kitty --wait $HOME/bin/tmux-spawn-new ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'"
-# Open new note
-riverctl map normal $mod+Shift q spawn "kitty --wait $HOME/bin/new-note"
+# Common directories
+riverctl map normal $mod s spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/School 'nvim ~/files/Documents/School'"
+riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn '~/files/Documents/Knowledge Base/' 'nvim ~/files/Documents/Knowledge\\ Base/'"
+
+# Open new memo
+riverctl map normal $mod+Shift m spawn "xdg-open http://192.168.1.10:5230"
 
 
 # Start graphical-target systemd services
