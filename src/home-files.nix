@@ -19,23 +19,23 @@ let
       )
     );
 
-  # directories in `home_files/.config/<dir>` will be symlinked to `~/.config/<dir>`
+  # directories in `home-files/.config/<dir>` will be symlinked to `~/.config/<dir>`
   dotfiles = (
     pkgs.lib.attrsets.mapAttrs' (name: value: {
       name = ".config/${name}";
       value = {
-        source = DIRNAME + "/home_files/.config/" + name;
+        source = DIRNAME + "/home-files/.config/" + name;
       };
-    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home_files/.config))
+    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home-files/.config))
   );
 
-  # directories in `home_files/<dir>` will be symlinked to `~/<dir>` besides `.config` and `.thunderbird`
+  # directories in `home-files/<dir>` will be symlinked to `~/<dir>` besides `.config` and `.thunderbird`
   homefiles = (
     pkgs.lib.attrsets.mapAttrs'
       (name: value: {
         inherit name;
         value = {
-          source = DIRNAME + "/home_files/" + name;
+          source = DIRNAME + "/home-files/" + name;
         };
       })
       (
@@ -45,7 +45,7 @@ let
             ".config"
             ".thunderbird"
           ])
-        ) (builtins.readDir ../home_files)
+        ) (builtins.readDir ../home-files)
       )
   );
 in

@@ -62,30 +62,30 @@ in
   };
 
   # userland program configuration
-  programs.kitty = import ./src/cfg_programs/kitty.nix ctx;
-  programs.fish = import ./src/cfg_programs/fish.nix ctx;
-  programs.git = import ./src/cfg_programs/git.nix ctx;
-  programs.tmux = import ./src/cfg_programs/tmux.nix ctx;
-  programs.swaylock = import ./src/cfg_programs/swaylock.nix ctx;
-  programs.obs-studio = import ./src/cfg_programs/obs-studio.nix ctx;
+  programs.kitty = import ./src/cfg-programs/kitty.nix ctx;
+  programs.fish = import ./src/cfg-programs/fish.nix ctx;
+  programs.git = import ./src/cfg-programs/git.nix ctx;
+  programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
+  programs.swaylock = import ./src/cfg-programs/swaylock.nix ctx;
+  programs.obs-studio = import ./src/cfg-programs/obs-studio.nix ctx;
   programs.bluetuith.enable = true;
-  programs.nushell = import ./src/cfg_programs/nushell.nix ctx;
+  programs.nushell = import ./src/cfg-programs/nushell.nix ctx;
 
   # wayland stuff
-  services.mako = import ./src/cfg_system/mako.nix ctx;
-  services.kanshi = import ./src/cfg_system/kanshi.nix ctx;
-  services.ollama = import ./src/cfg_programs/ollama.nix ctx;
-  services.syncthing = import ./src/cfg_programs/syncthing.nix ctx;
+  services.mako = import ./src/cfg-system/mako.nix ctx;
+  services.kanshi = import ./src/cfg-system/kanshi.nix ctx;
+  services.ollama = import ./src/cfg-programs/ollama.nix ctx;
+  services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
 
   # xdg and desktop stuff
-  dconf = import ./src/cfg_system/dconf.nix ctx;
-  xdg.mimeApps = import ./src/cfg_system/mimeapps.nix ctx;
-  gtk = import ./src/cfg_system/gtk.nix ctx;
-  i18n = import ./src/cfg_system/i18n.nix ctx;
+  dconf = import ./src/cfg-system/dconf.nix ctx;
+  xdg.mimeApps = import ./src/cfg-system/mimeapps.nix ctx;
+  gtk = import ./src/cfg-system/gtk.nix ctx;
+  i18n = import ./src/cfg-system/i18n.nix ctx;
 
   # systemd
-  systemd.user = import ./src/cfg_system/systemd.nix ctx;
+  systemd.user = import ./src/cfg-system/systemd.nix ctx;
 
   # sleep & idle lock
-  services.swayidle = import ./src/cfg_system/swayidle.nix ctx;
+  services.swayidle = import ./src/cfg-system/swayidle.nix ctx;
 }
