@@ -33,5 +33,6 @@ texlive.combine {
     enumitem
     moderncv
     latexindent
+    times
     ;
 }
