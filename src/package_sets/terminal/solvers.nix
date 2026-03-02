@@ -9,4 +9,5 @@ with pkgs;
   qucs-s
   rddlsim
   espresso-logic
+  qblade
 ]
