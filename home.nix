@@ -1,7 +1,4 @@
 {
-  metasearch2,
-}:
-{
   config,
   pkgs,
   ...
@@ -13,20 +10,18 @@ let
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
 
-  mytexlive = import ./src/derivations/mytexlive.nix { inherit pkgs; };
-  fix-pw = import ./src/derivations/fix-pipewire.nix { inherit pkgs; };
+  fix-pw = pkgs.callPackage ./src/fix-pipewire.nix { };
 
   ctx = {
-    inherit HOME;
-    inherit HOSTNAME;
-    inherit IS_DESKTOP;
-    inherit IS_LAPTOP;
-
-    inherit pkgs;
-    inherit config;
-
-    inherit mytexlive;
-    inherit fix-pw;
+    inherit
+      HOME
+      HOSTNAME
+      IS_DESKTOP
+      IS_LAPTOP
+      pkgs
+      config
+      fix-pw
+      ;
   };
 in
 {
@@ -36,17 +31,35 @@ in
   home.stateVersion = "25.11";
 
   # packages
-  home.packages = import ./src/home_packages.nix ctx;
+  home.packages = import ./src/home-packages.nix ctx;
 
   # home files (.config, etc...)
-  home.file = import ./src/home_files.nix ctx;
+  home.file = import ./src/home-files.nix ctx;
 
   # env vars
-  home.sessionVariables = import ./src/home_env.nix ctx;
-  home.sessionPath = import ./src/home_path.nix ctx;
+  home.sessionVariables = {
+    CC = "${pkgs.clang}/bin/clang";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+    TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
+    GOBIN = "${HOME}/go/bin";
+  };
+  home.sessionPath = [
+    "${HOME}/bin"
+    "${HOME}/go/bin"
+    "${HOME}/.local/bin"
+    "${HOME}/.cargo/bin"
+  ];
 
   # cursor
-  home.pointerCursor = import ./src/home_cursor.nix ctx;
+  home.pointerCursor = {
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 32;
+    gtk.enable = true;
+  };
 
   # userland program configuration
   programs.kitty = import ./src/cfg_programs/kitty.nix ctx;

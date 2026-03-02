@@ -4,10 +4,10 @@
 }:
 with pkgs;
 [
-  dune
-  ocaml
-  ocamlPackages.ocaml-lsp
-  ocamlPackages.utop
-  ocamlPackages.odoc
-  ocamlPackages.ocamlformat
+  # dune
+  # ocaml
+  # ocamlPackages.ocaml-lsp
+  # ocamlPackages.utop
+  # ocamlPackages.odoc
+  # ocamlPackages.ocamlformat
 ]

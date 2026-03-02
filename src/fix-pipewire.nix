@@ -1,13 +1,17 @@
 # this derivation fixes all apps that require pipewire
 
-{ pkgs ? import <nixpkgs> { }, ... }:
+{
+  stdenv,
+  pipewire,
+  ...
+}:
 pkg:
 
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = pkg.name + "-pw";
 
   buildInputs = [
-    pkgs.pipewire.jack
+    pipewire.jack
     pkg
   ];
 
@@ -18,7 +22,7 @@ pkgs.stdenv.mkDerivation {
 
     for file in ${pkg}/bin/*; do
       if [ -f "$file" ]; then
-        echo "${pkgs.pipewire.jack}/bin/pw-jack '$file'" > "$out/bin/$(basename "$file")"
+        echo "${pipewire.jack}/bin/pw-jack '$file'" > "$out/bin/$(basename "$file")"
         chmod +x "$out/bin/$(basename "$file")"
       fi
     done

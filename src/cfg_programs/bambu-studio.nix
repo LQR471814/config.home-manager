@@ -1,19 +1,20 @@
 # taken from https://github.com/NixOS/nixpkgs/issues/440951#issuecomment-3327261732
-self: super: {
-  bambu-studio = super.appimageTools.wrapType2 rec {
+{ pkgs, ... }:
+{
+  bambu-studio = pkgs.appimageTools.wrapType2 rec {
     name = "BambuStudio";
     pname = "bambu-studio";
     version = "02.04.00.70";
     ubuntu_version = "24.04_PR-8834";
 
-    src = super.fetchurl {
+    src = pkgs.fetchurl {
       url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_ubuntu-${ubuntu_version}.AppImage";
       hash = "sha256-JrwH3MsE3y5GKx4Do3ZlCSAcRuJzEqFYRPb11/3x3r0=";
     };
 
     profile = ''
-      export SSL_CERT_FILE="${super.cacert}/etc/ssl/certs/ca-bundle.crt"
-      export GIO_MODULE_DIR="${super.glib-networking}/lib/gio/modules/"
+      export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+      export GIO_MODULE_DIR="${pkgs.glib-networking}/lib/gio/modules/"
     '';
 
     extraPkgs =

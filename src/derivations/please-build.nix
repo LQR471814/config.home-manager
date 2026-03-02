@@ -1,13 +1,16 @@
 {
-  pkgs ? import <nixpkgs> {},
-  ...
+  final,
+  prev,
+
+  stdenv,
+  fetchurl,
 }:
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "please-build";
   version = "v17.27.0";
   system = "x86_64-linux";
 
-  src = pkgs.fetchurl {
+  src = fetchurl {
     url = "https://github.com/thought-machine/please/releases/download/v17.27.0/please_17.27.0_linux_amd64.tar.gz";
     hash = "sha256-1dXPeIprcuUOjLXbMppmpzWkxYfIBu32ZK+ke/3v+wk=";
   };

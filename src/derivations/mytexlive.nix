@@ -1,9 +1,11 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  texlive,
 }:
-pkgs.texlive.combine {
-  inherit (pkgs.texlive)
+texlive.combine {
+  inherit (texlive)
     scheme-basic
     collection-latexrecommended
     latexmk

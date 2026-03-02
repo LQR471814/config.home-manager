@@ -1,17 +1,23 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  stdenv,
+  fetchFromGitHub,
+
+  nodejs,
+  tree-sitter,
 }:
 
-pkgs.stdenv.mkDerivation {
-  name = "tree-sitter-markdown";
+stdenv.mkDerivation {
+  name = "ts-markdown";
 
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     nodejs
     tree-sitter
   ];
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "tree-sitter-grammars";
     repo = "tree-sitter-markdown";
     rev = "aca7767daa8bbe3daddafc312c34be88383c828b";

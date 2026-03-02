@@ -1,13 +1,16 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  buildGoModule,
+  fetchFromGitHub,
 }:
 
-pkgs.buildGoModule {
-  name = "nu_plugin_caldav";
+buildGoModule {
+  name = "nu-plugin-caldav";
   system = builtins.currentSystem;
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "lqr471814";
     repo = "nu_plugin_caldav";
     rev = "c78c9e4c1a19cfdf7ce0652025ddb21c2c8badd4";

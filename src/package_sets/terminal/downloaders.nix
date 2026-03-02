@@ -5,5 +5,5 @@
 with pkgs;
 [
   aria2
-  (import ../../derivations/yt-dlp.nix ctx)
+  yt-dlp
 ]

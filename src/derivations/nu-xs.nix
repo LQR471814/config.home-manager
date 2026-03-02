@@ -1,17 +1,20 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  busybox,
+  cross-stream,
 }:
 
 derivation {
   name = "nu-xs";
   system = builtins.currentSystem;
-  builder = "${pkgs.busybox}/bin/sh";
+  builder = "${busybox}/bin/sh";
   args = [
     "-c"
     ''
-      ${pkgs.busybox}/bin/mkdir -p $out
-      ${pkgs.cross-stream}/bin/xs nu > $out/xs.nu 
+      ${busybox}/bin/mkdir -p $out
+      ${cross-stream}/bin/xs nu > $out/xs.nu 
     ''
   ];
 }

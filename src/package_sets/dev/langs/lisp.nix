@@ -4,7 +4,7 @@
 }:
 with pkgs;
 [
-  sbcl
-  sbclPackages.lisp-stat
-  sbclPackages.fft
+  # sbcl
+  # sbclPackages.lisp-stat
+  # sbclPackages.fft
 ]

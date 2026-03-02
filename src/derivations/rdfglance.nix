@@ -1,23 +1,39 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  rustPlatform,
+  fetchgit,
+  lib,
+
+  pkg-config,
+  wayland-scanner,
+  makeWrapper,
+  openssl,
+  wayland,
+  wayland-protocols,
+  libxkbcommon,
+  vulkan-loader,
+  mesa,
+  udev,
+  libglvnd,
 }:
 
-pkgs.rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage {
   name = "rdfglance";
 
-  src = pkgs.fetchgit {
+  src = fetchgit {
     url = "https://github.com/LQR471814/rdfglance.git";
     rev = "393dbb75c3d7bc9a0683c1efee3fe55ac10ef8e6";
     hash = "sha256-XFqxBFeugA8uNNI4LI97SVPG275LUlflp9a46dwm1nc=";
   };
 
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     pkg-config
     wayland-scanner
     makeWrapper
   ];
-  buildInputs = with pkgs; [
+  buildInputs = [
     openssl
     wayland
     wayland-protocols
@@ -35,11 +51,11 @@ pkgs.rustPlatform.buildRustPackage {
 
     wrapProgram $out/bin/rdf-glance \
       --prefix LD_LIBRARY_PATH : ${
-        pkgs.lib.makeLibraryPath [
-          pkgs.wayland
-          pkgs.libxkbcommon
-          pkgs.vulkan-loader
-          pkgs.libglvnd
+        lib.makeLibraryPath [
+          wayland
+          libxkbcommon
+          vulkan-loader
+          libglvnd
         ]
       }
   '';

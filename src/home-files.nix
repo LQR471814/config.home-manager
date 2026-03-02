@@ -1,6 +1,5 @@
 ctx@{
   pkgs,
-  mytexlive,
   HOME,
   ...
 }:
@@ -60,6 +59,6 @@ dotfiles
     text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
   };
   texmf = {
-    source = mytexlive + "/share/texmf";
+    source = pkgs.mytexlive + "/share/texmf";
   };
 }

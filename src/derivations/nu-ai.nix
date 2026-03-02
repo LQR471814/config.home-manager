@@ -1,13 +1,16 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  stdenv,
+  fetchFromGitHub,
 }:
 
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "nu-ai";
   system = "x86_64-linux";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "fj0r";
     repo = "ai.nu";
     rev = "8e73f99daac10d161e42160622293d532eb2f62e";

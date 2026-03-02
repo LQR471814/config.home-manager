@@ -1,5 +1,11 @@
-{ pkgs, ... }:
-pkgs.callPackage (pkgs.fetchFromGitHub {
+{
+  final,
+  prev,
+
+  callPackage,
+  fetchFromGitHub,
+}:
+callPackage (fetchFromGitHub {
   owner = "wvhulle";
   repo = "nu-lint";
   rev = "905635ab0cb980fd15d29949cb08337375db8032";

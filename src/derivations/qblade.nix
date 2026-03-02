@@ -1,24 +1,33 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  stdenv,
+  fetchurl,
+  lib,
+
+  unzip,
+  libGL,
+  libGLU,
+  libsForQt5,
 }:
 let
-  libs = with pkgs; [
+  libs = [
     libGL
     libGLU
     libsForQt5.qt5.qtbase
   ];
-  libPath = pkgs.lib.makeLibraryPath libs;
+  libPath = lib.makeLibraryPath libs;
 in
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "qblade";
 
-  src = pkgs.fetchurl {
+  src = fetchurl {
     url = "https://qblade.org/assets/QBladeCE_2.0.9.6_unix.zip";
     hash = "sha256-05J1uFwUNevjHLfPmjdZ1MRyq69LEFvhZbJuBcQJrIo=";
   };
 
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     unzip
   ];
   buildInputs = libs;
