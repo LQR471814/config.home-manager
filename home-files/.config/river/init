@@ -170,5 +170,5 @@ riverctl rule-add -title "Pipewire Volume Control" float
 # Bar
 pkill bar.sh
 $HOME/.config/river/bar.sh &
-riverctl map normal $mod s spawn "pkill bar.sh; $HOME/.config/river/bar.sh"
+riverctl map normal $mod b spawn "pkill bar.sh; $HOME/.config/river/bar.sh"
 
