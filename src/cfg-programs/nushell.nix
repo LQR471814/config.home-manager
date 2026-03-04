@@ -1,9 +1,10 @@
-ctx@{ pkgs, ... }:
+{ pkgs, ... }:
 with pkgs;
 {
   enable = true;
   settings = {
     show_banner = false;
+    edit_mode = "vi";
   };
   extraConfig = ''
     const NU_LIB_DIRS = $NU_LIB_DIRS ++ [
