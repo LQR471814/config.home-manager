@@ -8,21 +8,6 @@ in
 
   # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
   services = {
-    metasearch2 = {
-      Unit = {
-        Description = "metasearch engine";
-      };
-      Service = {
-        Type = "simple";
-        TimeoutStartSec = 0;
-        ExecStart = nixbin "metasearch";
-        WorkingDirectory = dotconfig "metasearch";
-      };
-      Install = {
-        WantedBy = [ "default.target" ];
-      };
-    };
-
     fcitx5 = {
       Unit = {
         Description = "fcitx5 input method daemon";

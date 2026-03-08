@@ -9,4 +9,5 @@ with pkgs;
   libreoffice
   anki
   bambu-studio
+  cheese
 ]

@@ -50,5 +50,9 @@
           inherit system;
         };
       };
+      qblade = pkgs.callPackage (import ./src/derivations/qblade.nix) {
+        final = null;
+        prev = null;
+      };
     };
 }
