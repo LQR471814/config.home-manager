@@ -8,5 +8,5 @@ with pkgs;
   texlab
   ghostscript
 
-  ltex-ls-plus
+  # ltex-ls-plus
 ]
