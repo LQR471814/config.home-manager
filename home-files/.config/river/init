@@ -142,7 +142,6 @@ riverctl map normal $mod e spawn "kitty --wait yazi"
 
 # Common directories
 riverctl map normal $mod s spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/School 'nvim ~/files/Documents/School'"
-riverctl map normal $mod k spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Knowledge\\ Base/ 'nvim ~/files/Documents/Knowledge\\ Base/'"
 riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Knowledge\\ Base/ 'nvim ~/files/Documents/Knowledge\\ Base/'"
 
 # Open new memo
