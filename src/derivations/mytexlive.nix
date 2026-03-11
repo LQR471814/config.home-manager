@@ -34,5 +34,7 @@ texlive.combine {
     moderncv
     latexindent
     times
+    datetime2
+    datetime2-english
     ;
 }
