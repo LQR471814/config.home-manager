@@ -5,6 +5,10 @@
 systemctl --user start kanshi
 
 
+# Tell systemd & dbus about WAYLAND_DISPLAY and the river compositor
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+
+
 # Styling
 riverctl background-color 0x000000
 riverctl border-width 1
