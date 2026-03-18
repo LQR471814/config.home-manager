@@ -34,5 +34,6 @@ super: self:
     obs-studio
     julia-bin
     freecad
+    texlive
     ;
 })
