@@ -11,7 +11,7 @@ with pkgs;
   foliate # epub viewer
 
   zotero
-  rdfglance
+  # rdfglance
   houdoku
   # miru
 ]
