@@ -88,4 +88,7 @@ in
 
   # sleep & idle lock
   services.swayidle = import ./src/cfg-system/swayidle.nix ctx;
+
+  # garbage collect packages
+  nix.gc.automatic = true;
 }
