@@ -90,6 +90,9 @@ in
   services.swayidle = import ./src/cfg-system/swayidle.nix ctx;
 
   # garbage collect packages
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
+  nix.gc = {
+    automatic = true;
+    dates = "monthly";
+    options = "--delete-older-than 30d";
+  };
 }
