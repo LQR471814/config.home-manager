@@ -3,11 +3,11 @@
   prev,
 
   texlive,
+  myconfig,
 }:
 texlive.combine {
   inherit (texlive)
-    scheme-basic
-    collection-latexrecommended
+    scheme-medium
     latexmk
     pdftex
     svg
@@ -31,10 +31,13 @@ texlive.combine {
     ctex
     xecjk
     enumitem
-    moderncv
     latexindent
     times
     datetime2
     datetime2-english
     ;
+  myconfig = {
+    pkgs = [ myconfig ];
+    tlType = "run";
+  };
 }

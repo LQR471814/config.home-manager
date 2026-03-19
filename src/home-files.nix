@@ -58,7 +58,4 @@ dotfiles
   ".gnupg/gpg-agent.conf" = {
     text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
   };
-  texmf = {
-    source = pkgs.mytexlive + "/share/texmf";
-  };
 }

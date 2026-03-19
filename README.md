@@ -37,6 +37,14 @@ Environment variables defined in `sessionVariables` will only be
 updated after a reboot in `tmux` sessions as the `tmux` daemon
 will not be restarted after logging-in and logging-out?
 
+### Note on LaTeX version issues
+
+Sometimes updating LaTeX environments will cause version conflicts
+due to PATH and various other environment variable issues.
+
+To fix this, simply run `nix-garbage-collect -d`, then restart the
+computer.
+
 ### References
 
 - [nixpkgs api docs](https://nixos.org/manual/nixpkgs/stable/)

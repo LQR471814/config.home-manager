@@ -43,7 +43,6 @@ in
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
-    TEXINPUTS = "${HOME}/texmf//:${HOME}/.config/texmf//";
     GOBIN = "${HOME}/go/bin";
   };
   home.sessionPath = [
