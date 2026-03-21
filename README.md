@@ -9,8 +9,9 @@
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # symlinks
-ln -s ~/.lv2 ~/files/Plugins/lv2
-ln -s ~/.vst3 ~/files/Plugins/vst3
+ln -s ~/files/Plugins/lv2 ~/.lv2
+ln -s ~/files/Plugins/vst ~/.lxvst
+ln -s ~/files/Plugins/vst3 ~/.vst3
 
 # other installation
 julia --project=~/.julia/environments/nvim-lspconfig install_lsp.jl
@@ -35,6 +36,14 @@ try staging/commit all your files.
 Environment variables defined in `sessionVariables` will only be
 updated after a reboot in `tmux` sessions as the `tmux` daemon
 will not be restarted after logging-in and logging-out?
+
+### Note on LaTeX version issues
+
+Sometimes updating LaTeX environments will cause version conflicts
+due to PATH and various other environment variable issues.
+
+To fix this, simply run `nix-garbage-collect -d`, then restart the
+computer.
 
 ### References
 

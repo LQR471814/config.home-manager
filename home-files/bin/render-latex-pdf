@@ -1,0 +1,1 @@
+magick -density 600 "$1" -background white -alpha remove -alpha off "$2"

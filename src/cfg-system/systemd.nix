@@ -1,0 +1,81 @@
+{ HOME, ... }:
+let
+  nixbin = name: "${HOME}/.nix-profile/bin/${name}";
+  dotconfig = path: "${HOME}/.config/${path}";
+in
+{
+  enable = true;
+
+  # NOTE: all user systemd services have to be under the target 'default.target', no other targets exist for the user session
+  services = {
+    fcitx5 = {
+      Unit = {
+        Description = "fcitx5 input method daemon";
+        DefaultDependencies = "no";
+      };
+      Service = {
+        ExecStart = nixbin "fcitx5";
+        Restart = "no";
+      };
+      Install = { };
+    };
+
+    wayland-pipewire-idle-inhibit = {
+      Unit = {
+        Description = "Inhibit idle when audio is playing";
+      };
+      Service = {
+        Type = "simple";
+        TimeoutStartSec = 0;
+        ExecStart = nixbin "wayland-pipewire-idle-inhibit";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+
+    temporis = {
+      Unit = {
+        Description = "Temporis web client.";
+        After = [ "network.target" ];
+      };
+      Service = {
+        ExecStart = "${nixbin "static-web-server"} --port 4111 --root ${HOME}/Code/temporis/dist";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "default.target" ];
+    };
+
+    # aw-qt = {
+    #   Unit = {
+    #     Description = "activitywatch daemon";
+    #     DefaultDependencies = "no";
+    #   };
+    #   Service = {
+    #     # wrapper script is executed because aw-qt needs to call some other processes
+    #     # and it cannot do that without the nix env vars being present
+    #     ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
+    #     Restart = "no";
+    #   };
+    #   Install = { };
+    # };
+
+    # awsync = {
+    #   Unit = {
+    #     Description = "synchronize activitywatch data";
+    #   };
+    #   Service = {
+    #     Type = "simple";
+    #     TimeoutStartSec = 0;
+    #     ExecStart = nixbin "aw-sync";
+    #     WorkingDirectory = HOME;
+    #     Restart = "always";
+    #     RestartSec = 30;
+    #   };
+    #   Install = {
+    #     WantedBy = [ "default.target" ];
+    #   };
+    # };
+
+  };
+}

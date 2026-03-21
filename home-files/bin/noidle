@@ -1,0 +1,18 @@
+#!/bin/sh
+
+notify-user() {
+	while $(exit 0); do
+		notify-send "Inhibiting idle..." -t 3000
+		sleep 15
+	done
+}
+
+cleanup() {
+	kill 0
+	systemctl --user start swayidle
+}
+systemctl --user stop swayidle
+trap cleanup EXIT
+
+notify-user &
+sleep 100000000

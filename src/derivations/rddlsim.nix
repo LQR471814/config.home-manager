@@ -1,20 +1,26 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  final,
+  prev,
+
+  stdenv,
+  fetchgit,
+
+  jdk8,
+  bash,
 }:
 
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "rddlsim";
   system = "x86_64-linux";
 
-  src = pkgs.fetchgit {
+  src = fetchgit {
     url = "https://github.com/LQR471814/rddlsim.git";
     rev = "c45d1d266cd64b2d211f3b36276b4105177de68d";
     hash = "sha256-2pca9So0A1huhkeCdn64vnJZThiE9q9iluRAv2Q+z+M=";
   };
 
-  buildInputs = [ pkgs.jdk8.home ];
-  nativeBuildInputs = with pkgs; [
+  buildInputs = [ jdk8.home ];
+  nativeBuildInputs = [
     jdk8
     bash
   ];
@@ -34,7 +40,7 @@ pkgs.stdenv.mkDerivation {
     LIB="$(echo $out/lib/*.jar | tr ' ' ':')"
 
     echo "#!/bin/sh
-    ${pkgs.jdk8.home}/bin/java \\
+    ${jdk8.home}/bin/java \\
       -Xms100M -Xmx500M \\
       -classpath '$out/bin:$LIB' \\
       rddl.sim.Simulator \$@" > $out/bin/rddlsim

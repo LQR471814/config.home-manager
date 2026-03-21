@@ -1,0 +1,2 @@
+#!/bin/sh
+virt-viewer --connect qemu:///system --attach win11
