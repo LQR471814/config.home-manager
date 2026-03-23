@@ -171,6 +171,10 @@ riverctl map normal $mod v spawn pwvucontrol
 riverctl rule-add -title "Pipewire Volume Control" float
 
 
+# idle inhibit when audio is playing
+riverctl spawn wayland-pipewire-idle-inhibit
+
+
 # Bar
 pkill bar.sh
 $HOME/.config/river/bar.sh &
