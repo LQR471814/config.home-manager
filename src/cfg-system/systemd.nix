@@ -20,20 +20,6 @@ in
       Install = { };
     };
 
-    wayland-pipewire-idle-inhibit = {
-      Unit = {
-        Description = "Inhibit idle when audio is playing";
-      };
-      Service = {
-        Type = "simple";
-        TimeoutStartSec = 0;
-        ExecStart = nixbin "wayland-pipewire-idle-inhibit";
-      };
-      Install = {
-        WantedBy = [ "default.target" ];
-      };
-    };
-
     temporis = {
       Unit = {
         Description = "Temporis web client.";
