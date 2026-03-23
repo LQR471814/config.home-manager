@@ -75,6 +75,8 @@ in
   services.kanshi = import ./src/cfg-system/kanshi.nix ctx;
   services.ollama = import ./src/cfg-programs/ollama.nix ctx;
   services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
+  services.cliphist = import ./src/cfg-system/cliphist.nix ctx;
+  services.wl-clip-persist = import ./src/cfg-system/wl-clip-persist.nix ctx;
 
   # xdg and desktop stuff
   dconf = import ./src/cfg-system/dconf.nix ctx;
