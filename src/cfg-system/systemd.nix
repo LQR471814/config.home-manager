@@ -93,15 +93,6 @@ in
       };
     };
 
-    mako = in-graphical-session // {
-      Unit = {
-        Description = "lightweight wayland notification daemon";
-      };
-      Service = {
-        ExecStart = "${pkgs.mako}/bin/mako";
-      };
-    };
-
     fcitx5 = in-graphical-session // {
       Unit = {
         Description = "fcitx5 input method daemon";
