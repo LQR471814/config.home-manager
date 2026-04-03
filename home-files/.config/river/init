@@ -1,87 +1,53 @@
 #!/bin/sh
 
-
-# Adjust display
-systemctl --user start kanshi
-
-
-# Tell systemd & dbus about WAYLAND_DISPLAY and the river compositor
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-
-
 # Styling
 riverctl background-color 0x000000
 riverctl border-width 1
 riverctl border-color-unfocused 0x444444
 riverctl border-color-focused 0x005577
 
-
+# Laptop config
 if [[ $(hostname) == *"laptop" ]]; then
 	# Thinkpad trackpoint
 	touchpoint_dev=$(riverctl list-inputs | grep -i "trackpoint")
 	riverctl input "${touchpoint_dev}" pointer-accel -0.25
-
 	# Natural scrolling
 	touchpad_dev=$(riverctl list-inputs | grep -i "touchpad")
 	riverctl input "${touchpad_dev}" natural-scroll disabled
-
 	# Lid close lock
 	riverctl map-switch normal lid close spawn swaylock -f
 fi
 
-
 # Monitor brightness
 riverctl map normal None XF86MonBrightnessUp spawn "light -A 5"
 riverctl map normal None XF86MonBrightnessDown spawn "light -U 5"
-
 
 # Volume keys
 riverctl map normal None XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && echo '1' > /tmp/sandbar-sound"
 riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && echo '2' > /tmp/sandbar-sound"
 riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && echo '3' > /tmp/sandbar-sound"
 
-
 # Keybinds
 mod='Super'
-
-riverctl map normal $mod+Shift Return spawn "kitty"
 riverctl map normal $mod q spawn "riverctl close"
-
 riverctl map normal $mod j focus-view next
 riverctl map normal $mod k focus-view previous
-
 riverctl map normal $mod h send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal $mod l send-layout-cmd rivertile "main-ratio +0.05"
 riverctl map normal $mod u send-layout-cmd rivertile "main-ratio 0.5"
-
 riverctl map normal $mod+Shift h send-layout-cmd rivertile "main-location top"
 riverctl map normal $mod+Shift v send-layout-cmd rivertile "main-location left"
 riverctl map normal $mod i send-layout-cmd rivertile "main-count +1"
 riverctl map normal $mod d send-layout-cmd rivertile "main-count -1"
-
 riverctl map normal $mod m toggle-fullscreen
 riverctl map normal $mod+Shift Space toggle-float
-riverctl map normal $mod+Control+Shift q spawn "riverctl exit"
-
+riverctl map normal $mod+Control+Shift q spawn "systemctl --user stop river.service"
 riverctl map normal $mod+Shift k swap up
 riverctl map normal $mod+Shift j swap down
 riverctl map normal $mod+Shift h swap left
 riverctl map normal $mod+Shift l swap right
 riverctl map normal $mod Return zoom
-
 riverctl map normal $mod Tab focus-previous-tags
-
-# common applications
-riverctl map normal $mod+Shift g spawn "makoctl restore"
-riverctl map normal $mod g spawn "makoctl dismiss"
-riverctl map normal $mod w spawn "windows"
-riverctl map normal $mod+Shift p spawn "sh -c 'notify-send -t 1000 -e \"Starting keepassxc...\"; keepassxc'"
-riverctl map normal $mod f spawn "sh -c 'notify-send -t 1000 -e \"Starting firefox...\"; firefox'"
-riverctl map normal $mod t spawn "sh -c 'notify-send -t 1000 -e \"Starting thunderbird...\"; thunderbird'"
-riverctl map normal $mod p spawn "tofiw"
-riverctl map normal None Print spawn 'grim -g "$(slurp)"'
-riverctl map normal $mod y spawn "playerctl play-pause -p playerctld"
-
 riverctl map normal $mod 9 set-focused-tags 256
 riverctl map normal $mod 8 set-focused-tags 128
 riverctl map normal $mod 7 set-focused-tags 64
@@ -112,71 +78,49 @@ riverctl map normal $mod+Control 3 toggle-focused-tags 4
 riverctl map normal $mod+Control 2 toggle-focused-tags 2
 riverctl map normal $mod+Control 1 toggle-focused-tags 1
 riverctl map normal $mod+Control 0 toggle-focused-tags 511
-
-
-# Focus other monitor
-riverctl map normal $mod o focus-output next
-
-
-# Send window to other monitor
-riverctl map normal $mod+Shift o spawn "riverctl send-to-output next && riverctl focus-output next"
-
-
-# Lock screen
-riverctl map normal $mod+Control l spawn swaylock
-
-
-# Mouse controls
-riverctl map-pointer normal Mod4 BTN_LEFT move-view
+riverctl map normal $mod o focus-output next # Focus other monitor
+riverctl map normal $mod+Shift o spawn "riverctl send-to-output next && riverctl focus-output next" # Send window to other monitor
+riverctl map normal $mod+Control l spawn swaylock # Lock screen
+riverctl map-pointer normal Mod4 BTN_LEFT move-view # Mouse controls
 riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
+riverctl focus-follows-cursor normal # Auto-focus windows
 
-
-# Auto-focus windows
-riverctl focus-follows-cursor normal
-
-
-# Layout generator
-riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5"
-riverctl default-layout rivertile
-
-
-# File explorer
+# Common applications
+riverctl map normal $mod+Shift Return spawn "kitty"
+riverctl map normal $mod+Shift g spawn "makoctl restore"
+riverctl map normal $mod g spawn "makoctl dismiss"
+riverctl map normal $mod w spawn "windows"
+riverctl map normal $mod+Shift p spawn "sh -c 'notify-send -t 1000 -e \"Starting keepassxc...\"; keepassxc'"
+riverctl map normal $mod f spawn "sh -c 'notify-send -t 1000 -e \"Starting firefox...\"; firefox'"
+riverctl map normal $mod t spawn "sh -c 'notify-send -t 1000 -e \"Starting thunderbird...\"; thunderbird'"
+riverctl map normal $mod p spawn "tofiw"
+riverctl map normal None Print spawn 'grim -g "$(slurp)"'
+riverctl map normal $mod y spawn "playerctl play-pause -p playerctld"
 riverctl map normal $mod e spawn "kitty --wait yazi"
-
-
-# Common directories
 riverctl map normal $mod s spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/School 'nvim ~/files/Documents/School'"
 riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn ~/files/Documents/Knowledge\\ Base/ 'nvim ~/files/Documents/Knowledge\\ Base/'"
-
-# Open new memo
 riverctl map normal $mod+Shift m spawn "xdg-open http://192.168.1.10:5230"
-
-
-# Start graphical-target systemd services
-systemctl --user start fcitx5
-riverctl spawn mako
-
+riverctl map normal $mod v spawn pwvucontrol
 
 # Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)
 riverctl rule-add -app-id thunderbird float
 riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 
-
 # FreeRDP floating window by default
 riverctl rule-add -app-id xfreerdp float
 
-
-# pwvucontrol
-riverctl map normal $mod v spawn pwvucontrol
+# pwvucontrol floating by default
 riverctl rule-add -title "Pipewire Volume Control" float
 
+# Layout generator
+riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5"
+riverctl default-layout rivertile
 
-# idle inhibit when audio is playing
-riverctl spawn wayland-pipewire-idle-inhibit
+# Tell systemd & dbus about WAYLAND_DISPLAY and the river compositor
+export XDG_CURRENT_DESKTOP=river
+systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XCURSOR_SIZE XDG_CURRENT_DESKTOP
+echo "$NOTIFY_SOCKET" > ~/socket
+systemd-notify --ready
 
 
-# Bar
-pkill bar.sh
-$HOME/.config/river/bar.sh &
-riverctl map normal $mod b spawn "pkill bar.sh; $HOME/.config/river/bar.sh"
-
+riverctl spawn "alacritty"

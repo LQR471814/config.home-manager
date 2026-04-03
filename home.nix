@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -9,8 +10,12 @@ let
   HOME = builtins.getEnv "HOME";
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
+  SYSTEM_BIN = "/run/current-system/sw/bin";
 
   fix-pw = pkgs.callPackage ./src/fix-pipewire.nix { };
+  session-env = lib.mapAttrsToList (name: value: "${name}=${toString value}") (
+    config.home.sessionVariables // { PATH = lib.concatStringsSep ":" config.home.sessionPath; }
+  );
 
   ctx = {
     inherit
@@ -18,8 +23,10 @@ let
       HOSTNAME
       IS_DESKTOP
       IS_LAPTOP
+      SYSTEM_BIN
       pkgs
       config
+      session-env
       fix-pw
       ;
   };
@@ -71,6 +78,7 @@ in
   programs.nushell = import ./src/cfg-programs/nushell.nix ctx;
 
   # wayland stuff
+  wayland.systemd.target = "graphical-session.target";
   services.mako = import ./src/cfg-system/mako.nix ctx;
   services.kanshi = import ./src/cfg-system/kanshi.nix ctx;
   services.ollama = import ./src/cfg-programs/ollama.nix ctx;
