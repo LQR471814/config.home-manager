@@ -68,7 +68,7 @@ in
         # any process
         NotifyAccess = "all";
         # remove environment variables set by river compositor after it exits
-        ExecStopPost = "${SYSTEM_BIN}/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY";
+        ExecStopPost = "${SYSTEM_BIN}/systemctl --user unset-environment WAYLAND_DISPLAY DISPLAY XCURSOR_SIZE XDG_CURRENT_DESKTOP";
         # slice with slightly higher priority on resources
         Slice = "session.slice";
         ExecStart = "${SYSTEM_BIN}/river";
