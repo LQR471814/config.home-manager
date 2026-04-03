@@ -11,6 +11,7 @@
     };
 
     xs.url = "github:cablehead/xs";
+    wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       unstable,
       home-manager,
       xs,
+      wayland-pipewire-idle-inhibit,
       ...
     }:
     let
@@ -44,6 +46,7 @@
       homeConfigurations.lqr471814 = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
+          wayland-pipewire-idle-inhibit.homeModules.default
           (import ./home.nix)
         ];
         extraSpecialArgs = {

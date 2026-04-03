@@ -85,6 +85,7 @@ in
   services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
   services.cliphist = import ./src/cfg-system/cliphist.nix ctx;
   services.wl-clip-persist = import ./src/cfg-system/wl-clip-persist.nix ctx;
+  services.wayland-pipewire-idle-inhibit = import ./src/cfg-system/wayland-pipewire-idle-inhibit.nix ctx;
 
   # xdg and desktop stuff
   dconf = import ./src/cfg-system/dconf.nix ctx;
