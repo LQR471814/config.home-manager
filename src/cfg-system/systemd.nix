@@ -93,17 +93,6 @@ in
       };
     };
 
-    fcitx5 = in-graphical-session // {
-      Unit = {
-        Description = "fcitx5 input method daemon";
-        DefaultDependencies = "no";
-      };
-      Service = {
-        ExecStart = "${pkgs.fcitx5}/bin/fcitx5";
-        Restart = "always";
-      };
-    };
-
     temporis = {
       Unit = {
         Description = "Temporis web client.";
