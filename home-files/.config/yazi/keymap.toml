@@ -3,9 +3,9 @@ append_keymap = [
     { on = ["g", "c"], run = "cd ~/Code", desc = "Go to Code" },
     { on = ["g", "g"], run = "cd ~/files", desc = "Go to files" },
     { on = ["g", "D"], run = "cd ~/files/Documents", desc = "Go to Documents" },
-    { on = ["g", "k"], run = "cd '~/files/Documents/Knowledge Base'", desc = "Go to Documents" },
-    { on = ["g", "s"], run = "cd '~/files/Documents/School'", desc = "Go to Documents" },
-    { on = ["g", "r"], run = "cd '~/files/Documents/Recruiting'", desc = "Go to Documents" },
+    { on = ["g", "k"], run = "cd '~/files/Documents/Knowledge Base'", desc = "Go to Knowledge Base" },
+    { on = ["g", "s"], run = "cd '~/files/Documents/School'", desc = "Go to School" },
+    { on = ["g", "r"], run = "cd '~/files/Documents/Recruiting'", desc = "Go to Recruiting" },
     { on = ["g", "b"], run = "cd ~/files/Books", desc = "Go to Books" },
     { on = ["g", "m"], run = "cd ~/files/Music", desc = "Go to Music" },
 ]

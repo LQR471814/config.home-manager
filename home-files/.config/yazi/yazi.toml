@@ -1,7 +1,9 @@
 [open]
-rules = [
-    { name = "*.zip", use = "unzip" },
-    { name = "*", use = "open" }
+prepend_rules = [
+    { mime = "application/zip", use = "unzip" },
+    { mime = "text/*", use = "edit" },
+    { mime = "video/*", use = "play" },
+    { mime = "inode/directory", use = "shell" }
 ]
 
 [[opener.unzip]]
@@ -13,5 +15,23 @@ desc = "Unzip the current file."
 [[opener.open]]
 run = 'xdg-open "$@"'
 desc = "Open with xdg."
+block = false
+orphan = true
+
+[[opener.play]]
+run = 'vlc "$@"'
+desc = "Play file."
+block = false
+orphan = true
+
+[[opener.edit]]
+run = 'nvim "$@"'
+desc = "Edit file."
+block = true
+
+[[opener.shell]]
+run = 'kitty -d "$@"'
+desc = "Open directory in new terminal."
+block = false
 orphan = true
 
