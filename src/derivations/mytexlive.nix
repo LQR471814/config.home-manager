@@ -24,6 +24,7 @@ texlive.combine {
     biblatex
     biblatex-apa
     biblatex-mla
+    biblatex-ieee
     hyperref
     setspace
     texcount
