@@ -26,5 +26,9 @@
     "text/calendar" = [ "userapp-Thunderbird-GGQ262.desktop" ];
     "application/x-extension-ics" = [ "userapp-Thunderbird-GGQ262.desktop" ];
     "x-scheme-handler/webcals" = [ "userapp-Thunderbird-GGQ262.desktop" ];
+
+    "text/plain" = [ "nvim.desktop" ];
+    "text/x-tex" = [ "nvim.desktop" ];
+    "text/markdown" = [ "nvim.desktop" ];
   };
 }

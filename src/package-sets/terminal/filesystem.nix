@@ -10,4 +10,6 @@ with pkgs;
   dust
   sshfs
   watchman
+  broot
+  file
 ]
