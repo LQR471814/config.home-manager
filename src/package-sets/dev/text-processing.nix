@@ -12,4 +12,5 @@ with pkgs;
   jq
   fzf
   tree-sitter
+  htmlq
 ]
