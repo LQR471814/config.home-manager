@@ -10,11 +10,11 @@ appimageTools.wrapType2 rec {
   name = "BambuStudio";
   pname = "bambu-studio";
   version = "02.05.00.67";
-  ubuntu_version = "24.04_PR-9540";
+  platform = "linux_fedora-v02.05.00.66";
 
   src = fetchurl {
-    url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_ubuntu-${ubuntu_version}.AppImage";
-    hash = "sha256-3ubZblrsOJzz1p34QiiwiagKaB7nI8xDeadFWHBkWfg=";
+    url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_${platform}.AppImage";
+    hash = "sha256-ydurwaGx3+AfA64oY1OZ7X3RoLjqbZcyvy2Ro5OBsK0=";
   };
 
   profile = ''
