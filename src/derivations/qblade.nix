@@ -74,11 +74,3 @@ let
   '';
 in
 qblade
-# writeShellScriptBin "qblade" ''
-#   APP_DIR="$HOME/.local/share/qblade"
-#   mkdir -p "$APP_DIR"
-#   cp -f ${qblade}/bin/qbladece "$APP_DIR/qbladece"
-#   ln -s ${qblade}/ControllerFiles "$APP_DIR/ControllerFiles"
-#   ${steam-run}/bin/steam-run "$APP_DIR/qbladece" "$@"
-#   rm -rf "$APP_DIR"
-# ''
