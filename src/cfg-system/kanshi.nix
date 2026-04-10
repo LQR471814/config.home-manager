@@ -37,7 +37,41 @@
       ];
     }
     {
-      profile.name = "laptop-docked";
+      profile.name = "laptop-dell";
+      profile.outputs = [
+        {
+          criteria = "eDP-1";
+          status = "disable";
+        }
+        {
+          criteria = "Dell Inc. DELL S2725QS 21SDT84";
+          status = "enable";
+          mode = "3840x2160@120.000000Hz";
+          scale = 2.0;
+          adaptiveSync = false;
+          position = "0,0";
+        }
+      ];
+    }
+    {
+      profile.name = "laptop-lg";
+      profile.outputs = [
+        {
+          criteria = "eDP-1";
+          status = "disable";
+        }
+        {
+          criteria = "LG Electronics 27GL650F 910NTDV3G842";
+          status = "enable";
+          mode = "1920x1080@120.000000Hz";
+          scale = 1.0;
+          adaptiveSync = false;
+          position = "1920,0";
+        }
+      ];
+    }
+    {
+      profile.name = "laptop-docked-2";
       profile.outputs = [
         {
           criteria = "eDP-1";
