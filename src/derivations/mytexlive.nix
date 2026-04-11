@@ -36,6 +36,7 @@ texlive.combine {
     times
     datetime2
     datetime2-english
+    csvsimple
     ;
   myconfig = {
     pkgs = [ myconfig ];
