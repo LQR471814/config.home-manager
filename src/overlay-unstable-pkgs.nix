@@ -28,7 +28,6 @@ super: self:
     scribus
     filezilla
     qbittorrent-enhanced
-    usbimager
     zotero
     ungoogled-chromium
     obs-studio

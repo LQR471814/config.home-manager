@@ -6,5 +6,4 @@ with pkgs;
 [
   eclipses.eclipse-cpp
   dbeaver-bin
-  usbimager
 ]
