@@ -31,7 +31,7 @@
           criteria = "eDP-1";
           status = "enable";
           mode = "2560x1600@90.000999Hz";
-          scale = 1.5;
+          scale = 2.0;
           adaptiveSync = true;
         }
       ];
