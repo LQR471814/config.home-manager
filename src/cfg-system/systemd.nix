@@ -89,6 +89,7 @@ in
       Service = {
         Type = "simple";
         ExecStart = "${HOME}/.config/river/bar.sh";
+        WorkingDirectory = "${HOME}/.config/river";
         Restart = "always";
       };
     };
