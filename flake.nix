@@ -2,14 +2,11 @@
   description = "Home manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    unstable.url = "github:flox/nixpkgs/unstable";
-
+    nixpkgs.url = "github:flox/nixpkgs/unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     xs.url = "github:cablehead/xs";
     wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
   };
@@ -17,7 +14,6 @@
   outputs =
     {
       nixpkgs,
-      unstable,
       home-manager,
       xs,
       wayland-pipewire-idle-inhibit,
@@ -28,9 +24,6 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          (import ./src/overlay-unstable-pkgs.nix {
-            inherit unstable system;
-          })
           (final: prev: {
             cross-stream = xs.packages.${system}.default;
           })
@@ -52,10 +45,6 @@
         extraSpecialArgs = {
           inherit system;
         };
-      };
-      qblade = pkgs.callPackage (import ./src/derivations/qblade.nix) {
-        final = null;
-        prev = null;
       };
     };
 }
