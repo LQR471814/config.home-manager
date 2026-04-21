@@ -21,10 +21,9 @@ bar_sound() {
 }
 
 bar_sound_watcher() {
-  while cat "$PIPE_SOUND"; do
+  while cat "$PIPE_SOUND" > /dev/null; do
     bar_sound
     bar
   done
 }
-
 
