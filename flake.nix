@@ -9,6 +9,7 @@
     };
     xs.url = "github:cablehead/xs";
     wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
+    libtexprintf.url = "github:xbwwj/libtexprintf-nix";
   };
 
   outputs =
@@ -17,6 +18,7 @@
       home-manager,
       xs,
       wayland-pipewire-idle-inhibit,
+      libtexprintf,
       ...
     }:
     let
@@ -26,6 +28,7 @@
         overlays = [
           (final: prev: {
             cross-stream = xs.packages.${system}.default;
+            libtexprintf = libtexprintf.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
         ];
