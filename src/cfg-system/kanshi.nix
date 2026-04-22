@@ -47,7 +47,7 @@
           criteria = "Dell Inc. DELL S2725QS 21SDT84";
           status = "enable";
           mode = "3840x2160@120.000000Hz";
-          scale = 2.25;
+          scale = 2.0;
           adaptiveSync = false;
           position = "0,0";
         }
@@ -81,7 +81,7 @@
           criteria = "Dell Inc. DELL S2725QS 21SDT84";
           status = "enable";
           mode = "3840x2160@120.000000Hz";
-          scale = 2.25;
+          scale = 2.0;
           adaptiveSync = false;
           position = "0,0";
         }
