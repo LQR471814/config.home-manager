@@ -76,6 +76,7 @@ in
   programs.obs-studio = import ./src/cfg-programs/obs-studio.nix ctx;
   programs.bluetuith.enable = true;
   programs.nushell = import ./src/cfg-programs/nushell.nix ctx;
+  programs.yazi = import ./src/cfg-programs/yazi.nix ctx;
 
   # wayland stuff
   wayland.systemd.target = "graphical-session.target";

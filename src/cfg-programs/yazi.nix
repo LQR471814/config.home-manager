@@ -1,0 +1,148 @@
+{ pkgs, ... }:
+{
+  enable = true;
+  plugins = with pkgs; {
+    inherit (yaziPlugins)
+      bookmarks
+      ;
+  };
+  settings = {
+    open.prepend_rules = [
+      {
+        mime = "application/zip";
+        use = "unzip";
+      }
+      {
+        mime = "text/*";
+        use = "edit";
+      }
+      {
+        mime = "video/*";
+        use = "play";
+      }
+      {
+        mime = "inode/directory";
+        use = "shell";
+      }
+    ];
+    opener = {
+      unzip = [
+        {
+          run = ''unzip "$1" -d "$\{1%.*}"'';
+          block = false;
+          orphan = true;
+          desc = "Unzip the current file.";
+        }
+      ];
+      open = [
+        {
+          run = ''xdg-open "$@"'';
+          desc = "Open with xdg.";
+          block = false;
+          orphan = true;
+        }
+      ];
+      play = [
+        {
+          run = ''vlc "$@"'';
+          desc = "Play file.";
+          block = false;
+          orphan = true;
+        }
+      ];
+      edit = [
+        {
+          run = ''nvim "$@"'';
+          desc = "Edit file.";
+          block = true;
+        }
+      ];
+      shell = [
+        {
+          run = ''kitty -d "$@"'';
+          desc = "Open directory in new terminal.";
+          block = false;
+          orphan = true;
+        }
+      ];
+    };
+  };
+  keymap = {
+    mgr.append_keymap = [
+      {
+        on = [
+          "g"
+          "c"
+        ];
+        run = "cd ~/Code";
+        desc = "Go to Code";
+      }
+      {
+        on = [
+          "g"
+          "g"
+        ];
+        run = "cd ~/files";
+        desc = "Go to files";
+      }
+      {
+        on = [
+          "g"
+          "D"
+        ];
+        run = "cd ~/files/Documents";
+        desc = "Go to Documents";
+      }
+      {
+        on = [
+          "g"
+          "k"
+        ];
+        run = "cd '~/files/Documents/Knowledge Base'";
+        desc = "Go to Knowledge Base";
+      }
+      {
+        on = [
+          "g"
+          "s"
+        ];
+        run = "cd '~/files/Documents/School'";
+        desc = "Go to School";
+      }
+      {
+        on = [
+          "g"
+          "r"
+        ];
+        run = "cd '~/files/Documents/Recruiting'";
+        desc = "Go to Recruiting";
+      }
+      {
+        on = [
+          "g"
+          "b"
+        ];
+        run = "cd ~/files/Books";
+        desc = "Go to Books";
+      }
+      {
+        on = [
+          "g"
+          "m"
+        ];
+        run = "cd ~/files/Music";
+        desc = "Go to Music";
+      }
+    ];
+    mgr.prepend_keymap = [
+      {
+        on = [ "F" ];
+        run = [
+          "search_do --via=fd"
+          "filter --smart"
+        ];
+        desc = "Find files using fd";
+      }
+    ];
+  };
+}
