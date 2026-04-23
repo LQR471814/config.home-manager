@@ -112,6 +112,14 @@
       {
         on = [
           "g"
+          "S"
+        ];
+        run = "cd '/srv/shared'";
+        desc = "Go to virtual shared folder";
+      }
+      {
+        on = [
+          "g"
           "r"
         ];
         run = "cd '~/files/Documents/Recruiting'";
