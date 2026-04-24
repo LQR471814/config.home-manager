@@ -13,7 +13,7 @@
     batcharge40 = "sudo tlp setcharge 40 60";
     batcharge50 = "sudo tlp setcharge 40 50";
     batreset = "sudo tlp start";
-    notes = "tmux-spawn ~/files/Documents/Notes 'nvim ~/files/Documents/Notes'";
+    notes = "tmux-spawn ~/Documents/Notes 'nvim ~/Documents/Notes'";
     hmconf = "tmux-spawn ~/.config/home-manager 'nvim ~/.config/home-manager'";
     osconf = "tmux-spawn ~/.config/nixos 'nvim ~/.config/nixos'";
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";

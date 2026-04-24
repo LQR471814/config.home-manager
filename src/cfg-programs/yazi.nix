@@ -90,7 +90,7 @@
           "g"
           "D"
         ];
-        run = "cd ~/files/Documents";
+        run = "cd ~/Documents";
         desc = "Go to Documents";
       }
       {
@@ -98,7 +98,7 @@
           "g"
           "k"
         ];
-        run = "cd '~/files/Documents/Knowledge Base'";
+        run = "cd '~/Documents/Knowledge Base'";
         desc = "Go to Knowledge Base";
       }
       {
@@ -106,7 +106,7 @@
           "g"
           "s"
         ];
-        run = "cd '~/files/Documents/School'";
+        run = "cd '~/Documents/School'";
         desc = "Go to School";
       }
       {
@@ -122,7 +122,7 @@
           "g"
           "r"
         ];
-        run = "cd '~/files/Documents/Recruiting'";
+        run = "cd '~/Documents/Recruiting'";
         desc = "Go to Recruiting";
       }
       {
@@ -130,7 +130,7 @@
           "g"
           "b"
         ];
-        run = "cd ~/files/Books";
+        run = "cd ~/Books";
         desc = "Go to Books";
       }
       {
@@ -138,7 +138,7 @@
           "g"
           "m"
         ];
-        run = "cd ~/files/Music";
+        run = "cd ~/Music";
         desc = "Go to Music";
       }
     ];
