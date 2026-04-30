@@ -9,6 +9,7 @@
 buildGoModule {
   name = "nu_plugin_caldav";
   system = builtins.currentSystem;
+  meta.mainProgram = "nu_plugin_caldav";
 
   src = fetchFromGitHub {
     owner = "lqr471814";
