@@ -58,6 +58,7 @@ in
     "${HOME}/.local/bin"
     "${HOME}/.cargo/bin"
   ];
+  home.shell.enableNushellIntegration = true;
 
   # cursor
   home.pointerCursor = {
