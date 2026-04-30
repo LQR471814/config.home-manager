@@ -13,10 +13,10 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "lqr471814";
     repo = "nu_plugin_caldav";
-    rev = "c0db0889bab26b8af2c51ad19cc7ec25d2f9ae84";
-    hash = "sha256-pZVBc4tmMXVRVZ83pmCNMO0/RzB6ehLsjWUcrVMDIoA=";
+    rev = "b3339613ce1add671afb6af5a3aade6222d26604";
+    hash = "sha256-zRDh2INbPp4pX2Ma/Vi/nNvNSI2L3k+os0o4TwQ7JdU=";
   };
 
-  vendorHash = "sha256-vDt69hE7ZgAp1CdNSibRdpUvUpG575hOzfe7Sqs0RBY=";
+  vendorHash = "sha256-kdrYg1oMWu6/nJEoEIrP7jhbSBxSoiMDeNEtjvqb0TE=";
   subPackages = [ "." ];
 }
