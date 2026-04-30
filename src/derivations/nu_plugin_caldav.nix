@@ -7,7 +7,7 @@
 }:
 
 buildGoModule {
-  name = "nu-plugin-caldav";
+  name = "nu_plugin_caldav";
   system = builtins.currentSystem;
 
   src = fetchFromGitHub {

@@ -25,6 +25,11 @@ with pkgs;
     ta = "tmux a";
     ndev = "nix develop --command fish";
   };
+  plugins = [
+    nushellPlugins.polars
+    nushellPlugins.query
+    nu_plugin_caldav
+  ];
   extraConfig =
     let
       PATH = builtins.concatStringsSep "\n" (map (x: "\"${x}\"") config.home.sessionPath);
@@ -37,16 +42,5 @@ with pkgs;
         "${nu-ai}"
         "${nu-xs}"
       ]
-      const NU_PLUGIN_DIRS = $NU_PLUGIN_DIRS ++ [
-        "${nushellPlugins.query}/bin"
-        "${nushellPlugins.polars}/bin"
-        "${nu-plugin-caldav}/bin"
-      ]
-      plugin add nu_plugin_query
-      plugin add nu_plugin_polars
-      plugin add nu_plugin_caldav
-      plugin use query
-      plugin use polars
-      plugin use caldav
     '';
 }
