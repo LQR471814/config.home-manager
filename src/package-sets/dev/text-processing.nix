@@ -13,4 +13,5 @@ with pkgs;
   fzf
   tree-sitter
   htmlq
+  gum
 ]
