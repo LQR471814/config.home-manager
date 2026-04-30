@@ -7,18 +7,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xs.url = "github:cablehead/xs";
+
     wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
     libtexprintf.url = "github:xbwwj/libtexprintf-nix";
+
+    xs.url = "github:cablehead/xs";
+    nu-lint.url = "git+https://codeberg.org/wvhulle/nu-lint.git";
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      xs,
+
       wayland-pipewire-idle-inhibit,
       libtexprintf,
+
+      xs,
+      nu-lint,
+
       ...
     }:
     let
@@ -29,6 +36,7 @@
           (final: prev: {
             cross-stream = xs.packages.${system}.default;
             libtexprintf = libtexprintf.packages.${system}.default;
+            nu-lint = nu-lint.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
         ];

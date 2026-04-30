@@ -69,7 +69,6 @@ in
 
   # userland program configuration
   programs.kitty = import ./src/cfg-programs/kitty.nix ctx;
-  programs.fish = import ./src/cfg-programs/fish.nix ctx;
   programs.git = import ./src/cfg-programs/git.nix ctx;
   programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
   programs.swaylock = import ./src/cfg-programs/swaylock.nix ctx;

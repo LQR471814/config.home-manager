@@ -2,7 +2,6 @@
 {
   enable = true;
   enableGitIntegration = true;
-  shellIntegration.enableFishIntegration = true;
   themeFile = "Catppuccin-Mocha";
   font.package = pkgs.nerd-fonts.monaspace;
   font.name = "IBM Plex Mono";
