@@ -35,12 +35,21 @@ with pkgs;
       PATH = builtins.concatStringsSep "\n" (map (x: "\"${x}\"") config.home.sessionPath);
     in
     ''
-      $env.PATH = $env.PATH ++ [
+      $env.PATH ++= [
       ${PATH}
       ]
       const NU_LIB_DIRS = $NU_LIB_DIRS ++ [
         "${nu-ai}"
         "${nu-xs}"
+      ]
+      $env.config.keybindings ++= [
+        {
+          name: complete_hint_shift_tab
+          modifier: CONTROL
+          keycode: Tab
+          mode: [emacs vi_normal vi_insert]
+          event: { send: HistoryHintComplete }
+        }
       ]
     '';
 }
