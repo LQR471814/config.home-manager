@@ -22,6 +22,9 @@
     # allow ctrl-1, etc... special key combos to work
     set -s extended-keys on
 
+    # make ctrl + tab work
+    bind-key -n C-Tab send-keys Escape "[9;5u"
+
     # make tmux set the window title of the terminal
     set-option -g set-titles on
 
