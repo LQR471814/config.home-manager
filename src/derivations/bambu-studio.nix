@@ -9,12 +9,11 @@
 appimageTools.wrapType2 rec {
   name = "BambuStudio";
   pname = "bambu-studio";
-  version = "02.05.00.67";
-  platform = "linux_fedora-v02.05.00.66";
+  version = "02.06.00.51";
 
   src = fetchurl {
-    url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_${platform}.AppImage";
-    hash = "sha256-ydurwaGx3+AfA64oY1OZ7X3RoLjqbZcyvy2Ro5OBsK0=";
+    url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/BambuStudio_ubuntu-24.04-v${version}-20260417160415.AppImage";
+    hash = "sha256-CYePefJ7FXcAK+OXsIaNRHkml18BA7um4W2+f6l49zQ=";
   };
 
   profile = ''
@@ -31,5 +30,6 @@ appimageTools.wrapType2 rec {
       gst_all_1.gst-plugins-base
       gst_all_1.gst-plugins-good
       webkitgtk_4_1
+      libsoup_3
     ];
 }
