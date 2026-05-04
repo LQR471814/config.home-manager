@@ -38,6 +38,7 @@ texlive.combine {
     datetime2-english
     csvsimple
     xurl
+    hanging
     ;
   myconfig = {
     pkgs = [ myconfig ];
