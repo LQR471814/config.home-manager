@@ -37,6 +37,7 @@ texlive.combine {
     datetime2
     datetime2-english
     csvsimple
+    xurl
     ;
   myconfig = {
     pkgs = [ myconfig ];
