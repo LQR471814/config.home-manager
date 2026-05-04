@@ -21,7 +21,7 @@
         use = "play";
       }
       {
-        mime = "inode/directory";
+        mime = "folder/local";
         use = "shell";
       }
     ];
