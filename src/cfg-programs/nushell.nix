@@ -21,7 +21,6 @@ with pkgs;
     hmconf = "tmux-spawn ~/.config/home-manager 'nvim ~/.config/home-manager'";
     osconf = "tmux-spawn ~/.config/nixos 'nvim ~/.config/nixos'";
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
-    mansearch = "man -k . | fzf | awk '{print $1 $2}' | xargs -r man";
     ta = "tmux a";
     ndev = "nix develop --command fish";
   };
