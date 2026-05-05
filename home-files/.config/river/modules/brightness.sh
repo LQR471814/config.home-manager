@@ -2,9 +2,9 @@ STAT_BRIGHTNESS="/tmp/sandbar-stat-brightness"
 PIPE_BRIGHTNESS=$(make_events "/tmp/sandbar-brightness")
 
 bar_brightness() {
-  local BRIGHT_MAX="$(brightnessctl max)"
   local CURRENT="$(brightnessctl get)"
-  local percent="$(echo "scale=0; $CURRENT/$BRIGHT_MAX * 100" | bc -l)"
+  local MAX="$(brightnessctl max)"
+  local percent="$(echo "scale=0; $CURRENT * 100 / $MAX" | bc -l)"
 
   if [ "$percent" -ge 0 ] && [ "$percent" -lt 20 ]; then
     printf "🌑 %s%%" "$percent" > "$STAT_BRIGHTNESS"
