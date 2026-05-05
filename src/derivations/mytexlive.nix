@@ -39,6 +39,7 @@ texlive.combine {
     csvsimple
     xurl
     hanging
+    circuitikz
     ;
   myconfig = {
     pkgs = [ myconfig ];
