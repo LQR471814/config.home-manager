@@ -8,19 +8,14 @@ bar_brightness() {
 
   if [ "$percent" -ge 0 ] && [ "$percent" -lt 20 ]; then
     printf "🌑 %s%%" "$percent" > "$STAT_BRIGHTNESS"
-    printf "%s%%" "$percent" > ~/TEST
   elif [ "$percent" -ge 20 ] && [ "$percent" -lt 40 ]; then
     printf "🌒 %s%%" "$percent" > "$STAT_BRIGHTNESS"
-    printf "%s%%" "$percent" > ~/TEST2
   elif [ "$percent" -ge 40 ] && [ "$percent" -lt 60 ]; then
     printf "🌓 %s%%" "$percent" > "$STAT_BRIGHTNESS"
-    printf "%s%%" "$percent" > ~/TEST3
   elif [ "$percent" -ge 60 ] && [ "$percent" -lt 80 ]; then
     printf "🌔 %s%%" "$percent" > "$STAT_BRIGHTNESS"
-    printf "%s%%" "$percent" > ~/TEST4
-  elif [ "$percent" -ge 80 ] && [ "$percent" -lt 100 ]; then
+  elif [ "$percent" -ge 80 ] && [ "$percent" -le 100 ]; then
     printf "🌕 %s%%" "$percent" > "$STAT_BRIGHTNESS"
-    printf "%s%%" "$percent" > ~/TEST5
   else
     printf "???" > "$STAT_BRIGHTNESS"
   fi
