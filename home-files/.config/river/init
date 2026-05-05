@@ -109,6 +109,9 @@ riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
 # FreeRDP floating window by default
 riverctl rule-add -app-id xfreerdp float
 
+# FreeCAD rules
+riverctl rule-add -title "Cell Properties" float
+
 # pwvucontrol floating by default
 riverctl rule-add -title "Pipewire Volume Control" float
 
