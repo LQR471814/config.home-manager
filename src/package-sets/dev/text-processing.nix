@@ -14,4 +14,5 @@ with pkgs;
   tree-sitter
   htmlq
   gum
+  charm-freeze
 ]
