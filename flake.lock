@@ -173,11 +173,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777498633,
-        "narHash": "sha256-+3xXjfFz7y1gNG/9tQgjdxFKsQZYcDUxz1RbzmdgXj8=",
+        "lastModified": 1778144356,
+        "narHash": "sha256-dGM+QCstz/DyLB68+JK5GWyMx4QSqmOJEVgZmy63d/g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "503480e51357c7beca8c19bde560af1491a372d0",
+        "rev": "e4419d3123b780d5f4c0bceeace450424387638c",
         "type": "github"
       },
       "original": {
@@ -236,11 +236,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1777268161,
-        "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
+        "lastModified": 1777954456,
+        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1c3fe55ad329cbcb28471bb30f05c9827f724c76",
+        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
         "type": "github"
       },
       "original": {
@@ -306,11 +306,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1777046018,
-        "narHash": "sha256-vvTpcndPa6+oU7a2DVdJSHwyvhzmxPFxuWwyUeFih5Q=",
+        "lastModified": 1777713052,
+        "narHash": "sha256-zALlwEEzk6IapnLbqn9v/HV5QC9dvJi7VzEWgCQJT2s=",
         "ref": "refs/heads/main",
-        "rev": "a993b41cfdcb8c9ba9498ff867b37a1841509991",
-        "revCount": 363,
+        "rev": "ed6c21c71cd2aaeb7711df86db6399b077517025",
+        "revCount": 364,
         "type": "git",
         "url": "https://codeberg.org/wvhulle/nu-lint.git"
       },
