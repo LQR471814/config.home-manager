@@ -50,5 +50,9 @@ with pkgs;
           event: { send: HistoryHintComplete }
         }
       ]
+
+      def "lsmod table" [] {
+        ^lsmod | lines | split column -r '\s+' | rename name size used_by_count used_by | slice 1..
+      }
     '';
 }
