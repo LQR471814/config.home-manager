@@ -80,10 +80,10 @@
       {
         on = [
           "g"
-          "g"
+          "n"
         ];
-        run = "cd ~/files";
-        desc = "Go to files";
+        run = "cd ~/Notes";
+        desc = "Go to notes";
       }
       {
         on = [
