@@ -40,6 +40,7 @@ texlive.combine {
     xurl
     hanging
     circuitikz
+    caption
     ;
   myconfig = {
     pkgs = [ myconfig ];
