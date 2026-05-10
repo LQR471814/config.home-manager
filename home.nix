@@ -51,6 +51,7 @@ in
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
     GOBIN = "${HOME}/go/bin";
+    CGO_ENABLED = "0";
   };
   home.sessionPath = [
     "${HOME}/bin"
