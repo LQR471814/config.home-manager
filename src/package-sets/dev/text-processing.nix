@@ -15,4 +15,5 @@ with pkgs;
   htmlq
   gum
   charm-freeze
+  datepicker
 ]
