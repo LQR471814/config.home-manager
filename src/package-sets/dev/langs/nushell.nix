@@ -5,6 +5,5 @@
 with pkgs;
 [
   cross-stream
-  nufmt
   nu-lint
 ]
