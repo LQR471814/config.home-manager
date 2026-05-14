@@ -11,11 +11,7 @@
         "quality"
         "track-number"
         "album"
-        "genre"
         "artist"
-        "bitrate"
-        "duration"
-        "last-played"
       ];
     };
   };
