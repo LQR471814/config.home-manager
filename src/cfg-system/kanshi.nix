@@ -50,6 +50,7 @@
           scale = 2.0;
           adaptiveSync = false;
           position = "0,0";
+          transform = "270";
         }
       ];
     }
@@ -92,7 +93,7 @@
           mode = "1920x1080@120.000000Hz";
           scale = 1.0;
           adaptiveSync = false;
-          position = "1920,0";
+          position = "1080,0";
           transform = "normal";
         }
       ];
