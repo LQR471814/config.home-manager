@@ -3,8 +3,8 @@
   enable = true;
   enableGitIntegration = true;
   themeFile = "Catppuccin-Mocha";
-  font.package = pkgs.nerd-fonts.monaspace;
-  font.name = "IBM Plex Mono";
+  font.package = pkgs.nerd-fonts.lilex;
+  font.name = "Lilex Nerd Font";
   settings = {
     confirm_os_window_close = 0;
     clear_all_shortcuts = true;
