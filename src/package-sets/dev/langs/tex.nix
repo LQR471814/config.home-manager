@@ -8,6 +8,5 @@ with pkgs;
   texlab
   ghostscript
   libtexprintf
-
-  # ltex-ls-plus
+  ltex-ls-plus
 ]
