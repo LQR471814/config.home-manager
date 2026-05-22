@@ -42,7 +42,7 @@ will not be restarted after logging-in and logging-out?
 Sometimes updating LaTeX environments will cause version conflicts
 due to PATH and various other environment variable issues.
 
-To fix this, simply run `nix-garbage-collect -d`, then restart the
+To fix this, simply run `nix-collect-garbage -d`, then restart the
 computer.
 
 ### References
