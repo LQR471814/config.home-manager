@@ -1,6 +1,6 @@
 {
-  config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -9,8 +9,12 @@ let
   HOME = builtins.getEnv "HOME";
   IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
   IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
+  SYSTEM_BIN = "/run/current-system/sw/bin";
 
   fix-pw = pkgs.callPackage ./src/fix-pipewire.nix { };
+  session-env = lib.mapAttrsToList (name: value: "${name}=${toString value}") (
+    config.home.sessionVariables // { PATH = lib.concatStringsSep ":" config.home.sessionPath; }
+  );
 
   ctx = {
     inherit
@@ -18,8 +22,10 @@ let
       HOSTNAME
       IS_DESKTOP
       IS_LAPTOP
+      SYSTEM_BIN
       pkgs
       config
+      session-env
       fix-pw
       ;
   };
@@ -28,7 +34,7 @@ in
   # basic configuration
   home.username = "lqr471814";
   home.homeDirectory = HOME;
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   # packages
   home.packages = import ./src/home-packages.nix ctx;
@@ -44,6 +50,7 @@ in
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
     GOBIN = "${HOME}/go/bin";
+    CGO_ENABLED = "0";
   };
   home.sessionPath = [
     "${HOME}/bin"
@@ -51,6 +58,7 @@ in
     "${HOME}/.local/bin"
     "${HOME}/.cargo/bin"
   ];
+  home.shell.enableNushellIntegration = true;
 
   # cursor
   home.pointerCursor = {
@@ -62,21 +70,23 @@ in
 
   # userland program configuration
   programs.kitty = import ./src/cfg-programs/kitty.nix ctx;
-  programs.fish = import ./src/cfg-programs/fish.nix ctx;
   programs.git = import ./src/cfg-programs/git.nix ctx;
   programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
   programs.swaylock = import ./src/cfg-programs/swaylock.nix ctx;
   programs.obs-studio = import ./src/cfg-programs/obs-studio.nix ctx;
   programs.bluetuith.enable = true;
   programs.nushell = import ./src/cfg-programs/nushell.nix ctx;
+  programs.yazi = import ./src/cfg-programs/yazi.nix ctx;
 
   # wayland stuff
+  wayland.systemd.target = "graphical-session.target";
   services.mako = import ./src/cfg-system/mako.nix ctx;
   services.kanshi = import ./src/cfg-system/kanshi.nix ctx;
   services.ollama = import ./src/cfg-programs/ollama.nix ctx;
   services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
   services.cliphist = import ./src/cfg-system/cliphist.nix ctx;
   services.wl-clip-persist = import ./src/cfg-system/wl-clip-persist.nix ctx;
+  services.wayland-pipewire-idle-inhibit = import ./src/cfg-system/wayland-pipewire-idle-inhibit.nix ctx;
 
   # xdg and desktop stuff
   dconf = import ./src/cfg-system/dconf.nix ctx;

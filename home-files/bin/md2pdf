@@ -1,0 +1,2 @@
+#!/bin/sh
+pandoc -i "$1" -o "${1%.md}.pdf" -V geometry:margin=1.25in -V fontsize=12pt

@@ -13,5 +13,6 @@ with pkgs;
   lldb
   libcxx
   clang-tools
+  ccache
   # bear
 ]

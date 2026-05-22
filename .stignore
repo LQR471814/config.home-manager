@@ -1,1 +1,13 @@
 .git
+
+*.log
+.vimtex
+
+*-wal
+*-shm
+*-journal
+
+.venv
+__pycache__/
+preload.so
+.trash/**

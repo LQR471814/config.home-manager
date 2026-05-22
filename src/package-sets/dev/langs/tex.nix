@@ -7,6 +7,6 @@ with pkgs;
   mytexlive
   texlab
   ghostscript
-
-  # ltex-ls-plus
+  libtexprintf
+  ltex-ls-plus
 ]

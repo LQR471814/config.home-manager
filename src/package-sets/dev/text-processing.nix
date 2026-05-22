@@ -12,4 +12,8 @@ with pkgs;
   jq
   fzf
   tree-sitter
+  htmlq
+  gum
+  charm-freeze
+  datepicker
 ]

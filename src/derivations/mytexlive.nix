@@ -24,6 +24,7 @@ texlive.combine {
     biblatex
     biblatex-apa
     biblatex-mla
+    biblatex-ieee
     hyperref
     setspace
     texcount
@@ -35,6 +36,11 @@ texlive.combine {
     times
     datetime2
     datetime2-english
+    csvsimple
+    xurl
+    hanging
+    circuitikz
+    caption
     ;
   myconfig = {
     pkgs = [ myconfig ];

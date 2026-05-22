@@ -4,10 +4,10 @@
 }:
 with pkgs;
 [
-  yazi
   rclone
   tree
   dust
   sshfs
   watchman
+  file
 ]

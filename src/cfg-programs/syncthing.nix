@@ -1,4 +1,12 @@
 { HOME, ... }:
+let
+  folder = id: name: {
+    id = id;
+    label = name;
+    path = "${HOME}/${name}";
+    devices = [ "homeserver" ];
+  };
+in
 {
   enable = true;
   settings = {
@@ -12,16 +20,10 @@
       };
     };
     folders = {
-      files = {
-        id = "files";
-        label = "Files";
-        path = "${HOME}/files";
-        devices = [ "homeserver" ];
-        versioning = {
-          type = "trashcan";
-          params.cleanoutDays = "30";
-        };
-      };
+      applications = folder "applications" "Applications";
+      books = folder "books" "Books";
+      documents = folder "documents" "Documents";
+      music = folder "music" "Music";
     };
   };
 }

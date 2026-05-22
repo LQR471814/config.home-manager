@@ -4,7 +4,7 @@ ctx@{
   ...
 }:
 let
-  DIRNAME = builtins.toString ./..;
+  DIRNAME = toString ./..;
 
   filterAttrs =
     pred: set:
@@ -59,3 +59,16 @@ dotfiles
     text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
   };
 }
+// (
+  let
+    stignore = {
+      text = builtins.readFile ../.stignore;
+    };
+  in
+  {
+    "Applications/.stignore" = stignore;
+    "Books/.stignore" = stignore;
+    "Documents/.stignore" = stignore;
+    "Music/.stignore" = stignore;
+  }
+)

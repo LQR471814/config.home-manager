@@ -1,0 +1,5 @@
+#!/bin/sh
+DST="$HOME/$(date +'%Y%m%d_%Hh%Mm%Ss_shot.png')"
+grim -g "$(slurp)" "$DST"
+wl-copy < "$DST"
+

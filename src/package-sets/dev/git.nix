@@ -10,4 +10,5 @@ with pkgs;
   gh
   nix-prefetch-git
   lazygit
+  meteor-git
 ]
