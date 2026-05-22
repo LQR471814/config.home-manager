@@ -5,9 +5,9 @@
 with pkgs;
 [
   firefox
-  tor-browser
+  # tor-browser
+  # qbittorrent-enhanced
   ungoogled-chromium
-  qbittorrent-enhanced
   thunderbird
   localsend
   legcord

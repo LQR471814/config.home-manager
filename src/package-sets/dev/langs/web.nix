@@ -8,7 +8,6 @@ with pkgs;
   deno
   pnpm
   mermaid-cli
-  static-web-server
 
   marksman
   biome

@@ -6,5 +6,5 @@ with pkgs;
 [
   claude-code
   antigravity-fhs
-  upscayl-ncnn
+  # upscayl-ncnn
 ]

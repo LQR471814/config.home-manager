@@ -4,6 +4,6 @@
 }:
 with pkgs;
 [
-  rustdesk-flutter
+  # rustdesk-flutter
   wlvncc
 ]

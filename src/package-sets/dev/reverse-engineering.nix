@@ -4,8 +4,8 @@
 }:
 with pkgs;
 [
-  android-studio
-  frida-tools
-  httptoolkit
-  httptoolkit-server
+  # android-studio
+  # frida-tools
+  # httptoolkit
+  # httptoolkit-server
 ]

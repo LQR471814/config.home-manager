@@ -5,6 +5,6 @@
 with pkgs;
 [
   sqlite
-  redis
+  # redis
   trailbase
 ]

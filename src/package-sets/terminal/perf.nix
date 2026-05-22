@@ -4,7 +4,6 @@
 }:
 with pkgs;
 [
-  htop
   btop
   powertop
 ]
