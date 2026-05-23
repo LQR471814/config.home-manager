@@ -83,10 +83,10 @@ riverctl map normal $mod+Control 3 toggle-focused-tags 4
 riverctl map normal $mod+Control 2 toggle-focused-tags 2
 riverctl map normal $mod+Control 1 toggle-focused-tags 1
 riverctl map normal $mod+Control 0 toggle-focused-tags 511
-riverctl map normal $mod+Shift h focus-output left # Focus left monitor
-riverctl map normal $mod+Shift l focus-output right # Focus right monitor
-riverctl map normal $mod+Control h spawn "riverctl send-to-output left && riverctl focus-output left" # Send window to left monitor
-riverctl map normal $mod+Control l spawn "riverctl send-to-output right && riverctl focus-output right" # Send window to right monitor
+riverctl map normal $mod+Control h focus-output left # Focus left monitor
+riverctl map normal $mod+Control l focus-output right # Focus right monitor
+riverctl map normal $mod+Shift h spawn "riverctl send-to-output left" # Send window to left monitor
+riverctl map normal $mod+Shift l spawn "riverctl send-to-output right" # Send window to right monitor
 riverctl map normal $mod+Mod4+Control l spawn swaylock # Lock screen
 riverctl map-pointer normal Mod4 BTN_LEFT move-view # Mouse controls
 riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
