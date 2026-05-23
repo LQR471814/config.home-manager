@@ -83,6 +83,7 @@ riverctl map normal $mod+Control 3 toggle-focused-tags 4
 riverctl map normal $mod+Control 2 toggle-focused-tags 2
 riverctl map normal $mod+Control 1 toggle-focused-tags 1
 riverctl map normal $mod+Control 0 toggle-focused-tags 511
+riverctl map normal $mod+Control o focus-output next # Focus other monitor
 riverctl map normal $mod+Control h focus-output left # Focus left monitor
 riverctl map normal $mod+Control l focus-output right # Focus right monitor
 riverctl map normal $mod+Shift h spawn "riverctl send-to-output left" # Send window to left monitor
