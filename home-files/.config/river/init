@@ -86,8 +86,8 @@ riverctl map normal $mod+Control 0 toggle-focused-tags 511
 riverctl map normal $mod+Control o focus-output next # Focus other monitor
 riverctl map normal $mod+Control h focus-output left # Focus left monitor
 riverctl map normal $mod+Control l focus-output right # Focus right monitor
-riverctl map normal $mod+Shift h spawn "riverctl send-to-output left" # Send window to left monitor
-riverctl map normal $mod+Shift l spawn "riverctl send-to-output right" # Send window to right monitor
+riverctl map normal $mod+Control+Shift h spawn "riverctl send-to-output left" # Send window to left monitor
+riverctl map normal $mod+Control+Shift l spawn "riverctl send-to-output right" # Send window to right monitor
 riverctl map-pointer normal Mod4 BTN_LEFT move-view # Mouse controls
 riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
 riverctl focus-follows-cursor normal # Auto-focus windows
