@@ -7,4 +7,5 @@ with pkgs;
   playerctl
   zenity
   wayland-pipewire-idle-inhibit
+  youtube-tui
 ]
