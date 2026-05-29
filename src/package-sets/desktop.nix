@@ -8,4 +8,5 @@ with pkgs;
   zenity
   wayland-pipewire-idle-inhibit
   youtube-tui
+  mpv
 ]
