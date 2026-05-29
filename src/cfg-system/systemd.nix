@@ -88,7 +88,7 @@ in
       };
       Service = {
         Type = "simple";
-        ExecStart = "${HOME}/.config/river/bar.sh";
+        ExecStart = "${pkgs.nushell}/bin/nu ${HOME}/.config/river/bar.nu";
         WorkingDirectory = "${HOME}/.config/river";
         Restart = "always";
       };
