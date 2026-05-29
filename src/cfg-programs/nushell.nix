@@ -29,6 +29,7 @@ with pkgs;
     nushellPlugins.query
     nu_plugin_caldav
   ];
+  environmentVariables = config.home.sessionVariables;
   extraConfig =
     let
       PATH = builtins.concatStringsSep "\n" (map (x: "\"${x}\"") config.home.sessionPath);
