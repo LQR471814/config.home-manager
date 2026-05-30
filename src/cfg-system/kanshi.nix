@@ -50,7 +50,7 @@
           scale = 2.0;
           adaptiveSync = false;
           position = "0,0";
-          transform = "270";
+          transform = "normal";
         }
       ];
     }
@@ -85,7 +85,7 @@
           scale = 2.0;
           adaptiveSync = false;
           position = "0,0";
-          transform = "270";
+          transform = "normal";
         }
         {
           criteria = "LG Electronics 27GL650F 910NTDV3G842";
@@ -93,8 +93,8 @@
           mode = "1920x1080@120.000000Hz";
           scale = 1.0;
           adaptiveSync = false;
-          position = "1080,0";
-          transform = "normal";
+          position = "1920,0";
+          transform = "90";
         }
       ];
     }
