@@ -13,6 +13,8 @@
 
     xs.url = "github:cablehead/xs";
     nu-lint.url = "git+https://codeberg.org/wvhulle/nu-lint.git";
+
+    nu-type-alias.url = "github:LQR471814/nu-type-alias";
   };
 
   outputs =
@@ -26,6 +28,8 @@
       xs,
       nu-lint,
 
+      nu-type-alias,
+
       ...
     }:
     let
@@ -37,6 +41,7 @@
             cross-stream = xs.packages.${system}.default;
             libtexprintf = libtexprintf.packages.${system}.default;
             nu-lint = nu-lint.packages.${system}.default;
+            nu-type-alias = nu-type-alias.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
         ];

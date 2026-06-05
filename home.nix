@@ -35,7 +35,7 @@ in
   # basic configuration
   home.username = "lqr471814";
   home.homeDirectory = HOME;
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
 
   # packages
   home.packages = import ./src/home-packages.nix ctx;

@@ -4,7 +4,7 @@
 }:
 with pkgs;
 [
-  pipx
+  # pipx
   ruff
   uv
   pyright

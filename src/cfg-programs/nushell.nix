@@ -27,7 +27,7 @@ with pkgs;
   plugins = [
     nushellPlugins.polars
     nushellPlugins.query
-    nu_plugin_caldav
+    # nu_plugin_caldav
   ];
   environmentVariables = config.home.sessionVariables;
   extraConfig =
