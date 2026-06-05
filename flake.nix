@@ -14,7 +14,8 @@
     xs.url = "github:cablehead/xs";
     nu-lint.url = "git+https://codeberg.org/wvhulle/nu-lint.git";
 
-    nu-type-alias.url = "github:LQR471814/nu-type-alias";
+    nu-type-alias.url = "git+https://github.com/LQR471814/nu-type-alias.git";
+    nu_plugin_caldav.url = "git+https://github.com/LQR471814/nu_plugin_caldav.git";
   };
 
   outputs =
@@ -27,7 +28,7 @@
 
       xs,
       nu-lint,
-
+      nu_plugin_caldav,
       nu-type-alias,
 
       ...
@@ -42,6 +43,7 @@
             libtexprintf = libtexprintf.packages.${system}.default;
             nu-lint = nu-lint.packages.${system}.default;
             nu-type-alias = nu-type-alias.packages.${system}.default;
+            nu_plugin_caldav = nu_plugin_caldav.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
         ];

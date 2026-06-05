@@ -173,11 +173,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780370888,
-        "narHash": "sha256-PRJj9RKTEf/sITycujP1c/BrvLJKMYXzcpwTsXNulXQ=",
+        "lastModified": 1780593650,
+        "narHash": "sha256-CHo7k65YTL3HY+WQVedDTupji+LMgNlKCdrtRHZFAK4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a7a415883195ffbd4dabec8f098f201e6eaaadf8",
+        "rev": "447fd9ff62501dae7206dfe180ee89f8de27b7d5",
         "type": "github"
       },
       "original": {
@@ -283,6 +283,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1773821835,
         "narHash": "sha256-TJ3lSQtW0E2JrznGVm8hOQGVpXjJyXY2guAxku2O9A4=",
         "owner": "nixos",
@@ -297,7 +313,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1768564909,
         "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
@@ -322,11 +338,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1777713052,
-        "narHash": "sha256-zALlwEEzk6IapnLbqn9v/HV5QC9dvJi7VzEWgCQJT2s=",
+        "lastModified": 1780425462,
+        "narHash": "sha256-5YR1Cn9/psNswLVYtDZGmvoP9AwBANa0sPHN4eqcRhQ=",
         "ref": "refs/heads/main",
-        "rev": "ed6c21c71cd2aaeb7711df86db6399b077517025",
-        "revCount": 364,
+        "rev": "569aee99bfc5d7e2b6ac0660be7d2e0f8d47e60d",
+        "revCount": 369,
         "type": "git",
         "url": "https://codeberg.org/wvhulle/nu-lint.git"
       },
@@ -340,18 +356,36 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1780628642,
-        "narHash": "sha256-ePmdBZCKWta4Oy0j/88WpAS2ZNCviLSU9FsSxVnnjbA=",
-        "owner": "LQR471814",
-        "repo": "nu-type-alias",
-        "rev": "c2b6073ceac2fa187ad57ca13cde8ea1bdec10a6",
+        "lastModified": 1780628884,
+        "narHash": "sha256-/P81tlA9t9HY/yUPrXXAeP2zoFaED9z79zT/xP5wdqg=",
+        "ref": "refs/heads/main",
+        "rev": "d4aa5a0a5737e1b5dc5ce588232dbafd628aa2d4",
+        "revCount": 22,
         "submodules": true,
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/LQR471814/nu-type-alias.git"
       },
       "original": {
-        "owner": "LQR471814",
-        "repo": "nu-type-alias",
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/LQR471814/nu-type-alias.git"
+      }
+    },
+    "nu_plugin_caldav": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1780629923,
+        "narHash": "sha256-6Amrq92n7vDvK27p7GRjJk1r+uh+Zsml3H1iurvPeTQ=",
+        "ref": "refs/heads/main",
+        "rev": "a1177762642d952eb50269b212d25f9cf93085a4",
+        "revCount": 56,
+        "type": "git",
+        "url": "https://github.com/LQR471814/nu_plugin_caldav.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/LQR471814/nu_plugin_caldav.git"
       }
     },
     "root": {
@@ -361,6 +395,7 @@
         "nixpkgs": "nixpkgs_2",
         "nu-lint": "nu-lint",
         "nu-type-alias": "nu-type-alias",
+        "nu_plugin_caldav": "nu_plugin_caldav",
         "wayland-pipewire-idle-inhibit": "wayland-pipewire-idle-inhibit",
         "xs": "xs"
       }
@@ -394,11 +429,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768877311,
-        "narHash": "sha256-abSDl0cNr0B+YCsIDpO1SjXD9JMxE4s8EFnhLEFVovI=",
+        "lastModified": 1780456895,
+        "narHash": "sha256-CvRZn3Ut0scqLJ1xwQFkZwKGVBUUNBPrFVXRTMZpbfU=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "59e4ab96304585fde3890025fd59bd2717985cc1",
+        "rev": "7cc96a6a3fd6613cafd633250a3934483479b9a1",
         "type": "github"
       },
       "original": {
@@ -476,7 +511,7 @@
     "wayland-pipewire-idle-inhibit": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "systems": "systems_3",
         "treefmt-nix": "treefmt-nix"
       },
@@ -498,15 +533,15 @@
       "inputs": {
         "crane": "crane_2",
         "flake-parts": "flake-parts_2",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1779827884,
-        "narHash": "sha256-AaRG2tDsmw4NvyxmgFvH964FPEejpOj5o/trMw+cIyo=",
+        "lastModified": 1780601899,
+        "narHash": "sha256-2JfQE5yXC/z5Kq9U8oTu0/NNOteM3Sla0H8p8eci1sM=",
         "owner": "cablehead",
         "repo": "xs",
-        "rev": "aab1b4f08f9ce0bb943311aeacbb4c6a519c693b",
+        "rev": "d0e2e6a9496f11203a98032d462182e0cf121bfa",
         "type": "github"
       },
       "original": {
