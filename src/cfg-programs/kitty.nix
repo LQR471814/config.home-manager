@@ -5,6 +5,7 @@
   themeFile = "Catppuccin-Mocha";
   font.package = pkgs.nerd-fonts.lilex;
   font.name = "Lilex Nerd Font";
+  font.size = 12;
   settings = {
     confirm_os_window_close = 0;
     clear_all_shortcuts = true;
