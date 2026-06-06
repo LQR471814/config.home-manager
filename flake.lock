@@ -173,11 +173,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780593650,
-        "narHash": "sha256-CHo7k65YTL3HY+WQVedDTupji+LMgNlKCdrtRHZFAK4=",
+        "lastModified": 1780679734,
+        "narHash": "sha256-KmRNvpNOb7QEORa06bVgjW9kITcx0VhsI7w0vhmZyD8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "447fd9ff62501dae7206dfe180ee89f8de27b7d5",
+        "rev": "b2b7db486e06e098711dc291bb25db82850e1d16",
         "type": "github"
       },
       "original": {
@@ -356,11 +356,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1780637900,
-        "narHash": "sha256-TMLiu9KSdqgft9DQrWwoIIOR3is+WmeJ+GPI6+TGDpA=",
+        "lastModified": 1780715394,
+        "narHash": "sha256-qHK17lAYIGmHygVrZfpVUEuJuMRKjgKaYcjQ18F1l9o=",
         "ref": "refs/heads/main",
-        "rev": "823f37b94611cc3e053e615c0c809b046027f290",
-        "revCount": 32,
+        "rev": "6a9db2b5ba2d0d0dda39019295c260e9d12ccb11",
+        "revCount": 59,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/LQR471814/nu-type-alias.git"
@@ -537,11 +537,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1780601899,
-        "narHash": "sha256-2JfQE5yXC/z5Kq9U8oTu0/NNOteM3Sla0H8p8eci1sM=",
+        "lastModified": 1780709750,
+        "narHash": "sha256-x27kPqFSibBRzKyLdbJ2PmaMdFHeok+dnMZdh+1skyI=",
         "owner": "cablehead",
         "repo": "xs",
-        "rev": "d0e2e6a9496f11203a98032d462182e0cf121bfa",
+        "rev": "dc9095842b5a8c8f8b4a832fd8afd4dadff4489a",
         "type": "github"
       },
       "original": {
