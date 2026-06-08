@@ -13,7 +13,7 @@
 
     xs.url = "github:cablehead/xs";
     nu-lint.url = "git+https://codeberg.org/wvhulle/nu-lint.git";
-
+    topiary-nushell.url = "github:blindFS/topiary-nushell";
     nu-type-alias.url = "git+https://github.com/LQR471814/nu-type-alias.git";
     nu_plugin_caldav.url = "git+https://github.com/LQR471814/nu_plugin_caldav.git";
   };
@@ -30,6 +30,7 @@
       nu-lint,
       nu_plugin_caldav,
       nu-type-alias,
+      topiary-nushell,
 
       ...
     }:
@@ -44,6 +45,7 @@
             nu-lint = nu-lint.packages.${system}.default;
             nu-type-alias = nu-type-alias.packages.${system}.default;
             nu_plugin_caldav = nu_plugin_caldav.packages.${system}.default;
+            topiary-nushell = topiary-nushell.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
         ];

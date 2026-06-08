@@ -16,4 +16,5 @@ with pkgs;
   gum
   charm-freeze
   datepicker
+  topiary
 ]
