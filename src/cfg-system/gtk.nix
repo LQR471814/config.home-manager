@@ -14,5 +14,6 @@
     "file:///home/lqr471814/Books"
     "file:///home/lqr471814/Music"
     "file:///home/lqr471814/files"
+    "file:///home/lqr471814/Applications"
   ];
 }
