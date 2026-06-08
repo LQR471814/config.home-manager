@@ -39,4 +39,7 @@ with pkgs;
   dexed
   odin2
   surge-xt
+
+  # instruments
+  mda_lv2
 ]
