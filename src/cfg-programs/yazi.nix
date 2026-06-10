@@ -28,10 +28,10 @@
     opener = {
       unzip = [
         {
-          run = ''unzip "$1" -d "''${1%.*}"'';
+          run = ''~/bin/unzip-many "$@"'';
           block = false;
-          orphan = true;
-          desc = "Unzip the current file.";
+          orphan = false;
+          desc = "Unzip the current file(s).";
         }
       ];
       open = [

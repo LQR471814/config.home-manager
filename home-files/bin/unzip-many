@@ -1,0 +1,18 @@
+#!/home/lqr471814/.nix-profile/bin/nu
+
+def main [...args: string] {
+  $args
+  | par-each {|path|
+    let pathobj = $path | path parse
+    let parent = if ($pathobj.parent | is-not-empty) {
+      $pathobj.parent
+    } else { "." }
+    let res = unzip -o $path -d $"($parent)/($pathobj.stem)" | complete
+    if $res.exit_code != 0 {
+      $"($path) ERROR:\n($res.stderr)"
+    } else {
+      $path
+    }
+  }
+  | str join "\n"
+}
