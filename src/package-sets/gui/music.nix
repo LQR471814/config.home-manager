@@ -28,6 +28,7 @@ with pkgs;
   bankstown-lv2
   bolliedelayxt-lv2
   bs2b-lv2
+  guitarix-vst
 
   # samplers
   sfizz-ui
