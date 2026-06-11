@@ -61,6 +61,17 @@ dotfiles
 }
 // (
   let
+    cfg = import ./cfg-programs/ast-grep.nix { inherit pkgs; };
+    src = (pkgs.formats.yaml { }).generate "config.yaml" cfg;
+  in
+  {
+    "sgconfig.yaml" = {
+      source = "${src}";
+    };
+  }
+)
+// (
+  let
     stignore = {
       text = builtins.readFile ../.stignore;
     };
