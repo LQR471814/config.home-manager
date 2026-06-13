@@ -5,6 +5,12 @@ with pkgs;
   settings = {
     show_banner = false;
     edit_mode = "vi";
+    history = {
+      file_format = "sqlite";
+      max_size = 1000000;
+      sync_on_enter = true;
+      isolation = true;
+    };
   };
   shellAliases = {
     lzg = "lazygit";
