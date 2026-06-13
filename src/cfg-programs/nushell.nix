@@ -29,6 +29,7 @@ with pkgs;
     nvconf = "tmux-spawn ~/.config/nvim 'nvim ~/.config/nvim'";
     ta = "tmux a";
     ndev = "nix develop --command fish";
+    sbtop = "sudo (which btop | get 0.path)";
   };
   plugins = [
     nushellPlugins.polars
