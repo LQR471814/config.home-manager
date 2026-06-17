@@ -173,11 +173,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780679734,
-        "narHash": "sha256-KmRNvpNOb7QEORa06bVgjW9kITcx0VhsI7w0vhmZyD8=",
+        "lastModified": 1781719483,
+        "narHash": "sha256-MC6hWrek1hMewRRRHiAJ8z4sHEodzjizOefS/oHVrsU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b2b7db486e06e098711dc291bb25db82850e1d16",
+        "rev": "ea0bf49c9d2a9c8f5548d116d63a7a1a35d1193d",
         "type": "github"
       },
       "original": {
@@ -236,11 +236,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1780243769,
-        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
+        "lastModified": 1781577229,
+        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
         "type": "github"
       },
       "original": {
@@ -267,11 +267,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1779560665,
-        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
+        "lastModified": 1781577229,
+        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
         "type": "github"
       },
       "original": {
@@ -372,11 +372,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1780715394,
-        "narHash": "sha256-qHK17lAYIGmHygVrZfpVUEuJuMRKjgKaYcjQ18F1l9o=",
+        "lastModified": 1781720614,
+        "narHash": "sha256-MB8n2DImVljb5uMKY9nJr2tyDhnY2uWH3fk+Jupy6wo=",
         "ref": "refs/heads/main",
-        "rev": "6a9db2b5ba2d0d0dda39019295c260e9d12ccb11",
-        "revCount": 59,
+        "rev": "5e2b5d7fda39a49745bdfc6b35c22bcbf54a17ee",
+        "revCount": 82,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/LQR471814/nu-type-alias.git"
@@ -572,11 +572,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1780709750,
-        "narHash": "sha256-x27kPqFSibBRzKyLdbJ2PmaMdFHeok+dnMZdh+1skyI=",
+        "lastModified": 1781546309,
+        "narHash": "sha256-U6kzZttKGf7uSmOl5p8HKb05RGVE+vnjW9/yt1HAIzs=",
         "owner": "cablehead",
         "repo": "xs",
-        "rev": "dc9095842b5a8c8f8b4a832fd8afd4dadff4489a",
+        "rev": "1abb89201b90d900bdd052e28bf65c1bf435a9d4",
         "type": "github"
       },
       "original": {

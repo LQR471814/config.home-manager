@@ -44,6 +44,7 @@
             libtexprintf = libtexprintf.packages.${system}.default;
             nu-lint = nu-lint.packages.${system}.default;
             nu-type-alias = nu-type-alias.packages.${system}.default;
+            nu-type-fmt = nu-type-alias.packages.${system}.nu-type-fmt;
             nu_plugin_caldav = nu_plugin_caldav.packages.${system}.default;
             topiary-nushell = topiary-nushell.packages.${system}.default;
           })
