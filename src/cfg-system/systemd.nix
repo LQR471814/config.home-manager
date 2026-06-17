@@ -79,6 +79,13 @@ in
           "DISPLAY"
           "WLR_BACKENDS"
         ];
+        # because rootless kind requires `Delegate=yes` for the systemd service
+        # that owns the process running `kind`
+        # (https://kind.sigs.k8s.io/docs/user/rootless/) and `Delegate=yes` is
+        # not inherited from parent systemd services, we must explicitly set
+        # Delegate=yes on river.service because it owns the terminal that is
+        # likely to be running `kind create cluster`
+        Delegate = "yes";
       };
     };
 
