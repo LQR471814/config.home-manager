@@ -2,7 +2,7 @@
 {
   enable = IS_LAPTOP;
   events = {
-    "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
+    "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f --fingerprint";
   };
   timeouts = [
     {
