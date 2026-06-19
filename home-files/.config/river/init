@@ -10,7 +10,7 @@ riverctl border-color-focused 0x005577
 if [[ $(hostname) == *"laptop" ]]; then
 	# Thinkpad trackpoint
 	touchpoint_dev=$(riverctl list-inputs | grep -i "trackpoint")
-	riverctl input "${touchpoint_dev}" pointer-accel -0.6
+	riverctl input "${touchpoint_dev}" pointer-accel -0.3
 	# Natural scrolling
 	touchpad_dev=$(riverctl list-inputs | grep -i "touchpad")
 	riverctl input "${touchpad_dev}" natural-scroll disabled
