@@ -101,17 +101,17 @@ in
       };
     };
 
-    temporis = {
-      Unit = {
-        Description = "Temporis web client.";
-        After = [ "network.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.static-web-server}/bin/static-web-server --port 4111 --root ${HOME}/Code/temporis/dist";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "default.target" ];
-    };
+    # temporis = {
+    #   Unit = {
+    #     Description = "Temporis web client.";
+    #     After = [ "network.target" ];
+    #   };
+    #   Service = {
+    #     ExecStart = "${pkgs.static-web-server}/bin/static-web-server --port 4111 --root ${HOME}/Code/temporis/dist";
+    #     Restart = "on-failure";
+    #   };
+    #   Install.WantedBy = [ "default.target" ];
+    # };
 
     # aw-qt = {
     #   Unit = {
