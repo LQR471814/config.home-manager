@@ -12,10 +12,10 @@
     libtexprintf.url = "github:xbwwj/libtexprintf-nix";
 
     xs.url = "github:cablehead/xs";
-    nu-lint.url = "git+https://codeberg.org/wvhulle/nu-lint.git";
+    nu-lint.url = "github:wvhulle/nu-lint";
     topiary-nushell.url = "github:blindFS/topiary-nushell";
     nu-type-alias.url = "git+https://github.com/LQR471814/nu-type-alias.git";
-    nu_plugin_caldav.url = "git+https://github.com/LQR471814/nu_plugin_caldav.git";
+    nu_plugin_caldav.url = "github:LQR471814/nu_plugin_caldav";
   };
 
   outputs =
