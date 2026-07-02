@@ -5,6 +5,7 @@
 with pkgs;
 [
   go
+  gopls
   templ
   sqlc
   buf
