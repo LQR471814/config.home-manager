@@ -11,4 +11,5 @@ with pkgs;
   inkscape
   scribus
   freecad
+  calculix-ccx
 ]
