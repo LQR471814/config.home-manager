@@ -12,4 +12,5 @@ with pkgs;
   scribus
   freecad
   calculix-ccx
+  gmsh
 ]
