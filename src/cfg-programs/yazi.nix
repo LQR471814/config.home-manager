@@ -44,7 +44,7 @@
       ];
       play = [
         {
-          run = ''vlc "$@"'';
+          run = ''mpv --keep-open=yes "$@"'';
           desc = "Play file.";
           block = false;
           orphan = true;
