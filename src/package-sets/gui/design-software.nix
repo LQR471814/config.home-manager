@@ -13,4 +13,5 @@ with pkgs;
   freecad
   calculix-ccx
   gmsh
+  netgen
 ]
