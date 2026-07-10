@@ -23,7 +23,7 @@
   ...
 }:
 stdenv.mkDerivation {
-  pname = "swaylock";
+  pname = "swaylock-fprintd";
   version = "git";
 
   src = fetchFromGitHub {
