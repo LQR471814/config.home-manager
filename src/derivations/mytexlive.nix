@@ -2,11 +2,11 @@
   final,
   prev,
 
-  texlive,
+  texliveSmall,
   myconfig,
 }:
-texlive.combine {
-  inherit (texlive)
+texliveSmall.withPackages (
+  ps: with ps; [
     scheme-medium
     latexmk
     pdftex
@@ -41,9 +41,6 @@ texlive.combine {
     hanging
     circuitikz
     caption
-    ;
-  myconfig = {
-    pkgs = [ myconfig ];
-    tlType = "run";
-  };
-}
+    myconfig
+  ]
+)

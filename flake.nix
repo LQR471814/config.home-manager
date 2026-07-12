@@ -2,25 +2,48 @@
   description = "Home manager configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
+    unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
-    libtexprintf.url = "github:xbwwj/libtexprintf-nix";
+    wayland-pipewire-idle-inhibit = {
+      url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    libtexprintf = {
+      url = "github:xbwwj/libtexprintf-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    xs.url = "github:cablehead/xs";
-    nu-lint.url = "github:wvhulle/nu-lint";
-    topiary-nushell.url = "github:blindFS/topiary-nushell";
-    nu-type-alias.url = "git+https://github.com/LQR471814/nu-type-alias.git";
-    nu_plugin_caldav.url = "github:LQR471814/nu_plugin_caldav";
+    xs = {
+      url = "github:cablehead/xs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nu-lint = {
+      url = "github:wvhulle/nu-lint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    topiary-nushell = {
+      url = "github:blindFS/topiary-nushell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nu-type-alias = {
+      url = "git+https://github.com/LQR471814/nu-type-alias.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nu_plugin_caldav = {
+      url = "github:LQR471814/nu_plugin_caldav";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    {
+    inputs@{
       nixpkgs,
+      unstable,
       home-manager,
 
       wayland-pipewire-idle-inhibit,
@@ -49,6 +72,15 @@
             topiary-nushell = topiary-nushell.packages.${system}.default;
           })
           (import ./src/overlay-derivations.nix)
+          (import ./src/overlay-unstable.nix {
+            pkgs = import unstable {
+              inherit system;
+              config = {
+                cudaSupport = builtins.pathExists /etc/nixos/DESKTOP;
+                allowUnfree = true;
+              };
+            };
+          })
         ];
         config = {
           cudaSupport = builtins.pathExists /etc/nixos/DESKTOP;

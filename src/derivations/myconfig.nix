@@ -4,6 +4,7 @@
   stdenv,
 }:
 stdenv.mkDerivation {
+  pname = "myconfig";
   name = "myconfig";
   src = ./myconfig;
   installPhase = ''

@@ -35,7 +35,7 @@ in
   # basic configuration
   home.username = "lqr471814";
   home.homeDirectory = HOME;
-  home.stateVersion = "26.11";
+  home.stateVersion = "26.05";
 
   # packages
   home.packages = import ./src/home-packages.nix ctx;
@@ -63,6 +63,7 @@ in
 
   # cursor
   home.pointerCursor = {
+    enable = true;
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
     size = 32;
