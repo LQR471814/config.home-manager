@@ -9,4 +9,5 @@ with pkgs;
   wayland-pipewire-idle-inhibit
   youtube-tui
   mpv
+  darktable
 ]
