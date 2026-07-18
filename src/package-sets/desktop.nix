@@ -10,4 +10,6 @@ with pkgs;
   youtube-tui
   mpv
   darktable
+  geeqie
+  exiftool
 ]

@@ -141,6 +141,14 @@
         run = "cd ~/Music";
         desc = "Go to Music";
       }
+      {
+        on = [
+          "g"
+          "u"
+        ];
+        run = "cd /run/media/lqr471814";
+        desc = "Go to USB devices.";
+      }
     ];
     mgr.prepend_keymap = [
       {
