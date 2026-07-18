@@ -7,7 +7,7 @@
 }:
 
 let
-  version = "2026.06.09";
+  version = "2026.07.04";
 in
 stdenv.mkDerivation {
   name = "yt-dlp";
@@ -16,7 +16,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://github.com/yt-dlp/yt-dlp/releases/download/${version}/yt-dlp_linux";
-    hash = "sha256-v4qsebcih6bSBDB0QVEyVYtDdDqPlGGiKwFB6Q8WzmY=";
+    hash = "sha256-a7s9MUzeT+vjbl+h1VRi4pyXT2NETnB4cYNPbYzCEK4=";
   };
 
   dontUnpack = true;
