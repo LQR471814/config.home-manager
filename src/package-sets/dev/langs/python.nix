@@ -7,5 +7,5 @@ with pkgs;
   # pipx
   ruff
   uv
-  basedpyright
+  ty
 ]
