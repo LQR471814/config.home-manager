@@ -30,6 +30,7 @@ with pkgs;
     ta = "tmux a";
     ndev = "nix develop --command fish";
     sbtop = "sudo (which btop | get 0.path)";
+    rm = "nu ${../../home-files/bin/safe-rm.nu}";
   };
   plugins = [
     nushellPlugins.polars
