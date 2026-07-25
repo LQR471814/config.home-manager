@@ -1,8 +1,15 @@
 { pkgs, ... }:
 {
   enable = true;
-  plugins = with pkgs.obs-studio-plugins; [
-    wlrobs
-    obs-pipewire-audio-capture
-  ];
+  plugins =
+    let
+      inherit (pkgs.obs-studio-plugins)
+        wlrobs
+        obs-pipewire-audio-capture
+        ;
+    in
+    [
+      wlrobs
+      obs-pipewire-audio-capture
+    ];
 }

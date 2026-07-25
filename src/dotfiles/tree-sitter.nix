@@ -5,10 +5,17 @@
 {
   ".config/tree-sitter/config.json" = {
     text = builtins.toJSON {
-      "parser-directories" = with pkgs; [
-        ts-markdown
-        ts-html
-      ];
+      "parser-directories" =
+        let
+          inherit (pkgs)
+            ts-markdown
+            ts-html
+            ;
+        in
+        [
+          ts-markdown
+          ts-html
+        ];
       "theme" = {
         "punctuation.delimiter" = 239;
         "constant.builtin" = {

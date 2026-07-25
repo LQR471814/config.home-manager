@@ -2,7 +2,16 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    rclone
+    tree
+    dust
+    sshfs
+    watchman
+    file
+    ;
+in
 [
   rclone
   tree

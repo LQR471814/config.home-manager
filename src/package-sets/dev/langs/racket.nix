@@ -3,8 +3,8 @@
   ...
 }:
 let
-  inherit (pkgs) tlaplus;
+  inherit (pkgs) racket;
 in
 [
-  tlaplus
+  racket
 ]

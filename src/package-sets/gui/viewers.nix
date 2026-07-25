@@ -2,7 +2,18 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    zathura
+    vlc
+    mpv
+    imv
+    rhythmbox
+    foliate
+    zotero
+    houdoku
+    ;
+in
 [
   zathura # pdf viewer
   vlc # media viewer

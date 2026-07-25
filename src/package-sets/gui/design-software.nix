@@ -3,7 +3,19 @@
   fix-pw,
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    blender
+    kdePackages
+    gimp3
+    inkscape
+    scribus
+    freecad
+    calculix-ccx
+    gmsh
+    netgen
+    ;
+in
 [
   blender
   kdePackages.kdenlive

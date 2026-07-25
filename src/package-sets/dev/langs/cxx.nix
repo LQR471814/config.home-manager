@@ -2,7 +2,20 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    cmake
+    gnumake
+    pkg-config
+    patchelf
+    clang
+    lld
+    lldb
+    libcxx
+    clang-tools
+    ccache
+    ;
+in
 [
   cmake
   gnumake

@@ -2,7 +2,9 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs) elan;
+in
 [
   elan
 ]

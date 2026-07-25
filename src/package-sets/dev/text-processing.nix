@@ -2,7 +2,23 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    cloc
+    ripgrep
+    fd
+    ast-grep
+    croc
+    jq
+    fzf
+    tree-sitter
+    htmlq
+    gum
+    charm-freeze
+    datepicker
+    topiary
+    ;
+in
 [
   cloc
   ripgrep

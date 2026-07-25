@@ -2,7 +2,18 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    go
+    gopls
+    templ
+    sqlc
+    buf
+    atlas
+    hugo
+    openapi-generator-cli
+    ;
+in
 [
   go
   gopls

@@ -3,7 +3,35 @@
   fix-pw,
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    ardour
+    musescore
+    easyeffects
+    linvstmanager
+    pwvucontrol
+    qpwgraph
+    lsp-plugins
+    x42-plugins
+    geonkick
+    drumgizmo
+    x42-avldrums
+    aether-lv2
+    airwindows-lv2
+    bankstown-lv2
+    bolliedelayxt-lv2
+    bs2b-lv2
+    guitarix-vst
+    sfizz-ui
+    decent-sampler
+    x42-gmsynth
+    vital
+    dexed
+    odin2
+    surge-xt
+    mda_lv2
+    ;
+in
 [
   ardour
   (fix-pw musescore)

@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
-with pkgs;
+let
+  inherit (pkgs)
+    nushellPlugins
+    nu_plugin_caldav
+    nu-ai
+    nu-xs
+    ;
+in
 {
   enable = true;
   settings = {

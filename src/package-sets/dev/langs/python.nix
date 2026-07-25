@@ -2,7 +2,13 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    ruff
+    uv
+    ty
+    ;
+in
 [
   # pipx
   ruff

@@ -10,10 +10,17 @@
   clock24 = true;
   mouse = true;
 
-  plugins = with pkgs.tmuxPlugins; [
-    resurrect
-    continuum
-  ];
+  plugins =
+    let
+      inherit (pkgs.tmuxPlugins)
+        resurrect
+        continuum
+        ;
+    in
+    [
+      resurrect
+      continuum
+    ];
 
   extraConfig = ''
     # enable continuum

@@ -2,7 +2,12 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    btop
+    powertop
+    ;
+in
 [
   btop
   powertop

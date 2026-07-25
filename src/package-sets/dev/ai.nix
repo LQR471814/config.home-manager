@@ -2,7 +2,13 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    claude-code
+    antigravity-fhs
+    codex
+    ;
+in
 [
   claude-code
   antigravity-fhs

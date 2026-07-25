@@ -2,7 +2,18 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    playerctl
+    zenity
+    wayland-pipewire-idle-inhibit
+    youtube-tui
+    mpv
+    darktable
+    geeqie
+    exiftool
+    ;
+in
 [
   playerctl
   zenity

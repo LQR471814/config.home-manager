@@ -2,7 +2,12 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    nixd
+    nixfmt
+    ;
+in
 [
   nixd
   nixfmt

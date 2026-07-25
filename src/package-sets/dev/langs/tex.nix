@@ -2,7 +2,15 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    mytexlive
+    texlab
+    ghostscript
+    libtexprintf
+    ltex-ls-plus
+    ;
+in
 [
   mytexlive
   texlab

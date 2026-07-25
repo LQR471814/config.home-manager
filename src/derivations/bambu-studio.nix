@@ -6,10 +6,13 @@
   cacert,
   glib-networking,
 }:
-appimageTools.wrapType2 rec {
+let
+  version = "02.07.01.57";
+in
+appimageTools.wrapType2 {
   name = "BambuStudio";
   pname = "bambu-studio";
-  version = "02.07.01.57";
+  inherit version;
 
   src = fetchurl {
     url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/BambuStudio_ubuntu-22.04-v${version}-20260601192128.AppImage";
@@ -22,7 +25,16 @@ appimageTools.wrapType2 rec {
   '';
 
   extraPkgs =
-    pkgs: with pkgs; [
+    pkgs:
+    let
+      inherit (pkgs)
+        glib
+        gst_all_1
+        webkitgtk_4_1
+        libsoup_3
+        ;
+    in
+    [
       cacert
       glib
       glib-networking

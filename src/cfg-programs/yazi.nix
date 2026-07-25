@@ -1,11 +1,13 @@
 { pkgs, ... }:
 {
   enable = true;
-  plugins = with pkgs; {
-    inherit (yaziPlugins)
-      bookmarks
-      ;
-  };
+  plugins =
+    let
+      inherit (pkgs) yaziPlugins;
+    in
+    {
+      inherit (yaziPlugins) bookmarks;
+    };
   settings = {
     open.prepend_rules = [
       {

@@ -2,7 +2,9 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs) julia-bin;
+in
 [
   julia-bin
 ]

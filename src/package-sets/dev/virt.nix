@@ -2,7 +2,13 @@
   pkgs ? import <nixpkgs> { },
   ...
 }:
-with pkgs;
+let
+  inherit (pkgs)
+    kubectl
+    kind
+    k9s
+    ;
+in
 [
   kubectl
   kind

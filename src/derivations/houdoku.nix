@@ -7,10 +7,11 @@
   stdenv,
 }:
 let
-  appimage = appimageTools.wrapType2 rec {
+  version = "2.16.0";
+  appimage = appimageTools.wrapType2 {
     name = "houdoku-appimage";
     pname = "houdoku";
-    version = "2.16.0";
+    inherit version;
 
     src = fetchurl {
       url = "https://github.com/xgi/houdoku/releases/download/v${version}/Houdoku-${version}.AppImage";
