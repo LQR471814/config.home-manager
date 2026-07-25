@@ -6,3 +6,6 @@ switch:
 
 news:
 	home-manager news --impure --flake .#lqr471814
+
+lint:
+	statix check
