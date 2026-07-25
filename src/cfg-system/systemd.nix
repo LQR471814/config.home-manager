@@ -6,19 +6,23 @@
 }:
 let
   in-river-session = {
-    # when river-session.target started, this must be started (or running)
-    # (unlike bind, it does not start river-session.target if it is not started)
-    Unit.Requisite = [ "river-session.target" ];
-    Unit.After = [ "river-session.target" ];
-    # When river-sesion.target is stopped or restarted, this service is
-    # also stopped/restarted
-    Unit.PartOf = [ "river-session.target" ];
+    Unit = {
+      # when river-session.target started, this must be started (or running)
+      # (unlike bind, it does not start river-session.target if it is not started)
+      Requisite = [ "river-session.target" ];
+      After = [ "river-session.target" ];
+      # When river-sesion.target is stopped or restarted, this service is
+      # also stopped/restarted
+      PartOf = [ "river-session.target" ];
+    };
     Install.WantedBy = [ "river-session.target" ];
   };
   in-graphical-session = {
-    Unit.Requisite = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Unit.PartOf = [ "graphical-session.target" ];
+    Unit = {
+      Requisite = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
     Install.WantedBy = [ "graphical-session.target" ];
   };
 in

@@ -1,7 +1,8 @@
 { pkgs }:
-final: prev:
-{
-  nushell = pkgs.nushell;
-  nushellPlugins = pkgs.nushellPlugins;
-  codex = pkgs.codex;
+final: prev: {
+  inherit (pkgs)
+    nushell
+    nushellPlugins
+    codex
+    ;
 }

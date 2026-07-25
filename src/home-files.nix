@@ -20,17 +20,15 @@ let
     );
 
   # directories in `home-files/.config/<dir>` will be symlinked to `~/.config/<dir>`
-  dotfiles = (
-    pkgs.lib.attrsets.mapAttrs' (name: value: {
-      name = ".config/${name}";
-      value = {
-        source = DIRNAME + "/home-files/.config/" + name;
-      };
-    }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home-files/.config))
-  );
+  dotfiles = pkgs.lib.attrsets.mapAttrs' (name: value: {
+    name = ".config/${name}";
+    value = {
+      source = DIRNAME + "/home-files/.config/" + name;
+    };
+  }) (filterAttrs (name: value: name != "nushell") (builtins.readDir ../home-files/.config));
 
   # directories in `home-files/<dir>` will be symlinked to `~/<dir>` besides `.config` and `.thunderbird`
-  homefiles = (
+  homefiles =
     pkgs.lib.attrsets.mapAttrs'
       (name: value: {
         inherit name;
@@ -46,8 +44,7 @@ let
             ".thunderbird"
           ])
         ) (builtins.readDir ../home-files)
-      )
-  );
+      );
 in
 # `//` merges 2 attribute sets
 dotfiles

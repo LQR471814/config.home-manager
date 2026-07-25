@@ -6,7 +6,7 @@
 }:
 
 let
-  zotero = prev.zotero;
+  inherit (prev) zotero;
 in
 stdenv.mkDerivation {
   # temporary workaround for zotero crashes on wayland w/ Nvidia GPU while

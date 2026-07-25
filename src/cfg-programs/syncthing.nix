@@ -1,7 +1,7 @@
 { HOME, ... }:
 let
   folder = id: name: {
-    id = id;
+    inherit id;
     label = name;
     path = "${HOME}/${name}";
     devices = [ "homeserver" ];

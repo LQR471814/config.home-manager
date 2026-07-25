@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   settings = {
     "org/gnome/rhythmbox/rhythmdb" = {

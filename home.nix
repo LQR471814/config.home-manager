@@ -32,66 +32,61 @@ let
   };
 in
 {
-  # basic configuration
-  home.username = "lqr471814";
-  home.homeDirectory = HOME;
-  home.stateVersion = "26.05";
+  home = {
+    # basic configuration
+    username = "lqr471814";
+    homeDirectory = HOME;
+    stateVersion = "26.05";
 
-  # packages
-  home.packages = import ./src/home-packages.nix ctx;
+    # home files (.config, etc...)
+    file = import ./src/home-files.nix ctx;
 
-  # home files (.config, etc...)
-  home.file = import ./src/home-files.nix ctx;
+    # env vars
+    sessionVariables = {
+      CC = "${pkgs.clang}/bin/clang";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+      SDL_IM_MODULE = "fcitx";
+      GOBIN = "${HOME}/go/bin";
+      CGO_ENABLED = "0";
+    };
+    sessionPath = [
+      "${HOME}/bin"
+      "${HOME}/go/bin"
+      "${HOME}/.local/bin"
+      "${HOME}/.cargo/bin"
+    ];
+    shell.enableNushellIntegration = true;
 
-  # env vars
-  home.sessionVariables = {
-    CC = "${pkgs.clang}/bin/clang";
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    SDL_IM_MODULE = "fcitx";
-    GOBIN = "${HOME}/go/bin";
-    CGO_ENABLED = "0";
+    # cursor
+    pointerCursor = {
+      enable = true;
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+      size = 32;
+      gtk.enable = true;
+    };
+
+    # packages
+    packages = import ./src/home-packages.nix ctx;
   };
-  home.sessionPath = [
-    "${HOME}/bin"
-    "${HOME}/go/bin"
-    "${HOME}/.local/bin"
-    "${HOME}/.cargo/bin"
-  ];
-  home.shell.enableNushellIntegration = true;
 
-  # cursor
-  home.pointerCursor = {
-    enable = true;
-    name = "phinger-cursors-light";
-    package = pkgs.phinger-cursors;
-    size = 32;
-    gtk.enable = true;
+  # program configuration
+  programs = {
+    kitty = import ./src/cfg-programs/kitty.nix ctx;
+    git = import ./src/cfg-programs/git.nix ctx;
+    tmux = import ./src/cfg-programs/tmux.nix ctx;
+    swaylock = import ./src/cfg-programs/swaylock.nix ctx;
+    obs-studio = import ./src/cfg-programs/obs-studio.nix ctx;
+    bluetuith.enable = true;
+    nushell = import ./src/cfg-programs/nushell.nix ctx;
+    carapace = import ./src/cfg-programs/carapace.nix ctx;
+    yazi = import ./src/cfg-programs/yazi.nix ctx;
   };
 
-  # userland program configuration
-  programs.kitty = import ./src/cfg-programs/kitty.nix ctx;
-  programs.git = import ./src/cfg-programs/git.nix ctx;
-  programs.tmux = import ./src/cfg-programs/tmux.nix ctx;
-  programs.swaylock = import ./src/cfg-programs/swaylock.nix ctx;
-  programs.obs-studio = import ./src/cfg-programs/obs-studio.nix ctx;
-  programs.bluetuith.enable = true;
-  programs.nushell = import ./src/cfg-programs/nushell.nix ctx;
-  programs.carapace = import ./src/cfg-programs/carapace.nix ctx;
-  programs.yazi = import ./src/cfg-programs/yazi.nix ctx;
-
-  # wayland stuff
+  # desktop stuff
   wayland.systemd.target = "graphical-session.target";
-  services.mako = import ./src/cfg-system/mako.nix ctx;
-  services.kanshi = import ./src/cfg-system/kanshi.nix ctx;
-  services.ollama = import ./src/cfg-programs/ollama.nix ctx;
-  services.syncthing = import ./src/cfg-programs/syncthing.nix ctx;
-  services.cliphist = import ./src/cfg-system/cliphist.nix ctx;
-  services.wl-clip-persist = import ./src/cfg-system/wl-clip-persist.nix ctx;
-  services.wayland-pipewire-idle-inhibit = import ./src/cfg-system/wayland-pipewire-idle-inhibit.nix ctx;
-
-  # xdg and desktop stuff
   dconf = import ./src/cfg-system/dconf.nix ctx;
   xdg.mimeApps = import ./src/cfg-system/mimeapps.nix ctx;
   gtk = import ./src/cfg-system/gtk.nix ctx;
@@ -100,10 +95,19 @@ in
   # systemd
   systemd.user = import ./src/cfg-system/systemd.nix ctx;
 
-  # sleep & idle lock
-  services.swayidle = import ./src/cfg-system/swayidle.nix ctx;
+  # services
+  services = {
+    swayidle = import ./src/cfg-system/swayidle.nix ctx;
+    mako = import ./src/cfg-system/mako.nix ctx;
+    kanshi = import ./src/cfg-system/kanshi.nix ctx;
+    ollama = import ./src/cfg-programs/ollama.nix ctx;
+    syncthing = import ./src/cfg-programs/syncthing.nix ctx;
+    cliphist = import ./src/cfg-system/cliphist.nix ctx;
+    wl-clip-persist = import ./src/cfg-system/wl-clip-persist.nix ctx;
+    wayland-pipewire-idle-inhibit = import ./src/cfg-system/wayland-pipewire-idle-inhibit.nix ctx;
+  };
 
-  # garbage collect packages
+  # nix
   nix.gc = {
     automatic = true;
     dates = "monthly";
