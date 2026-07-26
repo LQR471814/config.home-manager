@@ -13,7 +13,7 @@ let
     geeqie
     exiftool
     paisa
-    ledger
+    hledger
     ;
 in
 [
@@ -26,5 +26,5 @@ in
   geeqie
   exiftool
   paisa
-  ledger
+  hledger
 ]
