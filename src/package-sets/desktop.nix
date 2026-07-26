@@ -14,6 +14,7 @@ let
     exiftool
     paisa
     hledger
+    ledger
     ;
 in
 [
@@ -27,4 +28,5 @@ in
   exiftool
   paisa
   hledger
+  ledger
 ]
