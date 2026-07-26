@@ -12,6 +12,8 @@ let
     darktable
     geeqie
     exiftool
+    paisa
+    ledger
     ;
 in
 [
@@ -23,4 +25,6 @@ in
   darktable
   geeqie
   exiftool
+  paisa
+  ledger
 ]

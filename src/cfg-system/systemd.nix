@@ -105,6 +105,19 @@ in
       };
     };
 
+    paisa = {
+      Unit = {
+        Description = "Personal finance tool.";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.paisa}/bin/paisa serve";
+        WorkingDirectory = "${HOME}/Documents";
+        Restart = "always";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
     # temporis = {
     #   Unit = {
     #     Description = "Temporis web client.";
