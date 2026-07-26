@@ -1,8 +1,8 @@
-ctx@{
+{
   pkgs,
   HOME,
   ...
-}:
+}@ctx:
 let
   DIRNAME = toString ./..;
 
@@ -46,37 +46,40 @@ let
         ) (builtins.readDir ../home-files)
       );
 in
-# `//` merges 2 attribute sets
-dotfiles
-// homefiles
-// (import ./dotfiles/tree-sitter.nix ctx)
-// (import ./dotfiles/tofi.nix ctx)
-// {
-  ".gnupg/gpg-agent.conf" = {
-    text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
-  };
+{
+  # `//` merges 2 attribute sets
+  home.file =
+    dotfiles
+    // homefiles
+    // (import ./dotfiles/tree-sitter.nix ctx)
+    // (import ./dotfiles/tofi.nix ctx)
+    // {
+      ".gnupg/gpg-agent.conf" = {
+        text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
+      };
+    }
+    // (
+      let
+        cfg = import ./cfg-programs/ast-grep.nix { inherit pkgs; };
+        src = (pkgs.formats.yaml { }).generate "config.yaml" cfg;
+      in
+      {
+        "sgconfig.yaml" = {
+          source = "${src}";
+        };
+      }
+    )
+    // (
+      let
+        stignore = {
+          text = builtins.readFile ../.stignore;
+        };
+      in
+      {
+        "Applications/.stignore" = stignore;
+        "Books/.stignore" = stignore;
+        "Documents/.stignore" = stignore;
+        "Music/.stignore" = stignore;
+      }
+    );
 }
-// (
-  let
-    cfg = import ./cfg-programs/ast-grep.nix { inherit pkgs; };
-    src = (pkgs.formats.yaml { }).generate "config.yaml" cfg;
-  in
-  {
-    "sgconfig.yaml" = {
-      source = "${src}";
-    };
-  }
-)
-// (
-  let
-    stignore = {
-      text = builtins.readFile ../.stignore;
-    };
-  in
-  {
-    "Applications/.stignore" = stignore;
-    "Books/.stignore" = stignore;
-    "Documents/.stignore" = stignore;
-    "Music/.stignore" = stignore;
-  }
-)

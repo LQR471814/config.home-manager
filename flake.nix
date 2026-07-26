@@ -41,7 +41,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       unstable,
       home-manager,
@@ -60,7 +60,9 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
-        inherit system;
+        inherit
+          system
+          ;
         overlays = [
           (final: prev: {
             cross-stream = xs.packages.${system}.default;
@@ -71,8 +73,8 @@
             nu_plugin_caldav = nu_plugin_caldav.packages.${system}.default;
             topiary-nushell = topiary-nushell.packages.${system}.default;
           })
-          (import ./src/overlay-derivations.nix)
-          (import ./src/overlay-unstable.nix {
+          (import ./src/overlays/derivations.nix)
+          (import ./src/overlays/unstable.nix {
             pkgs = import unstable {
               inherit system;
               config = {
@@ -89,15 +91,38 @@
       };
     in
     {
-      homeConfigurations.lqr471814 = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          wayland-pipewire-idle-inhibit.homeModules.default
-          (import ./home.nix)
-        ];
-        extraSpecialArgs = {
-          inherit system;
+      homeConfigurations.lqr471814 =
+        let
+          HOSTNAME = builtins.readFile /etc/hostname;
+          HOME = builtins.getEnv "HOME";
+          IS_DESKTOP = builtins.match ".*desktop.*" HOSTNAME != null;
+          IS_LAPTOP = builtins.match ".*laptop.*" HOSTNAME != null;
+          SYSTEM_BIN = "/run/current-system/sw/bin";
+          fix-pw = pkgs.callPackage ./src/lib/fix-pipewire.nix { };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            wayland-pipewire-idle-inhibit.homeModules.default
+            ./src/nix.nix
+            ./src/user.nix
+            ./src/programs.nix
+            ./src/services.nix
+            ./src/desktop.nix
+            ./src/home-files.nix
+          ];
+          extraSpecialArgs = {
+            inherit
+              system
+              pkgs
+              HOSTNAME
+              HOME
+              IS_DESKTOP
+              IS_LAPTOP
+              SYSTEM_BIN
+              fix-pw
+              ;
+          };
         };
-      };
     };
 }

@@ -17,14 +17,14 @@ let
     };
     Install.WantedBy = [ "river-session.target" ];
   };
-  in-graphical-session = {
-    Unit = {
-      Requisite = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
+  # in-graphical-session = {
+  #   Unit = {
+  #     Requisite = [ "graphical-session.target" ];
+  #     After = [ "graphical-session.target" ];
+  #     PartOf = [ "graphical-session.target" ];
+  #   };
+  #   Install.WantedBy = [ "graphical-session.target" ];
+  # };
 in
 {
   enable = true;
