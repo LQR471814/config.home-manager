@@ -11,7 +11,6 @@ let
     rhythmbox
     foliate
     zotero
-    houdoku
     ;
 in
 [
@@ -24,6 +23,5 @@ in
 
   zotero
   # rdfglance
-  houdoku
   # miru
 ]
