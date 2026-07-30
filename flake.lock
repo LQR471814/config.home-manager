@@ -290,11 +290,11 @@
         "nuconv": "nuconv"
       },
       "locked": {
-        "lastModified": 1783874611,
-        "narHash": "sha256-PIObfbiG66Ma+yZkiU03XzfkVhQN/acTyR9HhFXWjf4=",
+        "lastModified": 1785447593,
+        "narHash": "sha256-7OoINXAhAJcuY6iIUreW+B/Ze9IiKuFzf1y0ooxiPH4=",
         "owner": "LQR471814",
         "repo": "nu_plugin_caldav",
-        "rev": "c5078cfcb3ec1f3bde6b3839e244dd19f3972e83",
+        "rev": "addac9a77540d0d3ab192526343083254fe9d92a",
         "type": "github"
       },
       "original": {
