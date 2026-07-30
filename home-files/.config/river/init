@@ -128,6 +128,9 @@ riverctl rule-add -title "Pipewire Volume Control" float
 riverctl spawn "rivertile -view-padding 0 -outer-padding 0 -main-ratio 0.5"
 riverctl default-layout rivertile
 
+# KeepassXC rules
+riverctl rule-add -title "Unlock Database - KeePassXC" float
+
 # Tell systemd & dbus about WAYLAND_DISPLAY and the river compositor
 export XDG_CURRENT_DESKTOP=river
 systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XCURSOR_SIZE XDG_CURRENT_DESKTOP
