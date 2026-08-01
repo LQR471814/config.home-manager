@@ -15,6 +15,7 @@
       SDL_IM_MODULE = "fcitx";
       GOBIN = "${HOME}/go/bin";
       CGO_ENABLED = "0";
+      SOPS_PGP_FP = "5176F95D0CBF3421AB313BBEB20A50B07FA63B31";
     };
 
     sessionPath = [
