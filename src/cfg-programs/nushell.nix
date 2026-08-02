@@ -40,7 +40,7 @@ in
     rm = "nu ${../../home-files/bin/safe-rm.nu}";
   };
   plugins = [
-    nushellPlugins.polars
+    # nushellPlugins.polars
     nushellPlugins.query
     nu_plugin_caldav
   ];
