@@ -57,6 +57,16 @@ in
         "${nu-ai}"
         "${nu-xs}"
       ]
+
+      def "lsmod table" [] {
+        ^lsmod
+        | lines
+        | split column -r '\s+'
+        | rename name size used_by_count used_by
+        | slice 1..
+      }
+
+      # ctrl+tab autocomplete
       $env.config.keybindings ++= [
         {
           name: complete_hint_shift_tab
@@ -67,8 +77,14 @@ in
         }
       ]
 
-      def "lsmod table" [] {
-        ^lsmod | lines | split column -r '\s+' | rename name size used_by_count used_by | slice 1..
-      }
+      # play a bell when command finishes
+      $env.config.hooks.pre_prompt = (
+        $env.config.hooks.pre_prompt
+        | append {||
+          if (($env.CMD_DURATION_MS | into int) * 1ms >= 3sec) {
+            print -n "\u{7}"
+          }
+        }
+      )
     '';
 }
