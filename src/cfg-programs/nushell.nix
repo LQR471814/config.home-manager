@@ -84,6 +84,7 @@ in
           if (($env.CMD_DURATION_MS | into int) * 1ms >= 3sec) {
             print -n "\u{7}"
           }
+          $env.CMD_DURATION_MS = 0
         }
       )
     '';
