@@ -16,7 +16,7 @@ in
           "tcp://192.168.1.10:22000"
           "quic://192.168.1.10:22000"
         ];
-        id = "VS3PDKE-TBTBRWJ-L2OTOUD-Z36HTYA-GCBUQUB-GOR5IN3-VYOPHCJ-MOJK7AZ";
+        id = "N7WGQDL-UBANXJC-ERJKEOL-4QSTGAE-FQ7F3QC-UENJJDO-SEG27XF-PKHBBA7";
       };
     };
     folders = {
