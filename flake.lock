@@ -208,6 +208,27 @@
         "type": "github"
       }
     },
+    "marksman": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786338952,
+        "narHash": "sha256-S3Ha5Vg26R34h6LNifoQnv6S9dRPH4orq3Quiyp2TeY=",
+        "owner": "LQR471814",
+        "repo": "marksman",
+        "rev": "a47b5e87e02670311214743fca50ec6d1affdc57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LQR471814",
+        "ref": "nix",
+        "repo": "marksman",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1785491804,
@@ -328,6 +349,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "libtexprintf": "libtexprintf",
+        "marksman": "marksman",
         "nixpkgs": "nixpkgs",
         "nu-lint": "nu-lint",
         "nu-type-alias": "nu-type-alias",

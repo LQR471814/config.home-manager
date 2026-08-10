@@ -38,6 +38,11 @@
       url = "github:LQR471814/nu_plugin_caldav";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    marksman = {
+      url = "github:LQR471814/marksman/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,6 +59,7 @@
       nu_plugin_caldav,
       nu-type-alias,
       topiary-nushell,
+      marksman,
 
       ...
     }:
@@ -72,6 +78,7 @@
             nu-type-fmt = nu-type-alias.packages.${system}.nu-type-fmt;
             nu_plugin_caldav = nu_plugin_caldav.packages.${system}.default;
             topiary-nushell = topiary-nushell.packages.${system}.default;
+            marksman = marksman.packages.${system}.default;
           })
           (import ./src/overlays/derivations.nix)
           (import ./src/overlays/unstable.nix {
