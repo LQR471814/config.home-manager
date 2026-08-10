@@ -117,6 +117,7 @@
             ./src/services.nix
             ./src/desktop.nix
             ./src/home-files.nix
+            ./src/darkmode.nix
           ];
           extraSpecialArgs = {
             inherit
