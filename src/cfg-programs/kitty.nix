@@ -2,7 +2,11 @@
 {
   enable = true;
   enableGitIntegration = true;
-  themeFile = "Catppuccin-Mocha";
+  autoThemeFiles = {
+    dark = "Catppuccin-Mocha";
+    light = "Catppuccin-Latte";
+    noPreference = "Catppuccin-Latte";
+  };
   font = {
     package = pkgs.nerd-fonts.lilex;
     name = "Lilex Nerd Font";
