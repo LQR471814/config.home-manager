@@ -8,7 +8,7 @@ let
     deno
     pnpm
     mermaid-cli
-    marksman
+    markdown-oxide
     biome
     vtsls
     vscode-langservers-extracted
@@ -22,7 +22,7 @@ in
   pnpm
   mermaid-cli
 
-  marksman
+  markdown-oxide
   biome
   vtsls
   vscode-langservers-extracted
