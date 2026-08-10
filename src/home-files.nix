@@ -52,7 +52,10 @@ in
     dotfiles
     // {
       ".config/kitty/themes/Dayfox.conf" = {
-        source = ./Dayfox.conf;
+        source = ./kitty-themes/Dayfox.conf;
+      };
+      ".config/kitty/themes/kanagawa-paper.conf" = {
+        source = ./kitty-themes/kanagawa-paper-ink.conf;
       };
     }
     // homefiles
