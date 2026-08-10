@@ -3,7 +3,7 @@
   enable = true;
   enableGitIntegration = true;
   autoThemeFiles = {
-    dark = "Kanagawa-Paper-Ink";
+    dark = "Catppuccin-Mocha";
     light = "Dayfox";
     noPreference = "Dayfox";
   };

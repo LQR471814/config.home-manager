@@ -54,7 +54,7 @@ in
       ".config/kitty/themes/Dayfox.conf" = {
         source = ./kitty-themes/Dayfox.conf;
       };
-      ".config/kitty/themes/Kanagawa-Paper-Ink.conf" = {
+      ".config/kitty/themes/kanagawa-paper.conf" = {
         source = ./kitty-themes/kanagawa-paper-ink.conf;
       };
     }
