@@ -4,8 +4,8 @@
   enableGitIntegration = true;
   autoThemeFiles = {
     dark = "Catppuccin-Mocha";
-    light = "Catppuccin-Latte";
-    noPreference = "Catppuccin-Latte";
+    light = "Dayfox";
+    noPreference = "Dayfox";
   };
   font = {
     package = pkgs.nerd-fonts.lilex;
