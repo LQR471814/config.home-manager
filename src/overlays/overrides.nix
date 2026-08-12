@@ -1,6 +1,6 @@
 final: prev: {
   kitty-themes = prev.kitty-themes.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
       prev.jq
     ];
     postInstall = (old.postInstall or "") + ''
@@ -19,4 +19,12 @@ final: prev: {
       cp ${../Kanagawa-Paper-Ink.conf} $out/share/kitty-themes/themes/Kanagawa-Paper-Ink.conf
     '';
   });
+
+  tree-sitter-grammars = prev.tree-sitter-grammars // {
+    tree-sitter-markdown = prev.tree-sitter-grammars.tree-sitter-markdown.overrideAttrs (old: {
+      env = (old.env or { }) // {
+        EXTENSION_WIKI_LINK = "1";
+      };
+    });
+  };
 }
