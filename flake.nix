@@ -74,6 +74,7 @@
             topiary-nushell = topiary-nushell.packages.${system}.default;
           })
           (import ./src/overlays/derivations.nix)
+          (import ./src/overlays/kitten-themes.nix)
           (import ./src/overlays/unstable.nix {
             pkgs = import unstable {
               inherit system;

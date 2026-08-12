@@ -50,11 +50,6 @@ in
   # `//` merges 2 attribute sets
   home.file =
     dotfiles
-    // {
-      ".config/kitty/themes/Dayfox.conf" = {
-        source = ./Dayfox.conf;
-      };
-    }
     // homefiles
     // (import ./dotfiles/tree-sitter.nix ctx)
     // (import ./dotfiles/tofi.nix ctx)
