@@ -5,7 +5,7 @@
 let
   inherit (pkgs)
     cross-stream
-    nu-lint
+    # nu-lint
     nu-type-alias
     nu-type-fmt
     topiary-nushell
@@ -13,7 +13,7 @@ let
 in
 [
   cross-stream
-  nu-lint
+  # nu-lint
   nu-type-alias
   nu-type-fmt
   topiary-nushell
