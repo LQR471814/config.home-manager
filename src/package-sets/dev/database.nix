@@ -7,6 +7,8 @@ let
     sqlite
     trailbase
     sqls
+    dbeaver-bin
+    markdowndb
     ;
 in
 [
@@ -14,4 +16,6 @@ in
   # redis
   trailbase
   sqls
+  dbeaver-bin
+  markdowndb
 ]
