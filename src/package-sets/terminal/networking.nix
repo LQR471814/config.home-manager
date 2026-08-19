@@ -4,7 +4,7 @@
 }:
 let
   inherit (pkgs)
-    cloudflare-warp
+    # cloudflare-warp
     xray
     tun2socks
     socat
@@ -12,7 +12,7 @@ let
     ;
 in
 [
-  cloudflare-warp
+  # cloudflare-warp
   xray
   tun2socks
   socat
