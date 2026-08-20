@@ -106,8 +106,8 @@ riverctl map normal $mod p spawn "$HOME/bin/tofiw"
 riverctl map normal None Print spawn "$HOME/bin/screenshot"
 riverctl map normal $mod y spawn "playerctl play-pause -p playerctld"
 riverctl map normal $mod e spawn "kitty --wait yazi"
-riverctl map normal $mod s spawn "kitty --wait $HOME/bin/tmux-spawn.nu '~/Documents/School/' 'nvim .'"
-riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn.nu '~/Documents/Knowledge Base/' 'nvim .'"
+riverctl map normal $mod s spawn "kitty --wait $HOME/bin/tmux-spawn.nu '~/Documents/' 'nvim School/'"
+riverctl map normal $mod n spawn "kitty --wait $HOME/bin/tmux-spawn.nu '~/Documents/' 'nvim \"Knowledge Base/\"'"
 riverctl map normal $mod+Shift m spawn "xdg-open http://192.168.1.10:5230"
 riverctl map normal $mod v spawn pwvucontrol
 
