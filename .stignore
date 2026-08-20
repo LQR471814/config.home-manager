@@ -10,4 +10,7 @@
 .venv
 __pycache__/
 preload.so
-.trash/**
+.trash
+
+.markdowndb
+markdown.db

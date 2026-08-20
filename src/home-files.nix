@@ -72,7 +72,7 @@ in
     // (
       let
         stignore = {
-          text = builtins.readFile ../.stignore;
+          source = ../.stignore;
         };
       in
       {
