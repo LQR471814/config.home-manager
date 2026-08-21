@@ -1,0 +1,6 @@
+/* default to 600px for all content types */
+*[class^="content-"] {
+    max-width: 600px;
+    margin: auto;
+}
+

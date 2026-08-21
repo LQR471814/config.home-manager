@@ -3,8 +3,9 @@
   ...
 }:
 let
-  inherit (pkgs) graphviz;
+  inherit (pkgs) graphviz vivify;
 in
 [
   graphviz
+  vivify
 ]
