@@ -14,6 +14,7 @@ let
     libcxx
     clang-tools
     ccache
+    arduino-language-server
     ;
 in
 [
@@ -27,5 +28,6 @@ in
   libcxx
   clang-tools
   ccache
+  arduino-language-server
   # bear
 ]
