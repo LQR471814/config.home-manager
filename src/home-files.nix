@@ -67,6 +67,9 @@ in
         "sgconfig.yaml" = {
           source = "${src}";
         };
+        ".arduino15/arduino-cli.yaml" = {
+          text = "";
+        };
       }
     )
     // (
