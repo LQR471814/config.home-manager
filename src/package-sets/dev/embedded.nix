@@ -3,7 +3,9 @@
   ...
 }:
 let
-  inherit (pkgs) picocom;
+  inherit (pkgs)
+    picocom
+    ;
 in
 [
   picocom

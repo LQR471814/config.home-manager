@@ -160,5 +160,42 @@ in
     #     WantedBy = [ "default.target" ];
     #   };
     # };
+
+    darkman-morning-dark = {
+      Unit.Description = "Keeps darkman in dark mode for the start of the day.";
+      Service = {
+        Type = "oneshot";
+        ExecStart = pkgs.writeShellScriptBin "darkman" ''
+          darkman set dark
+        '';
+      };
+    };
+    darkman-morning-light = {
+      Unit.Description = "Make darkman light later.";
+      Service = {
+        Type = "oneshot";
+        ExecStart = pkgs.writeShellScriptBin "darkman" ''
+          darkman set light
+        '';
+      };
+    };
+  };
+  timers = {
+    darkman-morning-dark = {
+      Unit.Description = "Keeps darkman in dark mode for the start of the day.";
+      Timer = {
+        OnCalendar = "*-*-* 07:00:00";
+        Persistent = true;
+      };
+      Install.WantedBy = [ "timers.target" ];
+    };
+    darkman-morning-light = {
+      Unit.Description = "Make darkman light later.";
+      Timer = {
+        OnCalendar = "*-*-* 07:05:00";
+        Persistent = true;
+      };
+      Install.WantedBy = [ "timers.target" ];
+    };
   };
 }
