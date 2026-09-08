@@ -8,6 +8,7 @@ let
     nixfmt
     statix
     deadnix
+    vulnix
     ;
 in
 [
@@ -15,4 +16,5 @@ in
   nixfmt
   statix
   deadnix
+  vulnix
 ]
