@@ -15,8 +15,6 @@ def main [path: string cmd: string --attach] {
 
   let session_names = tmux list-session -F '#{session_name}'
     | lines
-    | where $it == $session_name
-    | sort
 
   let suffixed_name = 1..
     | each {|suffix| $"($session_name)-($suffix)" }

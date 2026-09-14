@@ -30,9 +30,9 @@ in
     batcharge40 = "sudo tlp setcharge 40 60";
     batcharge50 = "sudo tlp setcharge 40 50";
     batreset = "sudo tlp start";
-    hmconf = "tmux-spawn.nu ~/.config/home-manager 'nvim ~/.config/home-manager'";
-    osconf = "tmux-spawn.nu ~/.config/nixos 'nvim ~/.config/nixos'";
-    nvconf = "tmux-spawn.nu ~/.config/nvim 'nvim ~/.config/nvim'";
+    hmconf = "tmux-spawn.nu ~/.config/home-manager 'nvim ~/.config/home-manager' --attach";
+    osconf = "tmux-spawn.nu ~/.config/nixos 'nvim ~/.config/nixos' --attach";
+    nvconf = "tmux-spawn.nu ~/.config/nvim 'nvim ~/.config/nvim' --attach";
     ta = "tmux a";
     ndev = "nix develop --command fish";
     sbtop = "sudo (which btop | get 0.path)";
