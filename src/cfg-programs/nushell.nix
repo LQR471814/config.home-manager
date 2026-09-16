@@ -23,7 +23,7 @@ in
     lzg = "lazygit";
     lzd = "lazydocker";
     y = "yazi";
-    nvt = "tmux-spawn.nu $env.PWD 'nvim .'";
+    nvt = "tmux-spawn.nu --attach $env.PWD 'nvim .'";
     shut = "sudo shutdown now -h";
     batchargefull = "sudo tlp setcharge 0 100";
     batcharge80 = "sudo tlp setcharge 0 80";
