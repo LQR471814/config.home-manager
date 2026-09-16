@@ -35,5 +35,6 @@
     "ctrl+shift+o" = "kitten hints --type url --program default";
     "ctrl+shift+y" = "kitten hints --type url --program @";
     "ctrl+shift+p" = "kitten hints --type url --program -";
+    "ctrl+shift+f" = "search_scrollback";
   };
 }
