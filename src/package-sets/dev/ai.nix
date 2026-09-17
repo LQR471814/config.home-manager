@@ -7,11 +7,13 @@ let
     claude-code
     antigravity-fhs
     codex
+    kiro-cli
     ;
 in
 [
   claude-code
   antigravity-fhs
   codex
+  kiro-cli
   # upscayl-ncnn
 ]
