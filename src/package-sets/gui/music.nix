@@ -33,7 +33,18 @@ let
     ;
 in
 [
-  ardour
+  # ardour crashes on changing pipewire quantum, we launch with fixed quantum
+  # (ardour tracker #10193)
+  (ardour.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+      pkgs.makeWrapper
+    ];
+    postFixup = (old.postFixup or "") + ''
+      wrapProgram $out/bin/ardour9 \
+        --set PIPEWIRE_QUANTUM "256/48000"
+    '';
+  }))
+
   (fix-pw musescore)
   (fix-pw easyeffects)
 
