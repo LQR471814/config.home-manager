@@ -1,5 +1,6 @@
 _:
 {
+  dconf = {
   settings = {
     "org/gnome/rhythmbox/rhythmdb" = {
       locations = [ "file:///home/lqr471814/Music" ];
@@ -15,4 +16,5 @@ _:
       ];
     };
   };
+};
 }

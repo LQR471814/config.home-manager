@@ -57,21 +57,10 @@ in
       ".gnupg/gpg-agent.conf" = {
         text = "pinentry-program ${HOME}/.nix-profile/bin/pinentry";
       };
+      ".arduino15/arduino-cli.yaml" = {
+        text = "";
+      };
     }
-    // (
-      let
-        cfg = import ./cfg-programs/ast-grep.nix { inherit pkgs; };
-        src = (pkgs.formats.yaml { }).generate "config.yaml" cfg;
-      in
-      {
-        "sgconfig.yaml" = {
-          source = "${src}";
-        };
-        ".arduino15/arduino-cli.yaml" = {
-          text = "";
-        };
-      }
-    )
     // (
       let
         stignore = {

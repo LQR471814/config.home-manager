@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.tmux = {
   enable = true;
 
   escapeTime = 0;
@@ -66,4 +67,5 @@
     setw -g pane-base-index 1
     set-option -g renumber-windows on
   '';
+};
 }

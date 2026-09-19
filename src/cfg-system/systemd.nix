@@ -4,7 +4,8 @@
   pkgs,
   ...
 }:
-let
+{
+  systemd.user = let
   in-river-session = {
     Unit = {
       # when river-session.target started, this must be started (or running)
@@ -179,4 +180,5 @@ in
   #     Install.WantedBy = [ "timers.target" ];
   #   };
   # };
+};
 }

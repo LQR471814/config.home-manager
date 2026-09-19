@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.yazi = {
   enable = true;
   plugins =
     let
@@ -189,4 +190,5 @@
       }
     ];
   };
+};
 }

@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.kitty = {
   enable = true;
   enableGitIntegration = true;
   autoThemeFiles = {
@@ -37,4 +38,5 @@
     "ctrl+shift+p" = "kitten hints --type url --program -";
     "ctrl+shift+f" = "search_scrollback";
   };
+};
 }

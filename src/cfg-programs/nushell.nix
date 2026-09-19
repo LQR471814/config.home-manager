@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
-let
+{
+  programs.nushell = let
   inherit (pkgs)
     nushellPlugins
     nu_plugin_caldav
@@ -88,4 +89,5 @@ in
       )
       $env.config.rm.always_trash = true
     '';
+};
 }

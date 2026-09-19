@@ -1,5 +1,6 @@
 { IS_LAPTOP, pkgs, ... }:
 {
+  services.swayidle = {
   enable = IS_LAPTOP;
   events = {
     "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
@@ -10,4 +11,5 @@
       command = "/run/current-system/sw/bin/systemctl suspend";
     }
   ];
+};
 }

@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  i18n = {
   inputMethod = {
     enable = true;
     type = "fcitx5";
@@ -17,4 +18,5 @@
         kdePackages.fcitx5-chinese-addons
       ];
   };
+};
 }

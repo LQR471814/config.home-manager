@@ -1,5 +1,6 @@
 _:
 {
+  xdg.mimeApps = {
   enable = true;
   defaultApplications = {
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
@@ -31,4 +32,5 @@ _:
     "text/x-tex" = [ "nvim.desktop" ];
     "text/markdown" = [ "nvim.desktop" ];
   };
+};
 }

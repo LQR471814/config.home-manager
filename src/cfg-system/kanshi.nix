@@ -1,6 +1,7 @@
 # wayland display configuration
 { HOME, ... }:
 {
+  services.kanshi = {
   enable = true;
   settings = [
     {
@@ -99,4 +100,5 @@
       ];
     }
   ];
+};
 }

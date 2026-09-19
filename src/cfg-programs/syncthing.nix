@@ -1,5 +1,6 @@
 { HOME, ... }:
-let
+{
+  services.syncthing = let
   folder = id: name: {
     inherit id;
     label = name;
@@ -26,4 +27,5 @@ in
       music = folder "music" "Music";
     };
   };
+};
 }

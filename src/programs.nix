@@ -5,17 +5,19 @@ let
   package-sets = map (path: import "${path}" ctx) nix-paths;
 in
 {
+  imports = [
+    ./cfg-programs/kitty.nix
+    ./cfg-programs/git.nix
+    ./cfg-programs/tmux.nix
+    ./cfg-programs/swaylock.nix
+    ./cfg-programs/obs-studio.nix
+    ./cfg-programs/nushell.nix
+    ./cfg-programs/carapace.nix
+    ./cfg-programs/yazi.nix
+    ./cfg-programs/ast-grep.nix
+  ];
+
   home.packages = builtins.concatLists package-sets;
 
-  programs = {
-    kitty = import ./cfg-programs/kitty.nix ctx;
-    git = import ./cfg-programs/git.nix ctx;
-    tmux = import ./cfg-programs/tmux.nix ctx;
-    swaylock = import ./cfg-programs/swaylock.nix ctx;
-    obs-studio = import ./cfg-programs/obs-studio.nix ctx;
-    bluetuith.enable = true;
-    nushell = import ./cfg-programs/nushell.nix ctx;
-    carapace = import ./cfg-programs/carapace.nix ctx;
-    yazi = import ./cfg-programs/yazi.nix ctx;
-  };
+  programs.bluetuith.enable = true;
 }

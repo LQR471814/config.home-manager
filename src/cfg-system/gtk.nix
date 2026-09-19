@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  gtk = {
   enable = true;
   iconTheme = {
     name = "Papirus-Light";
@@ -16,4 +17,5 @@
     "file:///home/lqr471814/files"
     "file:///home/lqr471814/Applications"
   ];
+};
 }

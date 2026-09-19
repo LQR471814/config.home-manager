@@ -1,5 +1,6 @@
 { HOME, ... }:
 {
+  programs.git = {
   enable = true;
   signing.key = "LQR471814";
   settings = {
@@ -12,4 +13,5 @@
       credentialStore = "plaintext";
     };
   };
+};
 }
