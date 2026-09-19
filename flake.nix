@@ -43,6 +43,11 @@
       url = "github:LQR471814/marksman/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -60,6 +65,7 @@
       nu-type-alias,
       topiary-nushell,
       marksman,
+      sops-nix,
 
       ...
     }:
@@ -112,6 +118,7 @@
           inherit pkgs;
           modules = [
             wayland-pipewire-idle-inhibit.homeModules.default
+            sops-nix.homeManagerModules.sops
             ./src/nix.nix
             ./src/user.nix
             ./src/programs.nix
@@ -119,6 +126,8 @@
             ./src/desktop.nix
             ./src/home-files.nix
             ./src/darkmode.nix
+            ./src/sops.nix
+            ./src/ssh.nix
           ];
           extraSpecialArgs = {
             inherit
