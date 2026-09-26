@@ -11,6 +11,7 @@ let
     nix-prefetch-git
     lazygit
     meteor-git
+    pre-commit
     ;
 in
 [
@@ -21,4 +22,5 @@ in
   nix-prefetch-git
   lazygit
   meteor-git
+  pre-commit
 ]
