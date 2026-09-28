@@ -63,6 +63,9 @@ in
       ".kiro/steering/caveman.md" = {
         source = ../caveman.md;
       };
+      ".kiro/settings/permissions.yaml" = {
+        source = ../kiro-permissions.yml;
+      };
     }
     // (
       let

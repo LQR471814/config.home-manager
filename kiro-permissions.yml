@@ -1,0 +1,15 @@
+rules:
+  - capability: shell
+    match:
+      - "git status"
+      - "git fetch"
+      - "npm test"
+      - "grep *"
+      - "head *"
+      - "tail *"
+      - "ls *"
+      - "stat *"
+      - "lake *"
+      - "lean *"
+      - "elan *"
+    effect: allow
