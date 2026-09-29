@@ -1,9 +1,8 @@
 rules:
   - capability: shell
     match:
-      - "git status"
-      - "git fetch"
-      - "npm test"
+      - "git status *"
+      - "git fetch *"
       - "grep *"
       - "head *"
       - "tail *"
@@ -12,4 +11,8 @@ rules:
       - "lake *"
       - "lean *"
       - "elan *"
+      - "echo *"
+      - "sed *"
+      - "cat *"
+      - "timeout *"
     effect: allow
