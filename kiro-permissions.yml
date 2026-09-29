@@ -15,4 +15,7 @@ rules:
       - "sed *"
       - "cat *"
       - "timeout *"
+      - "true *"
+      - "wc *"
+      - "tr *"
     effect: allow
