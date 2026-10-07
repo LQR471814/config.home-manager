@@ -42,6 +42,7 @@ texliveSmall.withPackages (
       xurl
       hanging
       circuitikz
+      bodeplot
       caption
       ;
   in
@@ -79,6 +80,7 @@ texliveSmall.withPackages (
     xurl
     hanging
     circuitikz
+    bodeplot
     caption
     myconfig
   ]

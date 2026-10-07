@@ -105,6 +105,11 @@
       };
     in
     {
+      packages.myconfig = pkgs.callPackage ./src/derivations/myconfig.nix {
+        final = null;
+        prev = null;
+      };
+
       homeConfigurations.lqr471814 =
         let
           HOSTNAME = builtins.readFile /etc/hostname;

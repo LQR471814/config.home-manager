@@ -1,15 +1,21 @@
 {
   final,
   prev,
-  stdenv,
+  stdenvNoCC,
 }:
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "myconfig";
   name = "myconfig";
   src = ./myconfig;
+  outputs = [
+    "tex"
+  ];
+  preHook = ''
+    out="''${tex-}"
+  '';
   installPhase = ''
-    mkdir -p $out/tex/latex/myconfig
-    cp * $out/tex/latex/myconfig
+    mkdir -p $tex/tex/latex/myconfig
+    cp * $tex/tex/latex/myconfig
   '';
   tlType = "run";
 }
