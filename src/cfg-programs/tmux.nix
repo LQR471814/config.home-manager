@@ -1,71 +1,71 @@
 { pkgs, ... }:
 {
   programs.tmux = {
-  enable = true;
+    enable = true;
 
-  escapeTime = 0;
-  focusEvents = true;
-  keyMode = "vi";
-  prefix = "M-a";
-  terminal = "tmux-256color";
-  clock24 = true;
-  mouse = true;
+    escapeTime = 0;
+    focusEvents = true;
+    keyMode = "vi";
+    prefix = "M-a";
+    terminal = "tmux-256color";
+    clock24 = true;
+    mouse = true;
 
-  plugins =
-    let
-      inherit (pkgs.tmuxPlugins)
+    plugins =
+      let
+        inherit (pkgs.tmuxPlugins)
+          resurrect
+          continuum
+          ;
+      in
+      [
         resurrect
         continuum
-        ;
-    in
-    [
-      resurrect
-      continuum
-    ];
+      ];
 
-  extraConfig = ''
-    # enable continuum
-    set -g @continuum-restore 'on'
+    extraConfig = ''
+      # enable continuum
+      set -g @continuum-restore 'on'
 
-    # allow ctrl-1, etc... special key combos to work
-    set -s extended-keys on
+      # allow ctrl-1, etc... special key combos to work
+      set -s extended-keys on
 
-    # make ctrl + tab work
-    bind-key -n C-Tab send-keys Escape "[9;5u"
+      # make ctrl + tab work
+      bind-key -n C-Tab send-keys Escape "[9;5u"
 
-    # make tmux set the window title of the terminal
-    set-option -g set-titles on
+      # make tmux set the window title of the terminal
+      set-option -g set-titles on
 
-    # make terminal images work
-    set -gq allow-passthrough on
-    set -g visual-activity off
+      # make terminal images work
+      set -gq allow-passthrough on
+      set -g visual-activity off
 
-    # fix colors
-    set-option -ga terminal-overrides ",xterm-256color:Tc"
+      # fix colors
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
 
-    bind h select-pane -L
-    bind l select-pane -R
-    bind k select-pane -U
-    bind j select-pane -D
+      bind h select-pane -L
+      bind l select-pane -R
+      bind k select-pane -U
+      bind j select-pane -D
 
-    bind \\ split-window -h
-    bind - split-window -v
-    unbind '"'
-    unbind %
+      bind \\ split-window -h
+      bind - split-window -v
+      unbind '"'
+      unbind %
 
-    bind-key H command-prompt -p "Join pane from window (horizontal):" "join-pane -s :%%"
-    bind-key V command-prompt -p "Join pane from window (vertical):" "join-pane -h -s :%%"
-    bind-key S command-prompt -p "Swap pane with window:" "swap-window -t %%"
+      bind-key H command-prompt -p "Join pane from window (horizontal):" "join-pane -s :%%"
+      bind-key V command-prompt -p "Join pane from window (vertical):" "join-pane -h -s :%%"
+      bind-key S command-prompt -p "Swap pane with window:" "swap-window -t %%"
 
-    bind -T copy-mode-vi v send -X begin-selection
-    bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
-    bind r source-file ~/.config/tmux/tmux.conf
-    bind P paste-buffer
-    bind Q kill-session
+      bind -T copy-mode-vi v send -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+      bind r source-file ~/.config/tmux/tmux.conf
+      bind P paste-buffer
+      bind Q kill-session
 
-    set -g base-index 1
-    setw -g pane-base-index 1
-    set-option -g renumber-windows on
-  '';
-};
+      set -g base-index 1
+      setw -g pane-base-index 1
+      set-option -g renumber-windows on
+    '';
+  };
 }
