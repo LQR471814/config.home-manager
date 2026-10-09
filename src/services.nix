@@ -9,5 +9,6 @@ _: {
     ./cfg-system/wayland-pipewire-idle-inhibit.nix
     ./cfg-programs/ollama.nix
     ./cfg-programs/syncthing.nix
+    ./cfg-system/activitywatch.nix
   ];
 }
