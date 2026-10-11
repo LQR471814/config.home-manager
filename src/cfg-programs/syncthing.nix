@@ -23,7 +23,6 @@
         };
         folders = {
           applications = folder "applications" "Applications";
-          books = folder "books" "Books";
           documents = folder "documents" "Documents";
           music = folder "music" "Music";
           activitywatch = folder "activitywatch" "ActivityWatchSync";
