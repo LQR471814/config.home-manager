@@ -16,6 +16,7 @@ let
     hledger
     ledger
     activitywatch
+    trash-cli
     ;
 in
 [
@@ -31,4 +32,5 @@ in
   hledger
   ledger
   activitywatch
+  trash-cli
 ]
