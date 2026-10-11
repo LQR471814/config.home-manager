@@ -26,6 +26,7 @@
           documents = folder "documents" "Documents";
           music = folder "music" "Music";
           activitywatch = folder "activitywatch" "ActivityWatchSync";
+          pictures = folder "pictures" "Pictures";
         };
       };
     };
