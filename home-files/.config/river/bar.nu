@@ -3,6 +3,7 @@ use ./modules/brightness.nu
 use ./modules/clock.nu
 use ./modules/network.nu
 use ./modules/sound.nu
+use ./modules/vpn.nu
 
 def "spawn watchers" []: nothing -> nothing {
   job spawn { battery watcher }
@@ -10,6 +11,7 @@ def "spawn watchers" []: nothing -> nothing {
   job spawn { clock watcher }
   job spawn { network watcher }
   job spawn { sound watcher }
+  job spawn { vpn watcher }
   null
 }
 
@@ -34,21 +36,8 @@ def "spawn sandbar" []: nothing -> int {
   }
 }
 
-def "format modules" [
-  --battery: string
-  --brightness: string
-  --clock: string
-  --network: string
-  --sound: string
-]: nothing -> string {
-  [
-    $network # nu-lint-ignore: check_typed_flag_before_use
-    $brightness # nu-lint-ignore: check_typed_flag_before_use
-    $sound # nu-lint-ignore: check_typed_flag_before_use
-    $battery # nu-lint-ignore: check_typed_flag_before_use
-    $clock # nu-lint-ignore: check_typed_flag_before_use
-  ]
-  | where $it != null
+def "format modules" []: list<string> -> string {
+  where $it != null
   | str join "  "
 }
 
@@ -58,28 +47,38 @@ def main [] {
   let status_updater = spawn sandbar
   spawn watchers
 
-  mut battery = battery format
-  mut brightness = brightness format
-  mut clock = clock format
-  mut network = network format
-  mut sound = sound format
+  mut state = {}
 
-  format modules --battery $battery --brightness $brightness --network $network --sound $sound --clock $clock
+  $state.battery = battery format
+  $state.brightness = brightness format
+  $state.clock = clock format
+  $state.network = network format
+  $state.sound = sound format
+  $state.vpn = vpn format
+
+  let modules_ordering = {|state|
+    [
+      $state.vpn
+      $state.network
+      $state.brightness
+      $state.sound
+      $state.battery
+      $state.clock
+    ]
+  }
+
+  do $modules_ordering $state
+  | format modules
   | job send $status_updater
 
   while true {
     let payload = job recv
 
-    match $payload.module {
-      battery => { $battery = $payload.format }
-      brightness => { $brightness = $payload.format }
-      clock => { $clock = $payload.format }
-      network => { $network = $payload.format }
-      sound => { $sound = $payload.format }
-    }
+    $state = $state
+      | update $payload.module { $payload.format }
 
-    let text = format modules --battery $battery --brightness $brightness --network $network --sound $sound --clock $clock
-
-    $text | job send $status_updater
+    do $modules_ordering $state
+    | format modules
+    | job send $status_updater
   }
 }
