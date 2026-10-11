@@ -120,48 +120,19 @@
           Install.WantedBy = [ "graphical-session.target" ];
         };
 
-        # temporis = {
-        #   Unit = {
-        #     Description = "Temporis web client.";
-        #     After = [ "network.target" ];
-        #   };
-        #   Service = {
-        #     ExecStart = "${pkgs.static-web-server}/bin/static-web-server --port 4111 --root ${HOME}/Code/temporis/dist";
-        #     Restart = "on-failure";
-        #   };
-        #   Install.WantedBy = [ "default.target" ];
-        # };
-
-        # aw-qt = {
-        #   Unit = {
-        #     Description = "activitywatch daemon";
-        #     DefaultDependencies = "no";
-        #   };
-        #   Service = {
-        #     # wrapper script is executed because aw-qt needs to call some other processes
-        #     # and it cannot do that without the nix env vars being present
-        #     ExecStart = "${nixbin "zsh"} -c 'aw-qt --no-gui'";
-        #     Restart = "no";
-        #   };
-        #   Install = { };
-        # };
-
-        # awsync = {
-        #   Unit = {
-        #     Description = "synchronize activitywatch data";
-        #   };
-        #   Service = {
-        #     Type = "simple";
-        #     TimeoutStartSec = 0;
-        #     ExecStart = nixbin "aw-sync";
-        #     WorkingDirectory = HOME;
-        #     Restart = "always";
-        #     RestartSec = 30;
-        #   };
-        #   Install = {
-        #     WantedBy = [ "default.target" ];
-        #   };
-        # };
+        awsync = {
+          Unit = {
+            Description = "synchronize activitywatch data";
+          };
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.activitywatch}/bin/aw-sync sync";
+            WorkingDirectory = HOME;
+          };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+        };
 
         empty-trash = {
           Unit = {
@@ -177,6 +148,15 @@
       timers = {
         empty-trash = {
           Unit.Description = "Empty trash files older than 30 days every day.";
+          Timer = {
+            OnCalendar = "*-*-* 00:00:00";
+            Persistent = true;
+          };
+          Install.WantedBy = [ "timers.target" ];
+        };
+
+        awsync = {
+          Unit.Description = "Sync activitywatch.";
           Timer = {
             OnCalendar = "*-*-* 00:00:00";
             Persistent = true;

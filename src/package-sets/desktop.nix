@@ -15,6 +15,7 @@ let
     paisa
     hledger
     ledger
+    activitywatch
     ;
 in
 [
@@ -29,4 +30,5 @@ in
   paisa
   hledger
   ledger
+  activitywatch
 ]
