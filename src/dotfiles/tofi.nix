@@ -8,7 +8,7 @@
       prompt-text = ""
       anchor = top-left
       width = "100%"
-      height = 24
+      height = 23
 
       # font
       font = "${pkgs.ibm-plex}/share/fonts/opentype/IBMPlexMono-Regular.otf"
