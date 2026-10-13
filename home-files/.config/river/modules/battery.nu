@@ -9,9 +9,9 @@ export def format []: nothing -> oneof<string, nothing> {
   if $status == "" {
     "🔌 Wired"
   } else if $status == "Charging" {
-    $"🔌 ($charge)% ($status)"
+    $"🔌 ($charge)%"
   } else {
-    $"🔋 ($charge)% ($status)"
+    $"🔋 ($charge)%"
   }
 }
 
