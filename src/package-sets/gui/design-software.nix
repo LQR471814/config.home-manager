@@ -14,6 +14,7 @@ let
     calculix-ccx
     gmsh
     netgen
+    kicad
     ;
 in
 [
@@ -26,4 +27,5 @@ in
   calculix-ccx
   gmsh
   netgen
+  kicad
 ]
