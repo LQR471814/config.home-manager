@@ -10,6 +10,8 @@ export def format []: nothing -> oneof<string, nothing> {
     "🔌 Wired"
   } else if $status == "Charging" {
     $"🔌 ($charge)%"
+  } else if $status == "Not charging" {
+    $"⚡ ($charge)%"
   } else {
     let level = open /sys/class/power_supply/BAT0/capacity | str trim | into int
     if $level < 20 {
