@@ -1,0 +1,2 @@
+# in response to: https://github.com/astral-sh/uv/security/advisories/GHSA-hq85-5cpj-mr62
+system-certs = true
