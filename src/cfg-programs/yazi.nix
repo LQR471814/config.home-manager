@@ -131,14 +131,6 @@
       {
         on = [
           "g"
-          "b"
-        ];
-        run = "cd ~/Books";
-        desc = "Go to Books";
-      }
-      {
-        on = [
-          "g"
           "m"
         ];
         run = "cd ~/Music";

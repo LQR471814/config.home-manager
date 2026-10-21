@@ -75,7 +75,6 @@ in
       in
       {
         "Applications/.stignore" = stignore;
-        "Books/.stignore" = stignore;
         "Documents/.stignore" = stignore;
         "Music/.stignore" = stignore;
       }
