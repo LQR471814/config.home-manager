@@ -9,15 +9,15 @@ export def format []: nothing -> oneof<string, nothing> {
   if $status == "" {
     "🔌 Wired"
   } else if $status == "Charging" {
-    $"🔌 ($charge)%"
+    $"🔌 ($charge)"
   } else if $status == "Not charging" {
-    $"⚡ ($charge)%"
+    $"⚡ ($charge)"
   } else {
     let level = open /sys/class/power_supply/BAT0/capacity | str trim | into int
     if $level < 20 {
       $"🪫 ($charge)"
     } else {
-      $"🔋 ($charge)%"
+      $"🔋 ($charge)"
     }
   }
 }
