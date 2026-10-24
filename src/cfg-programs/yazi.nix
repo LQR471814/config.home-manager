@@ -144,6 +144,14 @@
         run = "cd /run/media/lqr471814";
         desc = "Go to USB devices.";
       }
+      {
+        on = [
+          "g"
+          "t"
+        ];
+        run = "cd /home/lqr471814/.local/share/Trash";
+        desc = "Go to Trash.";
+      }
     ];
     mgr.prepend_keymap = [
       {
