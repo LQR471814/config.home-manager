@@ -38,6 +38,7 @@ in
     ndev = "nix develop --command fish";
     sbtop = "sudo (which btop | get 0.path)";
     wait-for = "systemd-inhibit --what idle --mode block --who $env.USER --why \"Manual idle inhibit\"";
+    noidle = "systemd-inhibit --what idle --mode block --who $env.USER --why \"Manual idle inhibit\" sleep infinity";
   };
   plugins = [
     # nushellPlugins.polars
