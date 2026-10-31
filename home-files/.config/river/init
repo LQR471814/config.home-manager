@@ -25,6 +25,8 @@ riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl s '10%-' && 
 # Volume keys
 riverctl map normal None XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && echo '1' > /tmp/sandbar-sound"
 riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && echo '2' > /tmp/sandbar-sound"
+riverctl map normal $mod XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 35% && echo '1' > /tmp/sandbar-sound"
+riverctl map normal $mod XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100% && echo '2' > /tmp/sandbar-sound"
 riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && echo '3' > /tmp/sandbar-sound"
 
 # Media control
