@@ -89,6 +89,10 @@ in
         }
       )
       $env.config.rm.always_trash = true
+
+      if $env.KITTY_WINDOW_ID? != null {
+        alias ssh = ^kitten ssh
+      }
     '';
 };
 }
