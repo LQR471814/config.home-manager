@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./cfg-system/network-manager-applet.nix
     ./cfg-system/systemd.nix
     ./cfg-system/swayidle.nix
     ./cfg-system/mako.nix
