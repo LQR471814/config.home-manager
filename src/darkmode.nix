@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   qt = {
     enable = true;
     platformTheme.name = "qtct";
@@ -31,7 +31,7 @@
        esac
 
        # GTK
-       ${pkgs.dconf}/bin/dconf write \
+       ${lib.getExe' pkgs.dconf "dconf"} write \
          /org/gnome/desktop/interface/color-scheme \
          "'$gtk_scheme'"
 
@@ -48,7 +48,7 @@
 
          mkdir -p "$(dirname "$config_file")"
 
-         ${pkgs.python3}/bin/python3 - "$config_file" "$scheme" <<'PY'
+         ${lib.getExe' pkgs.python3 "python3"} - "$config_file" "$scheme" <<'PY'
       import configparser
       import os
       import pathlib

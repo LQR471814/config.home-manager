@@ -1,4 +1,4 @@
-{ HOME, pkgs, ... }:
+{ HOME, pkgs, lib, ... }:
 {
   home = {
     # basic configuration
@@ -8,7 +8,7 @@
 
     # env vars
     sessionVariables = {
-      CC = "${pkgs.clang}/bin/clang";
+      CC = lib.getExe' pkgs.clang "clang";
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";

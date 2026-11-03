@@ -2,6 +2,7 @@
   HOME,
   SYSTEM_BIN,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -101,7 +102,7 @@
           };
           Service = {
             Type = "simple";
-            ExecStart = "${pkgs.nushell}/bin/nu ${HOME}/.config/river/bar.nu";
+            ExecStart = "${lib.getExe' pkgs.nushell "nu"} ${HOME}/.config/river/bar.nu";
             WorkingDirectory = "${HOME}/.config/river";
             Restart = "always";
           };
@@ -113,7 +114,7 @@
           };
           Service = {
             Type = "simple";
-            ExecStart = "${pkgs.paisa}/bin/paisa serve";
+            ExecStart = "${lib.getExe' pkgs.paisa "paisa"} serve";
             WorkingDirectory = "${HOME}/Documents";
             Restart = "always";
           };
@@ -126,7 +127,7 @@
           };
           Service = {
             Type = "oneshot";
-            ExecStart = "${pkgs.activitywatch}/bin/aw-sync sync";
+            ExecStart = "${lib.getExe' pkgs.activitywatch "aw-sync"} sync";
             WorkingDirectory = HOME;
           };
           Install = {
@@ -140,7 +141,7 @@
           };
           Service = {
             Type = "oneshot";
-            ExecStart = "${pkgs.trash-cli}/bin/trash-empty 30";
+            ExecStart = "${lib.getExe' pkgs.trash-cli "trash-empty"} 30";
           };
           Install.WantedBy = [ "default.target" ];
         };

@@ -1,9 +1,9 @@
-{ IS_LAPTOP, pkgs, ... }:
+{ IS_LAPTOP, pkgs, lib, ... }:
 {
   services.swayidle = {
   enable = IS_LAPTOP;
   events = {
-    "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
+    "before-sleep" = "${lib.getExe' pkgs.swaylock "swaylock"} -f";
   };
   timeouts = [
     {
