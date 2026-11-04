@@ -118,6 +118,9 @@ riverctl map normal $mod+Shift n spawn "kitty --wait $HOME/bin/tmux-spawn.nu '~/
 riverctl map normal $mod+Shift m spawn "xdg-open http://192.168.1.10:5230"
 riverctl map normal $mod v spawn pwvucontrol
 
+# Open file dialogs
+riverctl rule-add -title "Open File*" float
+
 # Thunderbird floating windows (make all thunderbird windows float, *except* for the main one)
 riverctl rule-add -app-id thunderbird float
 riverctl rule-add -app-id thunderbird -title "*Mozilla Thunderbird" no-float
