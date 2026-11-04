@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mod='Super'
+
 # Styling
 riverctl background-color 0x000000
 riverctl border-width 1
@@ -35,7 +37,6 @@ riverctl map normal None XF86AudioNext spawn "playerctl next -p playerctld"
 riverctl map normal None XF86AudioPrev spawn "playerctl previous -p playerctld"
 
 # Keybinds
-mod='Super'
 riverctl map normal $mod q spawn "riverctl close"
 riverctl map normal $mod j focus-view next
 riverctl map normal $mod k focus-view previous
