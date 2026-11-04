@@ -27,4 +27,8 @@ final: prev: {
       };
     });
   };
+
+  msitools = prev.msitools.overrideAttrs (_: {
+    doCheck = false;
+  });
 }

@@ -15,6 +15,7 @@ let
     gmsh
     netgen
     kicad
+    ltspice
     ;
 in
 [
@@ -28,4 +29,5 @@ in
   gmsh
   netgen
   kicad
+  ltspice
 ]
