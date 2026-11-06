@@ -17,6 +17,7 @@ let
     ledger
     activitywatch
     trash-cli
+    wayfreeze
     ;
 in
 [
@@ -33,4 +34,5 @@ in
   ledger
   activitywatch
   trash-cli
+  wayfreeze
 ]
