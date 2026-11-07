@@ -13,5 +13,6 @@
         credentialStore = "plaintext";
       };
     };
+    lfs.enable = true;
   };
 }
