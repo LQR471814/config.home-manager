@@ -5,6 +5,7 @@
 let
   inherit (pkgs)
     git
+    git-lfs
     git-filter-repo
     git-credential-manager
     gh
@@ -16,6 +17,7 @@ let
 in
 [
   git
+  git-lfs
   git-filter-repo
   git-credential-manager
   gh
