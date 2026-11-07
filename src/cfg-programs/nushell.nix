@@ -25,6 +25,7 @@ in
     lzd = "lazydocker";
     y = "yazi";
     nvt = "tmux-spawn.nu --attach $env.PWD 'nvim .'";
+    nnvt = "tmux-spawn.nu --attach $env.PWD 'nix develop --command nvim .'";
     shut = "sudo shutdown now -h";
     batchargefull = "sudo tlp setcharge 0 100";
     batcharge80 = "sudo tlp setcharge 0 80";
