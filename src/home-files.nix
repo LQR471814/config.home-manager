@@ -60,6 +60,9 @@ in
       ".arduino15/arduino-cli.yaml" = {
         text = "";
       };
+      ".kiro/settings/cli.json" = {
+        source = ../kiro-settings.json;
+      };
       ".kiro/steering/caveman.md" = {
         source = ../caveman.md;
       };
