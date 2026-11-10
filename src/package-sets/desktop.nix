@@ -14,7 +14,6 @@ let
     exiftool
     paisa
     hledger
-    ledger
     activitywatch
     trash-cli
     wayfreeze
@@ -31,7 +30,6 @@ in
   exiftool
   paisa
   hledger
-  ledger
   activitywatch
   trash-cli
   wayfreeze
