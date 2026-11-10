@@ -9,6 +9,7 @@ let
     ghostscript
     libtexprintf
     ltex-ls-plus
+    tex-fmt
     ;
 in
 [
@@ -17,4 +18,5 @@ in
   ghostscript
   libtexprintf
   ltex-ls-plus
+  tex-fmt
 ]
