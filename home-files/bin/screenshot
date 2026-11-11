@@ -1,5 +1,0 @@
-#!/bin/sh
-DST="$HOME/$(date +'%Y%m%d_%Hh%Mm%Ss_shot.png')"
-wayfreeze --after-freeze-cmd "grim -g \"\$(slurp)\" \"$DST\"; killall wayfreeze"
-wl-copy < "$DST"
-
