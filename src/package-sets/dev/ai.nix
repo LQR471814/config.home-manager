@@ -6,14 +6,14 @@ let
   inherit (pkgs)
     # claude-code
     # antigravity-fhs
-    # codex
+    codex
     kiro-cli
     ;
 in
 [
   # claude-code
   # antigravity-fhs
-  # codex
+  codex
   kiro-cli
   # upscayl-ncnn
 ]
